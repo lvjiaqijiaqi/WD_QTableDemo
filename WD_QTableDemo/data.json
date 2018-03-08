@@ -1,0 +1,26 @@
+ [
+  {
+  "title": "中国",
+  "children": [
+               {
+               "title": "四川省",
+               "children": [
+                            {
+                            "title": "成都",
+                            "children": ""
+                            },
+                            {
+                            "title": "绵阳",
+                            "children": ""
+                            }
+                            ]
+               }
+               ]
+  },
+  {
+  "title": "美国"
+  },
+  {
+  "title": "日本"
+  }
+  ]

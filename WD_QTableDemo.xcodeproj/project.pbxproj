@@ -1,0 +1,989 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ADBB0D132050C4D400757D68 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D122050C4D400757D68 /* AppDelegate.m */; };
+		ADBB0D192050C4D400757D68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBB0D172050C4D400757D68 /* Main.storyboard */; };
+		ADBB0D1B2050C4D400757D68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBB0D1A2050C4D400757D68 /* Assets.xcassets */; };
+		ADBB0D1E2050C4D400757D68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBB0D1C2050C4D400757D68 /* LaunchScreen.storyboard */; };
+		ADBB0D212050C4D400757D68 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D202050C4D400757D68 /* main.m */; };
+		ADBB0D2B2050C4D400757D68 /* WD_QTableDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D2A2050C4D400757D68 /* WD_QTableDemoTests.m */; };
+		ADBB0D362050C4D400757D68 /* WD_QTableDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D352050C4D400757D68 /* WD_QTableDemoUITests.m */; };
+		ADBB0D7D2050C50400757D68 /* WD_QTableAutoLayoutConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D472050C50400757D68 /* WD_QTableAutoLayoutConstructor.m */; };
+		ADBB0D7E2050C50400757D68 /* WD_QTableDefaultLayoutConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D492050C50400757D68 /* WD_QTableDefaultLayoutConstructor.m */; };
+		ADBB0D7F2050C50400757D68 /* WD_QTableDefaultStyleConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D4C2050C50400757D68 /* WD_QTableDefaultStyleConstructor.m */; };
+		ADBB0D802050C50400757D68 /* JQ_CollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D4F2050C50400757D68 /* JQ_CollectionViewLayout.m */; };
+		ADBB0D812050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D512050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m */; };
+		ADBB0D822050C50400757D68 /* WD_QBaseTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D542050C50400757D68 /* WD_QBaseTable.m */; };
+		ADBB0D832050C50400757D68 /* WD_QRefreshTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D562050C50400757D68 /* WD_QRefreshTable.m */; };
+		ADBB0D842050C50400757D68 /* WD_QTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D582050C50400757D68 /* WD_QTable.m */; };
+		ADBB0D852050C50400757D68 /* WD_QTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */; };
+		ADBB0D862050C50400757D68 /* WD_QTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D5E2050C50400757D68 /* WD_QTableViewModel.m */; };
+		ADBB0D872050C50400757D68 /* WD_QViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D602050C50400757D68 /* WD_QViewModel.m */; };
+		ADBB0D882050C50400757D68 /* WD_QTableAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D702050C50400757D68 /* WD_QTableAdaptor.m */; };
+		ADBB0D892050C50400757D68 /* WD_QTableParse.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D722050C50400757D68 /* WD_QTableParse.m */; };
+		ADBB0D8A2050C50400757D68 /* WD_QTableBaseReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D762050C50400757D68 /* WD_QTableBaseReusableView.m */; };
+		ADBB0D8B2050C50400757D68 /* WD_QTableBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D782050C50400757D68 /* WD_QTableBaseViewCell.m */; };
+		ADBB0D8C2050C50400757D68 /* WD_QTableDefaultReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D7A2050C50400757D68 /* WD_QTableDefaultReusableView.m */; };
+		ADBB0D8D2050C50400757D68 /* WD_QTableDefaultViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D7C2050C50400757D68 /* WD_QTableDefaultViewCell.m */; };
+		ADBB0DA82050C50800757D68 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D902050C50800757D68 /* MASCompositeConstraint.m */; };
+		ADBB0DA92050C50800757D68 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D932050C50800757D68 /* MASConstraint.m */; };
+		ADBB0DAA2050C50800757D68 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D952050C50800757D68 /* MASConstraintMaker.m */; };
+		ADBB0DAB2050C50800757D68 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D972050C50800757D68 /* MASLayoutConstraint.m */; };
+		ADBB0DAC2050C50800757D68 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D9B2050C50800757D68 /* MASViewAttribute.m */; };
+		ADBB0DAD2050C50800757D68 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D9D2050C50800757D68 /* MASViewConstraint.m */; };
+		ADBB0DAE2050C50800757D68 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D9F2050C50800757D68 /* NSArray+MASAdditions.m */; };
+		ADBB0DAF2050C50800757D68 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DA22050C50800757D68 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		ADBB0DB02050C50800757D68 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DA42050C50800757D68 /* View+MASAdditions.m */; };
+		ADBB0DB12050C50800757D68 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DA72050C50800757D68 /* ViewController+MASAdditions.m */; };
+		ADBB0DB42050C55100757D68 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DB32050C55100757D68 /* MyTableViewController.m */; };
+		ADBB0DB62050C56000757D68 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = ADBB0DB52050C56000757D68 /* data.json */; };
+		ADBB0DCA2050C60800757D68 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DB92050C60800757D68 /* BaseTableViewController.m */; };
+		ADBB0DCB2050C60800757D68 /* ComplexTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DBB2050C60800757D68 /* ComplexTableViewController.m */; };
+		ADBB0DCC2050C60800757D68 /* CustomLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DBD2050C60800757D68 /* CustomLayoutViewController.m */; };
+		ADBB0DCD2050C60800757D68 /* CustomStyleConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DBF2050C60800757D68 /* CustomStyleConstructor.m */; };
+		ADBB0DCE2050C60800757D68 /* CustomStyleConstructor2.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DC12050C60800757D68 /* CustomStyleConstructor2.m */; };
+		ADBB0DCF2050C60800757D68 /* CustomStyleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DC32050C60800757D68 /* CustomStyleTableViewController.m */; };
+		ADBB0DD02050C60800757D68 /* RefreashTableCrossViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DC52050C60800757D68 /* RefreashTableCrossViewController.m */; };
+		ADBB0DD12050C60800757D68 /* RefreashTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DC72050C60800757D68 /* RefreashTableViewController.m */; };
+		ADBB0DD22050C60800757D68 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DC92050C60800757D68 /* TipsViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ADBB0D272050C4D400757D68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADBB0D062050C4D300757D68 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADBB0D0D2050C4D300757D68;
+			remoteInfo = WD_QTableDemo;
+		};
+		ADBB0D322050C4D400757D68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADBB0D062050C4D300757D68 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADBB0D0D2050C4D300757D68;
+			remoteInfo = WD_QTableDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ADBB0D0E2050C4D400757D68 /* WD_QTableDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WD_QTableDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADBB0D112050C4D400757D68 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ADBB0D122050C4D400757D68 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ADBB0D182050C4D400757D68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ADBB0D1A2050C4D400757D68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ADBB0D1D2050C4D400757D68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ADBB0D1F2050C4D400757D68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADBB0D202050C4D400757D68 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ADBB0D262050C4D400757D68 /* WD_QTableDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WD_QTableDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADBB0D2A2050C4D400757D68 /* WD_QTableDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDemoTests.m; sourceTree = "<group>"; };
+		ADBB0D2C2050C4D400757D68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADBB0D312050C4D400757D68 /* WD_QTableDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WD_QTableDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADBB0D352050C4D400757D68 /* WD_QTableDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDemoUITests.m; sourceTree = "<group>"; };
+		ADBB0D372050C4D400757D68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADBB0D462050C50400757D68 /* WD_QTableAutoLayoutConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableAutoLayoutConstructor.h; sourceTree = "<group>"; };
+		ADBB0D472050C50400757D68 /* WD_QTableAutoLayoutConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableAutoLayoutConstructor.m; sourceTree = "<group>"; };
+		ADBB0D482050C50400757D68 /* WD_QTableDefaultLayoutConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableDefaultLayoutConstructor.h; sourceTree = "<group>"; };
+		ADBB0D492050C50400757D68 /* WD_QTableDefaultLayoutConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDefaultLayoutConstructor.m; sourceTree = "<group>"; };
+		ADBB0D4B2050C50400757D68 /* WD_QTableDefaultStyleConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableDefaultStyleConstructor.h; sourceTree = "<group>"; };
+		ADBB0D4C2050C50400757D68 /* WD_QTableDefaultStyleConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDefaultStyleConstructor.m; sourceTree = "<group>"; };
+		ADBB0D4E2050C50400757D68 /* JQ_CollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQ_CollectionViewLayout.h; sourceTree = "<group>"; };
+		ADBB0D4F2050C50400757D68 /* JQ_CollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQ_CollectionViewLayout.m; sourceTree = "<group>"; };
+		ADBB0D502050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQ_CollectionViewLayoutInvalidationContext.h; sourceTree = "<group>"; };
+		ADBB0D512050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQ_CollectionViewLayoutInvalidationContext.m; sourceTree = "<group>"; };
+		ADBB0D532050C50400757D68 /* WD_QBaseTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QBaseTable.h; sourceTree = "<group>"; };
+		ADBB0D542050C50400757D68 /* WD_QBaseTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QBaseTable.m; sourceTree = "<group>"; };
+		ADBB0D552050C50400757D68 /* WD_QRefreshTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QRefreshTable.h; sourceTree = "<group>"; };
+		ADBB0D562050C50400757D68 /* WD_QRefreshTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QRefreshTable.m; sourceTree = "<group>"; };
+		ADBB0D572050C50400757D68 /* WD_QTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTable.h; sourceTree = "<group>"; };
+		ADBB0D582050C50400757D68 /* WD_QTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTable.m; sourceTree = "<group>"; };
+		ADBB0D592050C50400757D68 /* WD_QTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableHeader.h; sourceTree = "<group>"; };
+		ADBB0D5B2050C50400757D68 /* WD_QTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableModel.h; sourceTree = "<group>"; };
+		ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableModel.m; sourceTree = "<group>"; };
+		ADBB0D5D2050C50400757D68 /* WD_QTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableViewModel.h; sourceTree = "<group>"; };
+		ADBB0D5E2050C50400757D68 /* WD_QTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableViewModel.m; sourceTree = "<group>"; };
+		ADBB0D5F2050C50400757D68 /* WD_QViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QViewModel.h; sourceTree = "<group>"; };
+		ADBB0D602050C50400757D68 /* WD_QViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QViewModel.m; sourceTree = "<group>"; };
+		ADBB0D6F2050C50400757D68 /* WD_QTableAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableAdaptor.h; sourceTree = "<group>"; };
+		ADBB0D702050C50400757D68 /* WD_QTableAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableAdaptor.m; sourceTree = "<group>"; };
+		ADBB0D712050C50400757D68 /* WD_QTableParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableParse.h; sourceTree = "<group>"; };
+		ADBB0D722050C50400757D68 /* WD_QTableParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableParse.m; sourceTree = "<group>"; };
+		ADBB0D752050C50400757D68 /* WD_QTableBaseReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableBaseReusableView.h; sourceTree = "<group>"; };
+		ADBB0D762050C50400757D68 /* WD_QTableBaseReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableBaseReusableView.m; sourceTree = "<group>"; };
+		ADBB0D772050C50400757D68 /* WD_QTableBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableBaseViewCell.h; sourceTree = "<group>"; };
+		ADBB0D782050C50400757D68 /* WD_QTableBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableBaseViewCell.m; sourceTree = "<group>"; };
+		ADBB0D792050C50400757D68 /* WD_QTableDefaultReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableDefaultReusableView.h; sourceTree = "<group>"; };
+		ADBB0D7A2050C50400757D68 /* WD_QTableDefaultReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDefaultReusableView.m; sourceTree = "<group>"; };
+		ADBB0D7B2050C50400757D68 /* WD_QTableDefaultViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableDefaultViewCell.h; sourceTree = "<group>"; };
+		ADBB0D7C2050C50400757D68 /* WD_QTableDefaultViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDefaultViewCell.m; sourceTree = "<group>"; };
+		ADBB0D8F2050C50800757D68 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		ADBB0D902050C50800757D68 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		ADBB0D912050C50800757D68 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		ADBB0D922050C50800757D68 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		ADBB0D932050C50800757D68 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		ADBB0D942050C50800757D68 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		ADBB0D952050C50800757D68 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		ADBB0D962050C50800757D68 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		ADBB0D972050C50800757D68 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		ADBB0D982050C50800757D68 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		ADBB0D992050C50800757D68 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		ADBB0D9A2050C50800757D68 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		ADBB0D9B2050C50800757D68 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		ADBB0D9C2050C50800757D68 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		ADBB0D9D2050C50800757D68 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		ADBB0D9E2050C50800757D68 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		ADBB0D9F2050C50800757D68 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		ADBB0DA02050C50800757D68 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		ADBB0DA12050C50800757D68 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		ADBB0DA22050C50800757D68 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		ADBB0DA32050C50800757D68 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		ADBB0DA42050C50800757D68 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		ADBB0DA52050C50800757D68 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		ADBB0DA62050C50800757D68 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		ADBB0DA72050C50800757D68 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		ADBB0DB22050C55100757D68 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
+		ADBB0DB32050C55100757D68 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
+		ADBB0DB52050C56000757D68 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		ADBB0DB82050C60800757D68 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		ADBB0DB92050C60800757D68 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		ADBB0DBA2050C60800757D68 /* ComplexTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexTableViewController.h; sourceTree = "<group>"; };
+		ADBB0DBB2050C60800757D68 /* ComplexTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexTableViewController.m; sourceTree = "<group>"; };
+		ADBB0DBC2050C60800757D68 /* CustomLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLayoutViewController.h; sourceTree = "<group>"; };
+		ADBB0DBD2050C60800757D68 /* CustomLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLayoutViewController.m; sourceTree = "<group>"; };
+		ADBB0DBE2050C60800757D68 /* CustomStyleConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStyleConstructor.h; sourceTree = "<group>"; };
+		ADBB0DBF2050C60800757D68 /* CustomStyleConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStyleConstructor.m; sourceTree = "<group>"; };
+		ADBB0DC02050C60800757D68 /* CustomStyleConstructor2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStyleConstructor2.h; sourceTree = "<group>"; };
+		ADBB0DC12050C60800757D68 /* CustomStyleConstructor2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStyleConstructor2.m; sourceTree = "<group>"; };
+		ADBB0DC22050C60800757D68 /* CustomStyleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStyleTableViewController.h; sourceTree = "<group>"; };
+		ADBB0DC32050C60800757D68 /* CustomStyleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStyleTableViewController.m; sourceTree = "<group>"; };
+		ADBB0DC42050C60800757D68 /* RefreashTableCrossViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreashTableCrossViewController.h; sourceTree = "<group>"; };
+		ADBB0DC52050C60800757D68 /* RefreashTableCrossViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreashTableCrossViewController.m; sourceTree = "<group>"; };
+		ADBB0DC62050C60800757D68 /* RefreashTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreashTableViewController.h; sourceTree = "<group>"; };
+		ADBB0DC72050C60800757D68 /* RefreashTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreashTableViewController.m; sourceTree = "<group>"; };
+		ADBB0DC82050C60800757D68 /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
+		ADBB0DC92050C60800757D68 /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ADBB0D0B2050C4D300757D68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADBB0D232050C4D400757D68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADBB0D2E2050C4D400757D68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ADBB0D052050C4D300757D68 = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D8E2050C50800757D68 /* Masonry */,
+				ADBB0D432050C50400757D68 /* WD_QTable */,
+				ADBB0D102050C4D400757D68 /* WD_QTableDemo */,
+				ADBB0D292050C4D400757D68 /* WD_QTableDemoTests */,
+				ADBB0D342050C4D400757D68 /* WD_QTableDemoUITests */,
+				ADBB0D0F2050C4D400757D68 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ADBB0D0F2050C4D400757D68 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D0E2050C4D400757D68 /* WD_QTableDemo.app */,
+				ADBB0D262050C4D400757D68 /* WD_QTableDemoTests.xctest */,
+				ADBB0D312050C4D400757D68 /* WD_QTableDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ADBB0D102050C4D400757D68 /* WD_QTableDemo */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0DB72050C60800757D68 /* Controller */,
+				ADBB0DB52050C56000757D68 /* data.json */,
+				ADBB0DB22050C55100757D68 /* MyTableViewController.h */,
+				ADBB0DB32050C55100757D68 /* MyTableViewController.m */,
+				ADBB0D112050C4D400757D68 /* AppDelegate.h */,
+				ADBB0D122050C4D400757D68 /* AppDelegate.m */,
+				ADBB0D172050C4D400757D68 /* Main.storyboard */,
+				ADBB0D1A2050C4D400757D68 /* Assets.xcassets */,
+				ADBB0D1C2050C4D400757D68 /* LaunchScreen.storyboard */,
+				ADBB0D1F2050C4D400757D68 /* Info.plist */,
+				ADBB0D202050C4D400757D68 /* main.m */,
+			);
+			path = WD_QTableDemo;
+			sourceTree = "<group>";
+		};
+		ADBB0D292050C4D400757D68 /* WD_QTableDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D2A2050C4D400757D68 /* WD_QTableDemoTests.m */,
+				ADBB0D2C2050C4D400757D68 /* Info.plist */,
+			);
+			path = WD_QTableDemoTests;
+			sourceTree = "<group>";
+		};
+		ADBB0D342050C4D400757D68 /* WD_QTableDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D352050C4D400757D68 /* WD_QTableDemoUITests.m */,
+				ADBB0D372050C4D400757D68 /* Info.plist */,
+			);
+			path = WD_QTableDemoUITests;
+			sourceTree = "<group>";
+		};
+		ADBB0D432050C50400757D68 /* WD_QTable */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D442050C50400757D68 /* Configuration */,
+				ADBB0D4D2050C50400757D68 /* Layout */,
+				ADBB0D522050C50400757D68 /* Main */,
+				ADBB0D5A2050C50400757D68 /* Model */,
+				ADBB0D612050C50400757D68 /* Moudle */,
+				ADBB0D6E2050C50400757D68 /* Tools */,
+				ADBB0D732050C50400757D68 /* Views */,
+			);
+			path = WD_QTable;
+			sourceTree = "<group>";
+		};
+		ADBB0D442050C50400757D68 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D452050C50400757D68 /* layout */,
+				ADBB0D4A2050C50400757D68 /* style */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		ADBB0D452050C50400757D68 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D462050C50400757D68 /* WD_QTableAutoLayoutConstructor.h */,
+				ADBB0D472050C50400757D68 /* WD_QTableAutoLayoutConstructor.m */,
+				ADBB0D482050C50400757D68 /* WD_QTableDefaultLayoutConstructor.h */,
+				ADBB0D492050C50400757D68 /* WD_QTableDefaultLayoutConstructor.m */,
+			);
+			path = layout;
+			sourceTree = "<group>";
+		};
+		ADBB0D4A2050C50400757D68 /* style */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D4B2050C50400757D68 /* WD_QTableDefaultStyleConstructor.h */,
+				ADBB0D4C2050C50400757D68 /* WD_QTableDefaultStyleConstructor.m */,
+			);
+			path = style;
+			sourceTree = "<group>";
+		};
+		ADBB0D4D2050C50400757D68 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D4E2050C50400757D68 /* JQ_CollectionViewLayout.h */,
+				ADBB0D4F2050C50400757D68 /* JQ_CollectionViewLayout.m */,
+				ADBB0D502050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.h */,
+				ADBB0D512050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		ADBB0D522050C50400757D68 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D532050C50400757D68 /* WD_QBaseTable.h */,
+				ADBB0D542050C50400757D68 /* WD_QBaseTable.m */,
+				ADBB0D552050C50400757D68 /* WD_QRefreshTable.h */,
+				ADBB0D562050C50400757D68 /* WD_QRefreshTable.m */,
+				ADBB0D572050C50400757D68 /* WD_QTable.h */,
+				ADBB0D582050C50400757D68 /* WD_QTable.m */,
+				ADBB0D592050C50400757D68 /* WD_QTableHeader.h */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		ADBB0D5A2050C50400757D68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D5B2050C50400757D68 /* WD_QTableModel.h */,
+				ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */,
+				ADBB0D5D2050C50400757D68 /* WD_QTableViewModel.h */,
+				ADBB0D5E2050C50400757D68 /* WD_QTableViewModel.m */,
+				ADBB0D5F2050C50400757D68 /* WD_QViewModel.h */,
+				ADBB0D602050C50400757D68 /* WD_QViewModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ADBB0D612050C50400757D68 /* Moudle */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D622050C50400757D68 /* BondBalanceMoudle */,
+				ADBB0D642050C50400757D68 /* BondGuaranteeMoudle */,
+				ADBB0D662050C50400757D68 /* BondHistoryPerformanceMoudle */,
+				ADBB0D682050C50400757D68 /* BondStockRightMoudle */,
+				ADBB0D6A2050C50400757D68 /* FinanceMoudle */,
+				ADBB0D6D2050C50400757D68 /* FinancePerKeyMoudle */,
+			);
+			path = Moudle;
+			sourceTree = "<group>";
+		};
+		ADBB0D622050C50400757D68 /* BondBalanceMoudle */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D632050C50400757D68 /* Views */,
+			);
+			path = BondBalanceMoudle;
+			sourceTree = "<group>";
+		};
+		ADBB0D632050C50400757D68 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADBB0D642050C50400757D68 /* BondGuaranteeMoudle */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D652050C50400757D68 /* Views */,
+			);
+			path = BondGuaranteeMoudle;
+			sourceTree = "<group>";
+		};
+		ADBB0D652050C50400757D68 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADBB0D662050C50400757D68 /* BondHistoryPerformanceMoudle */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D672050C50400757D68 /* Views */,
+			);
+			path = BondHistoryPerformanceMoudle;
+			sourceTree = "<group>";
+		};
+		ADBB0D672050C50400757D68 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADBB0D682050C50400757D68 /* BondStockRightMoudle */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D692050C50400757D68 /* Views */,
+			);
+			path = BondStockRightMoudle;
+			sourceTree = "<group>";
+		};
+		ADBB0D692050C50400757D68 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADBB0D6A2050C50400757D68 /* FinanceMoudle */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D6B2050C50400757D68 /* config */,
+				ADBB0D6C2050C50400757D68 /* Views */,
+			);
+			path = FinanceMoudle;
+			sourceTree = "<group>";
+		};
+		ADBB0D6B2050C50400757D68 /* config */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		ADBB0D6C2050C50400757D68 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADBB0D6D2050C50400757D68 /* FinancePerKeyMoudle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FinancePerKeyMoudle;
+			sourceTree = "<group>";
+		};
+		ADBB0D6E2050C50400757D68 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D6F2050C50400757D68 /* WD_QTableAdaptor.h */,
+				ADBB0D702050C50400757D68 /* WD_QTableAdaptor.m */,
+				ADBB0D712050C50400757D68 /* WD_QTableParse.h */,
+				ADBB0D722050C50400757D68 /* WD_QTableParse.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		ADBB0D732050C50400757D68 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D742050C50400757D68 /* Base */,
+				ADBB0D792050C50400757D68 /* WD_QTableDefaultReusableView.h */,
+				ADBB0D7A2050C50400757D68 /* WD_QTableDefaultReusableView.m */,
+				ADBB0D7B2050C50400757D68 /* WD_QTableDefaultViewCell.h */,
+				ADBB0D7C2050C50400757D68 /* WD_QTableDefaultViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADBB0D742050C50400757D68 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D752050C50400757D68 /* WD_QTableBaseReusableView.h */,
+				ADBB0D762050C50400757D68 /* WD_QTableBaseReusableView.m */,
+				ADBB0D772050C50400757D68 /* WD_QTableBaseViewCell.h */,
+				ADBB0D782050C50400757D68 /* WD_QTableBaseViewCell.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		ADBB0D8E2050C50800757D68 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D8F2050C50800757D68 /* MASCompositeConstraint.h */,
+				ADBB0D902050C50800757D68 /* MASCompositeConstraint.m */,
+				ADBB0D912050C50800757D68 /* MASConstraint+Private.h */,
+				ADBB0D922050C50800757D68 /* MASConstraint.h */,
+				ADBB0D932050C50800757D68 /* MASConstraint.m */,
+				ADBB0D942050C50800757D68 /* MASConstraintMaker.h */,
+				ADBB0D952050C50800757D68 /* MASConstraintMaker.m */,
+				ADBB0D962050C50800757D68 /* MASLayoutConstraint.h */,
+				ADBB0D972050C50800757D68 /* MASLayoutConstraint.m */,
+				ADBB0D982050C50800757D68 /* Masonry.h */,
+				ADBB0D992050C50800757D68 /* MASUtilities.h */,
+				ADBB0D9A2050C50800757D68 /* MASViewAttribute.h */,
+				ADBB0D9B2050C50800757D68 /* MASViewAttribute.m */,
+				ADBB0D9C2050C50800757D68 /* MASViewConstraint.h */,
+				ADBB0D9D2050C50800757D68 /* MASViewConstraint.m */,
+				ADBB0D9E2050C50800757D68 /* NSArray+MASAdditions.h */,
+				ADBB0D9F2050C50800757D68 /* NSArray+MASAdditions.m */,
+				ADBB0DA02050C50800757D68 /* NSArray+MASShorthandAdditions.h */,
+				ADBB0DA12050C50800757D68 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				ADBB0DA22050C50800757D68 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				ADBB0DA32050C50800757D68 /* View+MASAdditions.h */,
+				ADBB0DA42050C50800757D68 /* View+MASAdditions.m */,
+				ADBB0DA52050C50800757D68 /* View+MASShorthandAdditions.h */,
+				ADBB0DA62050C50800757D68 /* ViewController+MASAdditions.h */,
+				ADBB0DA72050C50800757D68 /* ViewController+MASAdditions.m */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		ADBB0DB72050C60800757D68 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0DB82050C60800757D68 /* BaseTableViewController.h */,
+				ADBB0DB92050C60800757D68 /* BaseTableViewController.m */,
+				ADBB0DBA2050C60800757D68 /* ComplexTableViewController.h */,
+				ADBB0DBB2050C60800757D68 /* ComplexTableViewController.m */,
+				ADBB0DBC2050C60800757D68 /* CustomLayoutViewController.h */,
+				ADBB0DBD2050C60800757D68 /* CustomLayoutViewController.m */,
+				ADBB0DBE2050C60800757D68 /* CustomStyleConstructor.h */,
+				ADBB0DBF2050C60800757D68 /* CustomStyleConstructor.m */,
+				ADBB0DC02050C60800757D68 /* CustomStyleConstructor2.h */,
+				ADBB0DC12050C60800757D68 /* CustomStyleConstructor2.m */,
+				ADBB0DC22050C60800757D68 /* CustomStyleTableViewController.h */,
+				ADBB0DC32050C60800757D68 /* CustomStyleTableViewController.m */,
+				ADBB0DC42050C60800757D68 /* RefreashTableCrossViewController.h */,
+				ADBB0DC52050C60800757D68 /* RefreashTableCrossViewController.m */,
+				ADBB0DC62050C60800757D68 /* RefreashTableViewController.h */,
+				ADBB0DC72050C60800757D68 /* RefreashTableViewController.m */,
+				ADBB0DC82050C60800757D68 /* TipsViewController.h */,
+				ADBB0DC92050C60800757D68 /* TipsViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ADBB0D0D2050C4D300757D68 /* WD_QTableDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADBB0D3A2050C4D400757D68 /* Build configuration list for PBXNativeTarget "WD_QTableDemo" */;
+			buildPhases = (
+				ADBB0D0A2050C4D300757D68 /* Sources */,
+				ADBB0D0B2050C4D300757D68 /* Frameworks */,
+				ADBB0D0C2050C4D300757D68 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WD_QTableDemo;
+			productName = WD_QTableDemo;
+			productReference = ADBB0D0E2050C4D400757D68 /* WD_QTableDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ADBB0D252050C4D400757D68 /* WD_QTableDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADBB0D3D2050C4D400757D68 /* Build configuration list for PBXNativeTarget "WD_QTableDemoTests" */;
+			buildPhases = (
+				ADBB0D222050C4D400757D68 /* Sources */,
+				ADBB0D232050C4D400757D68 /* Frameworks */,
+				ADBB0D242050C4D400757D68 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ADBB0D282050C4D400757D68 /* PBXTargetDependency */,
+			);
+			name = WD_QTableDemoTests;
+			productName = WD_QTableDemoTests;
+			productReference = ADBB0D262050C4D400757D68 /* WD_QTableDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ADBB0D302050C4D400757D68 /* WD_QTableDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADBB0D402050C4D400757D68 /* Build configuration list for PBXNativeTarget "WD_QTableDemoUITests" */;
+			buildPhases = (
+				ADBB0D2D2050C4D400757D68 /* Sources */,
+				ADBB0D2E2050C4D400757D68 /* Frameworks */,
+				ADBB0D2F2050C4D400757D68 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ADBB0D332050C4D400757D68 /* PBXTargetDependency */,
+			);
+			name = WD_QTableDemoUITests;
+			productName = WD_QTableDemoUITests;
+			productReference = ADBB0D312050C4D400757D68 /* WD_QTableDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ADBB0D062050C4D300757D68 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = jqlv;
+				TargetAttributes = {
+					ADBB0D0D2050C4D300757D68 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					ADBB0D252050C4D400757D68 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = ADBB0D0D2050C4D300757D68;
+					};
+					ADBB0D302050C4D400757D68 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = ADBB0D0D2050C4D300757D68;
+					};
+				};
+			};
+			buildConfigurationList = ADBB0D092050C4D300757D68 /* Build configuration list for PBXProject "WD_QTableDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ADBB0D052050C4D300757D68;
+			productRefGroup = ADBB0D0F2050C4D400757D68 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ADBB0D0D2050C4D300757D68 /* WD_QTableDemo */,
+				ADBB0D252050C4D400757D68 /* WD_QTableDemoTests */,
+				ADBB0D302050C4D400757D68 /* WD_QTableDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ADBB0D0C2050C4D300757D68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADBB0D1E2050C4D400757D68 /* LaunchScreen.storyboard in Resources */,
+				ADBB0D1B2050C4D400757D68 /* Assets.xcassets in Resources */,
+				ADBB0D192050C4D400757D68 /* Main.storyboard in Resources */,
+				ADBB0DB62050C56000757D68 /* data.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADBB0D242050C4D400757D68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADBB0D2F2050C4D400757D68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ADBB0D0A2050C4D300757D68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADBB0D7F2050C50400757D68 /* WD_QTableDefaultStyleConstructor.m in Sources */,
+				ADBB0DCD2050C60800757D68 /* CustomStyleConstructor.m in Sources */,
+				ADBB0DCA2050C60800757D68 /* BaseTableViewController.m in Sources */,
+				ADBB0DCE2050C60800757D68 /* CustomStyleConstructor2.m in Sources */,
+				ADBB0D842050C50400757D68 /* WD_QTable.m in Sources */,
+				ADBB0D872050C50400757D68 /* WD_QViewModel.m in Sources */,
+				ADBB0DD22050C60800757D68 /* TipsViewController.m in Sources */,
+				ADBB0DCC2050C60800757D68 /* CustomLayoutViewController.m in Sources */,
+				ADBB0DAB2050C50800757D68 /* MASLayoutConstraint.m in Sources */,
+				ADBB0D8C2050C50400757D68 /* WD_QTableDefaultReusableView.m in Sources */,
+				ADBB0D852050C50400757D68 /* WD_QTableModel.m in Sources */,
+				ADBB0D882050C50400757D68 /* WD_QTableAdaptor.m in Sources */,
+				ADBB0D7E2050C50400757D68 /* WD_QTableDefaultLayoutConstructor.m in Sources */,
+				ADBB0D8A2050C50400757D68 /* WD_QTableBaseReusableView.m in Sources */,
+				ADBB0DAC2050C50800757D68 /* MASViewAttribute.m in Sources */,
+				ADBB0D212050C4D400757D68 /* main.m in Sources */,
+				ADBB0DAA2050C50800757D68 /* MASConstraintMaker.m in Sources */,
+				ADBB0DB02050C50800757D68 /* View+MASAdditions.m in Sources */,
+				ADBB0DAD2050C50800757D68 /* MASViewConstraint.m in Sources */,
+				ADBB0DD02050C60800757D68 /* RefreashTableCrossViewController.m in Sources */,
+				ADBB0DD12050C60800757D68 /* RefreashTableViewController.m in Sources */,
+				ADBB0DA82050C50800757D68 /* MASCompositeConstraint.m in Sources */,
+				ADBB0D7D2050C50400757D68 /* WD_QTableAutoLayoutConstructor.m in Sources */,
+				ADBB0D892050C50400757D68 /* WD_QTableParse.m in Sources */,
+				ADBB0D812050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m in Sources */,
+				ADBB0D802050C50400757D68 /* JQ_CollectionViewLayout.m in Sources */,
+				ADBB0D862050C50400757D68 /* WD_QTableViewModel.m in Sources */,
+				ADBB0DA92050C50800757D68 /* MASConstraint.m in Sources */,
+				ADBB0DCB2050C60800757D68 /* ComplexTableViewController.m in Sources */,
+				ADBB0DB42050C55100757D68 /* MyTableViewController.m in Sources */,
+				ADBB0D822050C50400757D68 /* WD_QBaseTable.m in Sources */,
+				ADBB0D8D2050C50400757D68 /* WD_QTableDefaultViewCell.m in Sources */,
+				ADBB0DAF2050C50800757D68 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				ADBB0DAE2050C50800757D68 /* NSArray+MASAdditions.m in Sources */,
+				ADBB0DB12050C50800757D68 /* ViewController+MASAdditions.m in Sources */,
+				ADBB0DCF2050C60800757D68 /* CustomStyleTableViewController.m in Sources */,
+				ADBB0D132050C4D400757D68 /* AppDelegate.m in Sources */,
+				ADBB0D832050C50400757D68 /* WD_QRefreshTable.m in Sources */,
+				ADBB0D8B2050C50400757D68 /* WD_QTableBaseViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADBB0D222050C4D400757D68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADBB0D2B2050C4D400757D68 /* WD_QTableDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADBB0D2D2050C4D400757D68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADBB0D362050C4D400757D68 /* WD_QTableDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ADBB0D282050C4D400757D68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADBB0D0D2050C4D300757D68 /* WD_QTableDemo */;
+			targetProxy = ADBB0D272050C4D400757D68 /* PBXContainerItemProxy */;
+		};
+		ADBB0D332050C4D400757D68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADBB0D0D2050C4D300757D68 /* WD_QTableDemo */;
+			targetProxy = ADBB0D322050C4D400757D68 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ADBB0D172050C4D400757D68 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ADBB0D182050C4D400757D68 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ADBB0D1C2050C4D400757D68 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ADBB0D1D2050C4D400757D68 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ADBB0D382050C4D400757D68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ADBB0D392050C4D400757D68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ADBB0D3B2050C4D400757D68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 547ZEB69CW;
+				INFOPLIST_FILE = WD_QTableDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jqlv.WD-QTableDemo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ADBB0D3C2050C4D400757D68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 547ZEB69CW;
+				INFOPLIST_FILE = WD_QTableDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jqlv.WD-QTableDemo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ADBB0D3E2050C4D400757D68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 547ZEB69CW;
+				INFOPLIST_FILE = WD_QTableDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jqlv.WD-QTableDemoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WD_QTableDemo.app/WD_QTableDemo";
+			};
+			name = Debug;
+		};
+		ADBB0D3F2050C4D400757D68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 547ZEB69CW;
+				INFOPLIST_FILE = WD_QTableDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jqlv.WD-QTableDemoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WD_QTableDemo.app/WD_QTableDemo";
+			};
+			name = Release;
+		};
+		ADBB0D412050C4D400757D68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 547ZEB69CW;
+				INFOPLIST_FILE = WD_QTableDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jqlv.WD-QTableDemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WD_QTableDemo;
+			};
+			name = Debug;
+		};
+		ADBB0D422050C4D400757D68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 547ZEB69CW;
+				INFOPLIST_FILE = WD_QTableDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jqlv.WD-QTableDemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WD_QTableDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ADBB0D092050C4D300757D68 /* Build configuration list for PBXProject "WD_QTableDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADBB0D382050C4D400757D68 /* Debug */,
+				ADBB0D392050C4D400757D68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADBB0D3A2050C4D400757D68 /* Build configuration list for PBXNativeTarget "WD_QTableDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADBB0D3B2050C4D400757D68 /* Debug */,
+				ADBB0D3C2050C4D400757D68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADBB0D3D2050C4D400757D68 /* Build configuration list for PBXNativeTarget "WD_QTableDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADBB0D3E2050C4D400757D68 /* Debug */,
+				ADBB0D3F2050C4D400757D68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADBB0D402050C4D400757D68 /* Build configuration list for PBXNativeTarget "WD_QTableDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADBB0D412050C4D400757D68 /* Debug */,
+				ADBB0D422050C4D400757D68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ADBB0D062050C4D300757D68 /* Project object */;
+}
