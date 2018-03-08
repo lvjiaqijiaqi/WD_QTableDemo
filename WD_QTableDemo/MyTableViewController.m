@@ -65,32 +65,44 @@
     switch (indexPath.row) {
         case 0:
             controller = [[BaseTableViewController alloc] init];
+            controller.navigationItem.title = @"BaseTableViewController";
             break;
         case 1:
             controller = [[ComplexTableViewController alloc] init];
+            controller.navigationItem.title = @"ComplexTableViewController";
             break;
         case 2:
             controller = [[RefreashTableCrossViewController alloc] init];
+            controller.navigationItem.title = @"RefreashTableCrossViewController";
             break;
         case 3:
             controller = [[RefreashTableViewController alloc] init];
+            controller.navigationItem.title = @"RefreashTableViewController";
             break;
         case 4:
             controller = [[CustomStyleTableViewController alloc] init];
+            controller.navigationItem.title = @"CustomStyleTableViewController";
             break;
         case 5:
             controller = [[CustomLayoutViewController alloc] init];
+            controller.navigationItem.title = @"CustomLayoutViewController";
             break;
         case 6:
             controller = [[AutoComplexTableViewController alloc] init];
+            controller.navigationItem.title = @"AutoComplexTableViewController";
             break;
         case 7:
             controller = [[TipsViewController alloc] init];
+            controller.navigationItem.title = @"TipsViewController";
             break;
         default:
             controller = [[BaseTableViewController alloc] init];
+            controller.navigationItem.title = @"BaseTableViewController";
             break;
     }
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"返回"  style:UIBarButtonItemStylePlain  target:nil  action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    self.navigationItem.backBarButtonItem.tintColor = [UIColor blackColor];
     [self showViewController:controller sender:nil];
 }
 @end

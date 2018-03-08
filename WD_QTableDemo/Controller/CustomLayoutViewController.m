@@ -24,8 +24,8 @@
 
 
 -(UITextView *)tipsLabel{
-    UITextView *label =  [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 10, 300.f)];
-    //label.text = @"WD_QTableDefaultLayoutConstructorDelegate协议为WD_QTable提供自定义布局，本demo展示了如何为WD_QTable提供自定义布局，WD_QTableAutoLayoutConstructor是一个实现WD_QTableDefaultLayoutConstructorDelegate协议的布局构造器，为WD_QTable提供布局接口，当然你可以随意的自定义自己的布局构造器。\nautoLayoutHandle是一个实现了WD_QTableAdaptorDelegate协议的WD_QTable内部的对象，当数据源变化重新刷新的时候，WD_QTableAdaptor会收到变化的数据，我们可以提供自定义策略去更具数据重新计算layout属性，然后提交到layout构造器，WD_QTableAdaptor就是这么一个提供策略的对象";
+    UITextView *label =  [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300.f)];
+    label.text = @"WD_QTableDefaultLayoutConstructorDelegate协议是WD_QTable自定义布局接口，本demo展示了如何为WD_QTable提供自定义布局，WD_QTableAutoLayoutConstructor是一个实现WD_QTableDefaultLayoutConstructorDelegate协议的布局构造器，实现接口为为WD_QTable提供布局信息。\nautoLayoutHandle是一个实现了WD_QTableAdaptorDelegate协议的WD_QTable内部的对象，当数据源变化重新刷新的时候，WD_QTableAdaptor会收到变化的数据，我们可以提供自定义策略去更具数据重新计算layout属性，然后提交到layout构造器，WD_QTableAdaptor就是这么一个提供策略的对象";
     label.font = [UIFont systemFontOfSize:15];
     label.backgroundColor = [UIColor blackColor];
     label.textColor = [UIColor whiteColor];
@@ -38,13 +38,13 @@
 -(WD_QTable *)table{
     if (!_table) {
         WD_QTableAutoLayoutConstructor *config =  [[WD_QTableAutoLayoutConstructor alloc] init];
-        //config.inset = UIEdgeInsetsMake(300, 0, 0, 0);
+        config.inset = UIEdgeInsetsMake(300, 0, 0, 0);
         WD_QTableDefaultStyleConstructor *style = [[WD_QTableDefaultStyleConstructor alloc] init];
         _table = [[WD_QTable alloc] initWithLayoutConfig:config StyleConstructor:style];
         WD_QTableAdaptor *autoHandle =  [[WD_QTableAdaptor alloc] initWithTableStyle:style ToLayout:config];
         _table.autoLayoutHandle = autoHandle;
-        //_table.headView = [self tipsLabel];
-        //_table.needTranspostionForModel = YES;
+        _table.headView = [self tipsLabel];
+        _table.needTranspostionForModel = YES;
     }
     return _table;
 }

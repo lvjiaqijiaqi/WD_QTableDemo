@@ -26,7 +26,7 @@
     UITextView *label =  [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50.f)];
     label.text = @"本周计划";
     label.font = [UIFont systemFontOfSize:20];
-    label.backgroundColor = [UIColor whiteColor];
+    label.backgroundColor = [UIColor colorWithRed:235.0/256 green:235.0/256 blue:255.0/256 alpha:1];
     label.textColor = [UIColor blackColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.contentInset = UIEdgeInsetsMake(10, 10, 10, 10);
