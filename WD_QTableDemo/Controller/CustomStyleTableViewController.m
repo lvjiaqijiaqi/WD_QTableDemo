@@ -67,19 +67,19 @@
     NSInteger colNum = 10;
     
     WD_QTableModel *mainModel = [[WD_QTableModel alloc] init];
-    mainModel.title = @"我是main";
+    mainModel.title = @"Main";
     
     NSMutableArray<WD_QTableModel *> *leadings = [NSMutableArray array];
     for (NSInteger i = 0; i < rowNum; i++) {
         WD_QTableModel *model = [[WD_QTableModel alloc] init];
-        model.title = @"我是Leading";
+        model.title = @"Leading";
         [leadings addObject:model];
     }
     
     NSMutableArray<WD_QTableModel *> *headings = [NSMutableArray array];
     for (NSInteger i = 0; i < colNum; i++) {
         WD_QTableModel *model = [[WD_QTableModel alloc] init];
-        model.title = @"我是Heading";
+        model.title = @"Heading";
         [headings addObject:model];
     }
     
@@ -89,7 +89,7 @@
         NSMutableArray *rowArr = [NSMutableArray array];
         for (NSInteger col = 0; col < colNum; col++) {
             WD_QTableModel *model = [[WD_QTableModel alloc] init];
-            model.title = @"我是Item";
+            model.title = @"Item";
             [rowArr addObject:model];
         }
         [data addObject:rowArr];

@@ -13,5 +13,5 @@
 
 +(NSArray<WD_QTableModel *> *)parseHeadingFromJsonStr:(NSString *)jsonStr AtLevel:(NSInteger)level;
 +(NSArray<WD_QTableModel *> *)parseLeadingFromJsonStr:(NSString *)jsonStr AtLevel:(NSInteger)level;
-
++(NSArray<NSArray<WD_QTableModel *> *> *)parseDataFromJsonStr:(NSString *)jsonStr;
 @end

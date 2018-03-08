@@ -427,7 +427,7 @@
 }
 
 -(WD_QTableModel *)modelForItem:(NSIndexPath *)indexPath{
-    //常规数据是以列为基准的， data:列:行  section:列 item:行
+    //常规数据是以列为基准的， data:列->行  section:列 item:行
     if (!self.needTranspostionForModel) {
         if (self.datas.count > indexPath.section) {
             if (self.datas[indexPath.section].count > indexPath.item) {
@@ -436,7 +436,7 @@
                 return model;
             }
         }
-    }else{ //needTranspostionForModel data:行:列 section:行 item:列
+    }else{ //needTranspostionForModel data:行->列 section:行 item:列
         if (self.datas.count > indexPath.item) {
             if (self.datas[indexPath.item].count > indexPath.section) {
                 WD_QTableModel *model = self.datas[indexPath.item][indexPath.section];

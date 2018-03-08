@@ -20,7 +20,7 @@
 
 -(UITextView *)tipsLabel{
     UITextView *label =  [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 180.f)];
-    label.text = @"WD_QTable提供了一个标准的表格,本demo主要展示了一个标准WD_QTable表格的元素。包括\nMain\nItem\nLeading\nHeading\nSection\n并且支持点击，你可以试一试";
+    label.text = @"WD_QTable提供了一个标准的表格,本demo主要展示了一个标准WD_QTable表格的元素。包括\n1.Main\n2.Item\n3.Leading\n4.Heading\n5.Section\n并且支持点击，你可以试一试!";
     label.font = [UIFont systemFontOfSize:15];
     label.backgroundColor = [UIColor blackColor];
     label.textColor = [UIColor whiteColor];
@@ -35,7 +35,8 @@
         WD_QTableDefaultLayoutConstructor *config =  [[WD_QTableDefaultLayoutConstructor alloc] init];
         WD_QTableDefaultStyleConstructor *style = [[WD_QTableDefaultStyleConstructor alloc] init];
         _table = [[WD_QTable alloc] initWithLayoutConfig:config StyleConstructor:style];
-        config.inset = UIEdgeInsetsMake(0, 0, 0, 0);
+        config.inset = UIEdgeInsetsMake(200, 0, 0, 0);
+        _table.headView = [self tipsLabel];
         _table.needTranspostionForModel = YES;
     }
     return _table;
@@ -82,7 +83,7 @@
     NSInteger colNum = 10;
     
     WD_QTableModel *mainModel = [[WD_QTableModel alloc] init];
-    mainModel.title = @"main";
+    mainModel.title = @"Main";
     
     NSMutableArray<WD_QTableModel *> *leadings = [NSMutableArray array];
     for (NSInteger i = 0; i < rowNum; i++) {

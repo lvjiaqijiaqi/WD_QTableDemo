@@ -44,7 +44,7 @@
         WD_QTableAdaptor *autoHandle =  [[WD_QTableAdaptor alloc] initWithTableStyle:style ToLayout:config];
         _table.autoLayoutHandle = autoHandle;
         //_table.headView = [self tipsLabel];
-        _table.needTranspostionForModel = YES;
+        //_table.needTranspostionForModel = YES;
     }
     return _table;
 }
@@ -71,32 +71,33 @@
     NSInteger colNum = 10;
     
     WD_QTableModel *mainModel = [[WD_QTableModel alloc] init];
-    mainModel.title = @"我是main";
+    mainModel.title = @"Main";
     
     NSMutableArray<WD_QTableModel *> *leadings = [NSMutableArray array];
     for (NSInteger i = 0; i < rowNum; i++) {
         WD_QTableModel *model = [[WD_QTableModel alloc] init];
-        model.title = @"我是Leading";
+        model.title = @"Leading";
         [leadings addObject:model];
     }
     
     NSMutableArray<WD_QTableModel *> *headings = [NSMutableArray array];
     for (NSInteger i = 0; i < colNum; i++) {
         WD_QTableModel *model = [[WD_QTableModel alloc] init];
-        model.title = @"我是Heading";
+        model.title = @"Heading";
         [headings addObject:model];
     }
     
     
     NSMutableArray<NSMutableArray<WD_QTableModel *> *> *data = [NSMutableArray array];
-    for (NSInteger row = 0; row < rowNum; row++) {
-        NSMutableArray *rowArr = [NSMutableArray array];
-        for (NSInteger col = 0; col < colNum; col++) {
+    for (NSInteger col = 0; col < colNum; col++) {
+        NSMutableArray *colArr = [NSMutableArray array];
+        NSString *title = [self randomProductContent];
+        for (NSInteger row = 0; row < rowNum; row++) {
             WD_QTableModel *model = [[WD_QTableModel alloc] init];
-            model.title = [self randomProductContent];
-            [rowArr addObject:model];
+            model.title = title;
+            [colArr addObject:model];
         }
-        [data addObject:rowArr];
+        [data addObject:colArr];
     }
     [self.table setMain:mainModel];
     [self.table resetItemModel:data];
@@ -104,21 +105,11 @@
     [self.table resetLeadingModel:leadings];
     [self.table reloadData];
     
-    return;
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
-    NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSArray *Headings = [WD_QTableParse parseHeadingFromJsonStr:content AtLevel:3];
-    NSArray *Leadings = [WD_QTableParse parseLeadingFromJsonStr:content AtLevel:3];
-
-    [self.table resetLeadingModels:Leadings DependLevel:3];
-    [self.table resetHeadingModels:Headings DependLevel:3];
-    [self.table reloadData];
 }
 
 -(NSString *)randomProductContent{
-    const static NSString *str = @"随机产生数据";
-    int x = arc4random() % 10 + 1;
+    const static NSString *str = @"随机数据";
+    int x = arc4random() % 20 + 1;
     NSMutableString *resStr =  [[NSMutableString alloc] init];
     for (; x>0; x--) {
         [resStr appendString:[str copy]];

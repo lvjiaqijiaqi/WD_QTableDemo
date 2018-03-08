@@ -34,6 +34,23 @@
     return resArr;
 }
 
++(NSArray<NSArray<WD_QTableModel *> *> *)parseDataFromJsonStr:(NSString *)jsonStr{
+    NSData *jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+    NSMutableArray<NSMutableArray<WD_QTableModel *> *> *resArr = [NSMutableArray array];
+    [jsonArr enumerateObjectsUsingBlock:^(NSArray *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSMutableArray *colsArr = [NSMutableArray array];
+        [obj enumerateObjectsUsingBlock:^(NSString *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            WD_QTableModel *model =  [[WD_QTableModel alloc] init];
+            model.title = obj;
+            [colsArr addObject:model];
+        }];
+        [resArr addObject:colsArr];
+    }];
+    return resArr;
+}
+
 +(WD_QTableModel *)parseJsonStr:(NSDictionary *)jsonDic ForLevel:(NSInteger)level ByMaxLevel:(NSInteger)maxLevel ForType:(NSInteger)type{
     WD_QTableModel *model =  [[WD_QTableModel alloc] init];
     model.level = level;

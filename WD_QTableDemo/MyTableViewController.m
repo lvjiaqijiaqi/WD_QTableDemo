@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.lists = @[@"基本表格",@"复合表头表格",@"纵向加载更多",@"横向加载更多",@"自定义样式",@"自定义布局",@"自动布局的复杂表格",@"设计思路和使用小结"];
+    self.lists = @[@"基本表格",@"复合表头表格",@"纵向加载更多",@"横向加载更多",@"自定义样式",@"自定义布局",@"自动布局表格：本周计划",@"设计思路和使用小结"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
 }

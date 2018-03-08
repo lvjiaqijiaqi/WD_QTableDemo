@@ -19,8 +19,8 @@
 @implementation RefreashTableCrossViewController
 
 -(UITextView *)tipsLabel{
-    UITextView *label =  [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 10, 150.f)];
-    label.text = @"WD_QRefreshTable是WD_QTable的扩展，他提供了表格滑到边缘的时候触发block接口，通过block可以进行更多操作，比如加载更多，refreshDirection属性则提供了触发方向（横向or纵向）";
+    UITextView *label =  [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200.f)];
+    label.text = @"WD_QRefreshTable是WD_QTable的扩展，WD_QRefreshTable提供了表格滑到边缘的时候触发block接口，通过block可以进行更多操作，比如加载更多，refreshDirection属性则提供了触发方向（横向or纵向）";
     label.font = [UIFont systemFontOfSize:15];
     label.backgroundColor = [UIColor blackColor];
     label.textColor = [UIColor whiteColor];
@@ -33,6 +33,7 @@
 -(WD_QRefreshTable *)table{
     if (!_table) {
         WD_QTableDefaultLayoutConstructor *config =  [[WD_QTableDefaultLayoutConstructor alloc] init];
+        config.inset = UIEdgeInsetsMake(200, 0, 0, 0);
         WD_QTableDefaultStyleConstructor *style = [[WD_QTableDefaultStyleConstructor alloc] init];
         _table = [[WD_QRefreshTable alloc] initWithLayoutConfig:config StyleConstructor:style];
         _table.refreshDirection = WD_QRefreshTableDirectionVertical;
@@ -65,7 +66,7 @@
     NSMutableArray<WD_QTableModel *> *leadings = [NSMutableArray array];
     for (NSInteger i = 0; i < rowNum; i++) {
         WD_QTableModel *model = [[WD_QTableModel alloc] init];
-        model.title = [NSString stringWithFormat:@"我是Leading%ld",(long)index];
+        model.title = [NSString stringWithFormat:@"Leading%ld",(long)index];
         [leadings addObject:model];
     }
     NSMutableArray<NSMutableArray<WD_QTableModel *> *> *data = [NSMutableArray array];
@@ -73,7 +74,7 @@
         NSMutableArray *rowArr = [NSMutableArray array];
         for (NSInteger col = 0; col < colNum; col++) {
             WD_QTableModel *model = [[WD_QTableModel alloc] init];
-            model.title = [NSString stringWithFormat:@"我是Item%ld",(long)index];
+            model.title = [NSString stringWithFormat:@"Item%ld",(long)index];
             [rowArr addObject:model];
         }
         [data addObject:rowArr];
@@ -90,23 +91,23 @@
     NSInteger colNum = 10;
     
     WD_QTableModel *mainModel = [[WD_QTableModel alloc] init];
-    mainModel.title = @"我是main";
+    mainModel.title = @"Main";
     
     NSMutableArray<WD_QTableModel *> *leadings = [NSMutableArray array];
     for (NSInteger i = 0; i < rowNum; i++) {
         WD_QTableModel *model = [[WD_QTableModel alloc] init];
-        model.title = @"我是Leading";
+        model.title = @"Leading";
         [leadings addObject:model];
     }
     WD_QTableModel *sectionModel = [[WD_QTableModel alloc] init];
-    sectionModel.title = @"我是Section";
+    sectionModel.title = @"Section";
     leadings[2].sectionModel = sectionModel;
     leadings[5].sectionModel = sectionModel;
     
     NSMutableArray<WD_QTableModel *> *headings = [NSMutableArray array];
     for (NSInteger i = 0; i < colNum; i++) {
         WD_QTableModel *model = [[WD_QTableModel alloc] init];
-        model.title = @"我是Heading";
+        model.title = @"Heading";
         [headings addObject:model];
     }
     
@@ -116,7 +117,7 @@
         NSMutableArray *rowArr = [NSMutableArray array];
         for (NSInteger col = 0; col < colNum; col++) {
             WD_QTableModel *model = [[WD_QTableModel alloc] init];
-            model.title = @"我是Item";
+            model.title = @"Item";
             [rowArr addObject:model];
         }
         [data addObject:rowArr];

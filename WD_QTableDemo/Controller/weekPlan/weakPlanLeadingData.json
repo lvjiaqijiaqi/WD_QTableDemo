@@ -1,0 +1,73 @@
+ [
+  {
+  "title": "早餐",
+  "children": ""
+  },
+  {
+  "title": "上午",
+  "children": [
+               {
+               "title": "7:30 - 8:30",
+               "children": ""
+               },
+               {
+               "title": "8:40 - 9:20",
+               "children": ""
+               },
+               {
+               "title": "9:40 - 10:20",
+               "children": ""
+               },
+               {
+               "title": "10:40 - 11:50",
+               "children": ""
+               }
+               ]
+  },
+  {
+  "title": "午餐",
+  "children": ""
+  },
+  {
+  "title": "下午",
+  "children": [
+               {
+               "title": "14:00 - 14:40",
+               "children": ""
+               },
+               {
+               "title": "14:50 - 15:20",
+               "children": ""
+               },
+               {
+               "title": "15:30 - 16:20",
+               "children": ""
+               },
+               {
+               "title": "16:40 - 17:50",
+               "children": ""
+               }
+               ]
+  },
+  {
+  "title": "晚餐",
+  "children": ""
+  },
+  {
+  "title": "晚间",
+  "children": [
+               {
+               "title": "19:00 - 19:50",
+               "children": ""
+               },
+               {
+               "title": "20:00 - 20:50",
+               "children": ""
+               },
+               {
+               "title": "21:00 - 21:50",
+               "children": ""
+               }
+               ]
+  }
+  ]

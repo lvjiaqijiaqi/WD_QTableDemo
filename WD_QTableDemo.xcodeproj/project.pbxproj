@@ -42,7 +42,7 @@
 		ADBB0DB02050C50800757D68 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DA42050C50800757D68 /* View+MASAdditions.m */; };
 		ADBB0DB12050C50800757D68 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DA72050C50800757D68 /* ViewController+MASAdditions.m */; };
 		ADBB0DB42050C55100757D68 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DB32050C55100757D68 /* MyTableViewController.m */; };
-		ADBB0DB62050C56000757D68 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = ADBB0DB52050C56000757D68 /* data.json */; };
+		ADBB0DB62050C56000757D68 /* weakPlanData.json in Resources */ = {isa = PBXBuildFile; fileRef = ADBB0DB52050C56000757D68 /* weakPlanData.json */; };
 		ADBB0DCA2050C60800757D68 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DB92050C60800757D68 /* BaseTableViewController.m */; };
 		ADBB0DCB2050C60800757D68 /* ComplexTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DBB2050C60800757D68 /* ComplexTableViewController.m */; };
 		ADBB0DCC2050C60800757D68 /* CustomLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DBD2050C60800757D68 /* CustomLayoutViewController.m */; };
@@ -53,6 +53,10 @@
 		ADBB0DD12050C60800757D68 /* RefreashTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DC72050C60800757D68 /* RefreashTableViewController.m */; };
 		ADBB0DD22050C60800757D68 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DC92050C60800757D68 /* TipsViewController.m */; };
 		ADBB0DD52050D1A300757D68 /* AutoComplexTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DD42050D1A300757D68 /* AutoComplexTableViewController.m */; };
+		ADBB0DDA2050FCAC00757D68 /* weakPlanLeadingData.json in Resources */ = {isa = PBXBuildFile; fileRef = ADBB0DD92050FCAC00757D68 /* weakPlanLeadingData.json */; };
+		ADBB0DDE20510A0300757D68 /* WeakPlanTableStyleConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DDD20510A0300757D68 /* WeakPlanTableStyleConstructor.m */; };
+		ADBB0DE220510D7000757D68 /* WeakPlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DE120510D7000757D68 /* WeakPlanTableViewCell.m */; };
+		ADBB0DE520510F0900757D68 /* WeakPlanReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DE420510F0900757D68 /* WeakPlanReusableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,7 +153,7 @@
 		ADBB0DA72050C50800757D68 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		ADBB0DB22050C55100757D68 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
 		ADBB0DB32050C55100757D68 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
-		ADBB0DB52050C56000757D68 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		ADBB0DB52050C56000757D68 /* weakPlanData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weakPlanData.json; sourceTree = "<group>"; };
 		ADBB0DB82050C60800757D68 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		ADBB0DB92050C60800757D68 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		ADBB0DBA2050C60800757D68 /* ComplexTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexTableViewController.h; sourceTree = "<group>"; };
@@ -170,6 +174,13 @@
 		ADBB0DC92050C60800757D68 /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
 		ADBB0DD32050D1A300757D68 /* AutoComplexTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoComplexTableViewController.h; sourceTree = "<group>"; };
 		ADBB0DD42050D1A300757D68 /* AutoComplexTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoComplexTableViewController.m; sourceTree = "<group>"; };
+		ADBB0DD92050FCAC00757D68 /* weakPlanLeadingData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weakPlanLeadingData.json; sourceTree = "<group>"; };
+		ADBB0DDC20510A0300757D68 /* WeakPlanTableStyleConstructor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakPlanTableStyleConstructor.h; sourceTree = "<group>"; };
+		ADBB0DDD20510A0300757D68 /* WeakPlanTableStyleConstructor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakPlanTableStyleConstructor.m; sourceTree = "<group>"; };
+		ADBB0DE020510D7000757D68 /* WeakPlanTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakPlanTableViewCell.h; sourceTree = "<group>"; };
+		ADBB0DE120510D7000757D68 /* WeakPlanTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakPlanTableViewCell.m; sourceTree = "<group>"; };
+		ADBB0DE320510F0900757D68 /* WeakPlanReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakPlanReusableView.h; sourceTree = "<group>"; };
+		ADBB0DE420510F0900757D68 /* WeakPlanReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakPlanReusableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,8 +233,9 @@
 		ADBB0D102050C4D400757D68 /* WD_QTableDemo */ = {
 			isa = PBXGroup;
 			children = (
+				ADBB0DD72050DE6B00757D68 /* View */,
+				ADBB0DD62050DE5A00757D68 /* Style */,
 				ADBB0DB72050C60800757D68 /* Controller */,
-				ADBB0DB52050C56000757D68 /* data.json */,
 				ADBB0DB22050C55100757D68 /* MyTableViewController.h */,
 				ADBB0DB32050C55100757D68 /* MyTableViewController.m */,
 				ADBB0D112050C4D400757D68 /* AppDelegate.h */,
@@ -508,16 +520,13 @@
 		ADBB0DB72050C60800757D68 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				ADBB0DDB2051080200757D68 /* weekPlan */,
 				ADBB0DB82050C60800757D68 /* BaseTableViewController.h */,
 				ADBB0DB92050C60800757D68 /* BaseTableViewController.m */,
 				ADBB0DBA2050C60800757D68 /* ComplexTableViewController.h */,
 				ADBB0DBB2050C60800757D68 /* ComplexTableViewController.m */,
 				ADBB0DBC2050C60800757D68 /* CustomLayoutViewController.h */,
 				ADBB0DBD2050C60800757D68 /* CustomLayoutViewController.m */,
-				ADBB0DBE2050C60800757D68 /* CustomStyleConstructor.h */,
-				ADBB0DBF2050C60800757D68 /* CustomStyleConstructor.m */,
-				ADBB0DC02050C60800757D68 /* CustomStyleConstructor2.h */,
-				ADBB0DC12050C60800757D68 /* CustomStyleConstructor2.m */,
 				ADBB0DC22050C60800757D68 /* CustomStyleTableViewController.h */,
 				ADBB0DC32050C60800757D68 /* CustomStyleTableViewController.m */,
 				ADBB0DC42050C60800757D68 /* RefreashTableCrossViewController.h */,
@@ -526,10 +535,51 @@
 				ADBB0DC72050C60800757D68 /* RefreashTableViewController.m */,
 				ADBB0DC82050C60800757D68 /* TipsViewController.h */,
 				ADBB0DC92050C60800757D68 /* TipsViewController.m */,
-				ADBB0DD32050D1A300757D68 /* AutoComplexTableViewController.h */,
-				ADBB0DD42050D1A300757D68 /* AutoComplexTableViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		ADBB0DD62050DE5A00757D68 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0DBE2050C60800757D68 /* CustomStyleConstructor.h */,
+				ADBB0DBF2050C60800757D68 /* CustomStyleConstructor.m */,
+				ADBB0DC02050C60800757D68 /* CustomStyleConstructor2.h */,
+				ADBB0DC12050C60800757D68 /* CustomStyleConstructor2.m */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		ADBB0DD72050DE6B00757D68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ADBB0DDB2051080200757D68 /* weekPlan */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0DDF20510D4E00757D68 /* View */,
+				ADBB0DB52050C56000757D68 /* weakPlanData.json */,
+				ADBB0DD92050FCAC00757D68 /* weakPlanLeadingData.json */,
+				ADBB0DD32050D1A300757D68 /* AutoComplexTableViewController.h */,
+				ADBB0DD42050D1A300757D68 /* AutoComplexTableViewController.m */,
+				ADBB0DDC20510A0300757D68 /* WeakPlanTableStyleConstructor.h */,
+				ADBB0DDD20510A0300757D68 /* WeakPlanTableStyleConstructor.m */,
+			);
+			path = weekPlan;
+			sourceTree = "<group>";
+		};
+		ADBB0DDF20510D4E00757D68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0DE020510D7000757D68 /* WeakPlanTableViewCell.h */,
+				ADBB0DE120510D7000757D68 /* WeakPlanTableViewCell.m */,
+				ADBB0DE320510F0900757D68 /* WeakPlanReusableView.h */,
+				ADBB0DE420510F0900757D68 /* WeakPlanReusableView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -641,7 +691,8 @@
 				ADBB0D1E2050C4D400757D68 /* LaunchScreen.storyboard in Resources */,
 				ADBB0D1B2050C4D400757D68 /* Assets.xcassets in Resources */,
 				ADBB0D192050C4D400757D68 /* Main.storyboard in Resources */,
-				ADBB0DB62050C56000757D68 /* data.json in Resources */,
+				ADBB0DDA2050FCAC00757D68 /* weakPlanLeadingData.json in Resources */,
+				ADBB0DB62050C56000757D68 /* weakPlanData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,12 +737,15 @@
 				ADBB0DAA2050C50800757D68 /* MASConstraintMaker.m in Sources */,
 				ADBB0DB02050C50800757D68 /* View+MASAdditions.m in Sources */,
 				ADBB0DAD2050C50800757D68 /* MASViewConstraint.m in Sources */,
+				ADBB0DE520510F0900757D68 /* WeakPlanReusableView.m in Sources */,
 				ADBB0DD02050C60800757D68 /* RefreashTableCrossViewController.m in Sources */,
 				ADBB0DD12050C60800757D68 /* RefreashTableViewController.m in Sources */,
 				ADBB0DA82050C50800757D68 /* MASCompositeConstraint.m in Sources */,
 				ADBB0D7D2050C50400757D68 /* WD_QTableAutoLayoutConstructor.m in Sources */,
+				ADBB0DE220510D7000757D68 /* WeakPlanTableViewCell.m in Sources */,
 				ADBB0D892050C50400757D68 /* WD_QTableParse.m in Sources */,
 				ADBB0D812050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m in Sources */,
+				ADBB0DDE20510A0300757D68 /* WeakPlanTableStyleConstructor.m in Sources */,
 				ADBB0D802050C50400757D68 /* JQ_CollectionViewLayout.m in Sources */,
 				ADBB0D862050C50400757D68 /* WD_QTableViewModel.m in Sources */,
 				ADBB0DA92050C50800757D68 /* MASConstraint.m in Sources */,

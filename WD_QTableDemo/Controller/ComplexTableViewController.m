@@ -19,8 +19,8 @@
 @implementation ComplexTableViewController
 
 -(UITextView *)tipsLabel{
-    UITextView *label =  [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 10, 150.f)];
-    label.text = @"WD_QTable支持一个多表头的表格，你只需要像本demo一样对数据进行配置，WD_QTable会自动的将多表头展示出来，多表头包括对Leading和Heading的支持";
+    UITextView *label =  [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200.f)];
+    label.text = @"WD_QTable支持一个复合表头的表格，你只需要像demo一样对数据进行配置，WD_QTable会自动的将复合表头展示出来，WD_QTableModel的collapseRow和collapseCol分别表示该元素跨行行数和跨列列数,复合表头包括对Leading和Heading的支持!";
     label.font = [UIFont systemFontOfSize:15];
     label.backgroundColor = [UIColor blackColor];
     label.textColor = [UIColor whiteColor];
@@ -60,13 +60,13 @@
     NSInteger colNum = 10;
     
     WD_QTableModel *mainModel = [[WD_QTableModel alloc] init];
-    mainModel.title = @"我是main";
+    mainModel.title = @"Main";
     
     NSMutableArray<WD_QTableModel *> *leadings1 = [NSMutableArray array];
     NSMutableArray<WD_QTableModel *> *leadings2 = [NSMutableArray array];
     for (NSInteger i = 0; i < rowNum/2 ; i++) {
         WD_QTableModel *model = [[WD_QTableModel alloc] init];
-        model.title = @"我是第一级Leading";
+        model.title = @"一级Leading";
         if (i == 0 || i == 2) {
             model.collapseCol = 2;
         }
@@ -75,19 +75,19 @@
     }
     for (NSInteger i = 0; i < rowNum - 4; i++) {
         WD_QTableModel *model = [[WD_QTableModel alloc] init];
-        model.title = @"我是第二级Leading";
+        model.title = @"二级Leading";
         [leadings2 addObject:model];
     }
     NSArray *leadings = [NSArray arrayWithObjects:leadings1,leadings2, nil];
     
     WD_QTableModel *sectionModel = [[WD_QTableModel alloc] init];
-    sectionModel.title = @"我是Section";
+    sectionModel.title = @"Section";
     
     NSMutableArray<WD_QTableModel *> *headings1 = [NSMutableArray array];
     NSMutableArray<WD_QTableModel *> *headings2 = [NSMutableArray array];
     for (NSInteger i = 0; i < colNum/2 ; i++) {
         WD_QTableModel *model = [[WD_QTableModel alloc] init];
-        model.title = @"我是第一级Heading";
+        model.title = @"一级Heading";
         model.collapseCol = 2;
         if (i == 1) {
             model.collapseRow = 2;
@@ -96,10 +96,9 @@
     }
     for (NSInteger i = 0; i < colNum - 2; i++) {
         WD_QTableModel *model = [[WD_QTableModel alloc] init];
-        model.title = @"我是第二级Heading";
+        model.title = @"二级Heading";
         [headings2 addObject:model];
     }
-    //headings1[0].collapseRow = 2;
     NSArray *headings = [NSArray arrayWithObjects:headings1,headings2, nil];
     
     
@@ -108,7 +107,7 @@
         NSMutableArray *rowArr = [NSMutableArray array];
         for (NSInteger col = 0; col < colNum; col++) {
             WD_QTableModel *model = [[WD_QTableModel alloc] init];
-            model.title = @"我是Item";
+            model.title = @"Item";
             [rowArr addObject:model];
         }
         [data addObject:rowArr];
