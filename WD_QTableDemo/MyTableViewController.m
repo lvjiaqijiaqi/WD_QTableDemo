@@ -14,6 +14,7 @@
 #import "CustomStyleTableViewController.h"
 #import "CustomLayoutViewController.h"
 #import "TipsViewController.h"
+#import "AutoComplexTableViewController.h"
 
 @interface MyTableViewController ()
 
@@ -26,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.lists = @[@"基本表格",@"复合表头表格",@"纵向加载更多",@"横向加载更多",@"自定义样式",@"自定义布局",@"设计思路和使用小结"];
+    self.lists = @[@"基本表格",@"复合表头表格",@"纵向加载更多",@"横向加载更多",@"自定义样式",@"自定义布局",@"自动布局的复杂表格",@"设计思路和使用小结"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
 }
@@ -81,6 +82,9 @@
             controller = [[CustomLayoutViewController alloc] init];
             break;
         case 6:
+            controller = [[AutoComplexTableViewController alloc] init];
+            break;
+        case 7:
             controller = [[TipsViewController alloc] init];
             break;
         default:

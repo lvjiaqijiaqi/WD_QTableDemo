@@ -66,14 +66,8 @@
 
 -(void)loadData{
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
-    NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSArray *Headings = [WD_QTableParse parseHeadingFromJsonStr:content AtLevel:3];
     
-    
-    //return;
-    
-    /*NSInteger rowNum = 30;
+    NSInteger rowNum = 30;
     NSInteger colNum = 10;
     
     WD_QTableModel *mainModel = [[WD_QTableModel alloc] init];
@@ -110,54 +104,14 @@
     [self.table resetLeadingModel:leadings];
     [self.table reloadData];
     
-    return;*/
+    return;
     
-    WD_QTableModel *model1 = [[WD_QTableModel alloc] init];
-    model1.title = @"中国近代发展适量大叔大婶的";
-    model1.collapseCol = 2;
-    
-    WD_QTableModel *model11 = [[WD_QTableModel alloc] init];
-    model11.title = @"中国";
-    
-    WD_QTableModel *model12 = [[WD_QTableModel alloc] init];
-    model12.title = @"美国";
-    model1.childrenModels = @[model11,model12];
-    
-    WD_QTableModel *model2 = [[WD_QTableModel alloc] init];
-    model2.title = @"展适量大叔大代发展适量大叔大";
-    model2.collapseRow = 2;
-    
-    WD_QTableModel *model3 = [[WD_QTableModel alloc] init];
-    model3.title = @"展适量大叔大代发展适量大叔大";
-    model3.collapseRow = 2;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+    NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSArray *Headings = [WD_QTableParse parseHeadingFromJsonStr:content AtLevel:3];
+    NSArray *Leadings = [WD_QTableParse parseLeadingFromJsonStr:content AtLevel:3];
 
-    WD_QTableModel *lmodel1 = [[WD_QTableModel alloc] init];
-    lmodel1.title = @"中国近代发展";
-    lmodel1.collapseRow = 2;
-    
-    WD_QTableModel *lmodel11 = [[WD_QTableModel alloc] init];
-    lmodel11.title = @"中国";
-    
-    WD_QTableModel *lmodel12 = [[WD_QTableModel alloc] init];
-    lmodel12.title = @"美国";
-    
-    lmodel1.childrenModels = @[lmodel11,lmodel12];
-    
-    WD_QTableModel *lmodel2 = [[WD_QTableModel alloc] init];
-    lmodel2.title = @"展适量大叔大代发展适量大叔大";
-    lmodel2.collapseCol = 2;
-    
-    WD_QTableModel *lmodel3 = [[WD_QTableModel alloc] init];
-    lmodel3.title = @"展适量大叔大代发展适量大叔大";
-    lmodel3.collapseCol = 2;
-    
-    WD_QTableModel *lmodel0 = [[WD_QTableModel alloc] init];
-    lmodel0.title = @"展适量大叔大代发展适量大叔大";
-    lmodel0.collapseCol = 4;
-    lmodel0.childrenModels = @[model1,model2,model3];
-    
-    //[self.table resetLeadingModels:@[lmodel1,lmodel2,lmodel3] DependLevel:2];
-    [self.table resetMultipleLeadingModel:@[@[lmodel1,lmodel2,lmodel3],@[lmodel11,lmodel12]]];
+    [self.table resetLeadingModels:Leadings DependLevel:3];
     [self.table resetHeadingModels:Headings DependLevel:3];
     [self.table reloadData];
 }

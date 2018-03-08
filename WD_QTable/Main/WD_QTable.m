@@ -231,6 +231,37 @@
     }];
     [self updateHeadingModel:headingModels];
 }
+-(void)resetHeadingModels:(NSArray<WD_QTableModel *> *)newModels DependLevel:(NSInteger)level{
+    [self.headings removeAllObjects];
+    [self updateHeadingModels:newModels DependLevel:level];
+}
+-(void)updateHeadingModels:(NSArray<WD_QTableModel *> *)newModels DependLevel:(NSInteger)level{
+    NSMutableArray<NSMutableArray<WD_QTableModel *> *> *ModifyModels = [NSMutableArray array];
+    for (NSInteger i = level; i > 0 ; i--) {
+        [ModifyModels addObject:[NSMutableArray array]];
+    }
+    NSMutableArray<WD_QTableModel *> *modelStack =  [NSMutableArray array];
+    [modelStack addObjectsFromArray:[[newModels reverseObjectEnumerator] allObjects]];
+    for (WD_QTableModel *newModel = [modelStack lastObject]; newModel != nil; newModel = [modelStack lastObject]) {
+        [modelStack removeLastObject];
+        [ModifyModels[newModel.level] addObject:newModel];
+        for (NSInteger i = newModel.collapseRow - 1; i >= 0; i--) {
+            for (NSInteger j = newModel.collapseCol - 1; j >= 0; j--) {
+                if (i || j) {
+                    [ModifyModels[newModel.level + i] addObject:[WD_QTableModel placeModel]];
+                }
+            }
+        }
+        if (newModel.childrenModels) {
+            [modelStack addObjectsFromArray:[[newModel.childrenModels reverseObjectEnumerator] allObjects]];
+        }
+    }
+    [ModifyModels enumerateObjectsUsingBlock:^(NSMutableArray<WD_QTableModel *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(self.headings.count <= idx) [self.headings addObject:[NSMutableArray array]];
+        [self.headings[idx] addObjectsFromArray:obj];
+    }];
+    self.variationModel.headings = ModifyModels;
+}
 -(void)resetMultipleHeadingModel:(NSArray<NSArray<WD_QTableModel *> *> *)newModels{
     [self.headings removeAllObjects];
     for (NSInteger i = self.headings.count ; i < newModels.count ; i++) {
@@ -268,8 +299,8 @@
     }];
     self.variationModel.headings = ModifyModels;
 }
-#pragma mark - leading处理 重置，更新，插入
 
+#pragma mark - leading处理 重置，更新，插入
 -(void)resetLeadingModel:(NSArray<WD_QTableModel *> *)newModels{
     [self.leadings removeAllObjects];
     [self updateLeadingModel:newModels];
@@ -292,26 +323,18 @@
     }
     NSMutableArray<WD_QTableModel *> *modelStack =  [NSMutableArray array];
     [modelStack addObjectsFromArray:[[newModels reverseObjectEnumerator] allObjects]];
-    [newModels lastObject].extraDic[@"tag"] = [NSNumber numberWithBool:YES];
-    NSInteger le = 0;
     for (WD_QTableModel *newModel = [modelStack lastObject]; newModel != nil; newModel = [modelStack lastObject]) {
-        [ModifyModels[le] addObject:newModel];
+        [modelStack removeLastObject];
+        [ModifyModels[newModel.level] addObject:newModel];
         for (NSInteger i = newModel.collapseCol - 1; i >= 0; i--) {
             for (NSInteger j = newModel.collapseRow - 1; j >= 0; j--) {
                 if (i || j) {
-                   [ModifyModels[le + i] addObject:[WD_QTableModel placeModel]];
+                   [ModifyModels[newModel.level + i] addObject:[WD_QTableModel placeModel]];
                 }
             }
         }
         if (newModel.childrenModels) {
-            [newModel.childrenModels lastObject].extraDic[@"tag"] = @YES;
             [modelStack addObjectsFromArray:[[newModel.childrenModels reverseObjectEnumerator] allObjects]];
-            le++;
-        }else{
-            [modelStack removeLastObject];
-            if ([newModel.extraDic[@"tag"] boolValue]) {
-                le--;
-            }
         }
     }
     [ModifyModels enumerateObjectsUsingBlock:^(NSMutableArray<WD_QTableModel *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -340,42 +363,6 @@
     }];
     [self updateLeadingModel:leadingModels];
 }
--(void)resetHeadingModels:(NSArray<WD_QTableModel *> *)newModels DependLevel:(NSInteger)level{
-    [self.headings removeAllObjects];
-    [self updateHeadingModels:newModels DependLevel:level];
-}
--(void)updateHeadingModels:(NSArray<WD_QTableModel *> *)newModels DependLevel:(NSInteger)level{
-    NSMutableArray<NSMutableArray<WD_QTableModel *> *> *ModifyModels = [NSMutableArray array];
-    for (NSInteger i = level; i > 0 ; i--) {
-        [ModifyModels addObject:[NSMutableArray array]];
-    }
-    NSMutableArray<WD_QTableModel *> *modelStack =  [NSMutableArray array];
-    [modelStack addObjectsFromArray:[[newModels reverseObjectEnumerator] allObjects]];
-    [newModels lastObject].extraDic[@"tag"] = [NSNumber numberWithInteger:0];
-    NSInteger le = 0;
-    for (WD_QTableModel *newModel = [modelStack lastObject]; newModel != nil; newModel = [modelStack lastObject]) {
-        [modelStack removeLastObject];
-        [ModifyModels[le] addObject:newModel];
-        for (NSInteger i = newModel.collapseRow - 1; i >= 0; i--) {
-            for (NSInteger j = newModel.collapseCol - 1; j >= 0; j--) {
-                if (i || j) {
-                    [ModifyModels[le + i] addObject:[WD_QTableModel placeModel]];
-                }
-            }
-        }
-        if (newModel.childrenModels) {
-            le++;
-            [newModel.childrenModels lastObject].extraDic[@"tag"] = [NSNumber numberWithInteger:le];
-            [modelStack addObjectsFromArray:[[newModel.childrenModels reverseObjectEnumerator] allObjects]];
-        }
-    }
-    [ModifyModels enumerateObjectsUsingBlock:^(NSMutableArray<WD_QTableModel *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if(self.headings.count <= idx) [self.headings addObject:[NSMutableArray array]];
-        [self.headings[idx] addObjectsFromArray:obj];
-    }];
-    self.variationModel.headings = ModifyModels;
-}
-
 -(void)resetMultipleLeadingModel:(NSArray<NSArray<WD_QTableModel *> *> *)newModels{
     //清空
     [self.leadings removeAllObjects];

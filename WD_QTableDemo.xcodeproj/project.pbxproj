@@ -52,6 +52,7 @@
 		ADBB0DD02050C60800757D68 /* RefreashTableCrossViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DC52050C60800757D68 /* RefreashTableCrossViewController.m */; };
 		ADBB0DD12050C60800757D68 /* RefreashTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DC72050C60800757D68 /* RefreashTableViewController.m */; };
 		ADBB0DD22050C60800757D68 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DC92050C60800757D68 /* TipsViewController.m */; };
+		ADBB0DD52050D1A300757D68 /* AutoComplexTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DD42050D1A300757D68 /* AutoComplexTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +168,8 @@
 		ADBB0DC72050C60800757D68 /* RefreashTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreashTableViewController.m; sourceTree = "<group>"; };
 		ADBB0DC82050C60800757D68 /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
 		ADBB0DC92050C60800757D68 /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
+		ADBB0DD32050D1A300757D68 /* AutoComplexTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoComplexTableViewController.h; sourceTree = "<group>"; };
+		ADBB0DD42050D1A300757D68 /* AutoComplexTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoComplexTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,6 +526,8 @@
 				ADBB0DC72050C60800757D68 /* RefreashTableViewController.m */,
 				ADBB0DC82050C60800757D68 /* TipsViewController.h */,
 				ADBB0DC92050C60800757D68 /* TipsViewController.m */,
+				ADBB0DD32050D1A300757D68 /* AutoComplexTableViewController.h */,
+				ADBB0DD42050D1A300757D68 /* AutoComplexTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -675,6 +680,7 @@
 				ADBB0D882050C50400757D68 /* WD_QTableAdaptor.m in Sources */,
 				ADBB0D7E2050C50400757D68 /* WD_QTableDefaultLayoutConstructor.m in Sources */,
 				ADBB0D8A2050C50400757D68 /* WD_QTableBaseReusableView.m in Sources */,
+				ADBB0DD52050D1A300757D68 /* AutoComplexTableViewController.m in Sources */,
 				ADBB0DAC2050C50800757D68 /* MASViewAttribute.m in Sources */,
 				ADBB0D212050C4D400757D68 /* main.m in Sources */,
 				ADBB0DAA2050C50800757D68 /* MASConstraintMaker.m in Sources */,

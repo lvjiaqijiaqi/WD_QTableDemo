@@ -12,6 +12,6 @@
 @interface WD_QTableParse : NSObject
 
 +(NSArray<WD_QTableModel *> *)parseHeadingFromJsonStr:(NSString *)jsonStr AtLevel:(NSInteger)level;
-+(void)parseLeadingFromJsonStr:(NSString *)jsonStr AtLevel:(NSInteger)level;
++(NSArray<WD_QTableModel *> *)parseLeadingFromJsonStr:(NSString *)jsonStr AtLevel:(NSInteger)level;
 
 @end

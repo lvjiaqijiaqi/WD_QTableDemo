@@ -16,34 +16,56 @@
     NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     NSMutableArray<WD_QTableModel *> *resArr = [NSMutableArray array];
     [jsonArr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        WD_QTableModel *model = [self parseJsonStr:obj ForLevel:0 ByMaxLevel:level];
+        WD_QTableModel *model = [self parseJsonStr:obj ForLevel:0 ByMaxLevel:level ForType:0];
         [resArr addObject:model];
     }];
     return resArr;
 }
 
-+(WD_QTableModel *)parseJsonStr:(NSDictionary *)jsonDic ForLevel:(NSInteger)level ByMaxLevel:(NSInteger)maxLevel{
++(NSArray<WD_QTableModel *> *)parseLeadingFromJsonStr:(NSString *)jsonStr AtLevel:(NSInteger)level{
+    NSData *jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+    NSMutableArray<WD_QTableModel *> *resArr = [NSMutableArray array];
+    [jsonArr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        WD_QTableModel *model = [self parseJsonStr:obj ForLevel:0 ByMaxLevel:level ForType:1];
+        [resArr addObject:model];
+    }];
+    return resArr;
+}
+
++(WD_QTableModel *)parseJsonStr:(NSDictionary *)jsonDic ForLevel:(NSInteger)level ByMaxLevel:(NSInteger)maxLevel ForType:(NSInteger)type{
     WD_QTableModel *model =  [[WD_QTableModel alloc] init];
+    model.level = level;
     model.title = jsonDic[@"title"];
     if (jsonDic[@"children"] && ![jsonDic[@"children"] isKindOfClass:[NSString class]]) {
         NSMutableArray *childrenArr = [NSMutableArray array];
-        __block NSInteger countCol = 0;
+        __block NSInteger count = 0;
         [jsonDic[@"children"] enumerateObjectsUsingBlock:^(NSDictionary *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            WD_QTableModel *m = [self parseJsonStr:obj ForLevel:level+1 ByMaxLevel:maxLevel];
-            countCol += m.collapseCol;
+            WD_QTableModel *m = [self parseJsonStr:obj ForLevel:level+1 ByMaxLevel:maxLevel ForType:type];
+            if (type) {
+                count += m.collapseRow;
+            }else{
+                count += m.collapseCol;
+            }
             [childrenArr addObject:m];
         }];
-        model.collapseCol = countCol;
+        if (type) {
+            model.collapseRow = count;
+        }else{
+            model.collapseCol = count;
+        }
         model.childrenModels = [childrenArr copy];
     }else{
-        model.collapseRow = maxLevel - level;
+        if (type) {
+            model.collapseCol = maxLevel - level;
+        }else{
+            model.collapseRow = maxLevel - level;
+        }
     }
     return model;
 }
 
 
-+(void)parseLeadingFromJsonStr:(NSString *)jsonStr AtLevel:(NSInteger)level{
-    
-}
 
 @end
