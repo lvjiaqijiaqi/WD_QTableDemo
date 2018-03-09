@@ -11,6 +11,17 @@
 #import "WD_QTableDefaultReusableView.h"
 #import "WD_QTableModel.h"
 
+
+@interface WD_QTableDefaultStyleConstructor()
+
+@property(nonatomic,strong) NSString *itemCollectionViewCellIdentifier;
+@property(nonatomic,strong) NSString *leadingSupplementaryIdentifier;
+@property(nonatomic,strong) NSString *headingSupplementaryCellIdentifier;
+@property(nonatomic,strong) NSString *mainSupplementaryCellIdentifier;
+@property(nonatomic,strong) NSString *sectionSupplementaryCellIdentifier;
+
+@end
+
 @implementation WD_QTableDefaultStyleConstructor
 
 -(UIColor *)WD_QTableBackgroundColor
@@ -20,6 +31,37 @@
 -(NSString *)WD_QTableReuseCellPrefix
 {
     return NSStringFromClass([self class]);
+}
+
+-(NSString *)itemCollectionViewCellIdentifier{
+    if (!_itemCollectionViewCellIdentifier) {
+        _itemCollectionViewCellIdentifier = [NSString stringWithFormat:@"cell%@%@",[self WD_QTableReuseCellPrefix],NSStringFromClass([self itemCollectionViewCellClass])];
+    }
+    return _itemCollectionViewCellIdentifier;
+}
+-(NSString *)leadingSupplementaryIdentifier{
+    if (!_leadingSupplementaryIdentifier) {
+        _leadingSupplementaryIdentifier = [NSString stringWithFormat:@"supplmentCell%@%@",[self WD_QTableReuseCellPrefix],NSStringFromClass([self leadingSupplementaryViewClass])];
+    }
+    return _leadingSupplementaryIdentifier;
+}
+-(NSString *)headingSupplementaryCellIdentifier{
+    if (!_headingSupplementaryCellIdentifier) {
+        _headingSupplementaryCellIdentifier = [NSString stringWithFormat:@"supplmentCell%@%@",[self WD_QTableReuseCellPrefix],NSStringFromClass([self headingSupplementaryViewClass])];
+    }
+    return _headingSupplementaryCellIdentifier;
+}
+-(NSString *)mainSupplementaryCellIdentifier{
+    if (!_mainSupplementaryCellIdentifier) {
+        _mainSupplementaryCellIdentifier = [NSString stringWithFormat:@"supplmentCell%@%@",[self WD_QTableReuseCellPrefix],NSStringFromClass([self mainSupplementaryViewClass])];
+    }
+    return _mainSupplementaryCellIdentifier;
+}
+-(NSString *)sectionSupplementaryCellIdentifier{
+    if (!_sectionSupplementaryCellIdentifier) {
+        _sectionSupplementaryCellIdentifier = [NSString stringWithFormat:@"supplmentCell%@%@",[self WD_QTableReuseCellPrefix],NSStringFromClass([self sectionSupplementaryViewClass])];
+    }
+    return _sectionSupplementaryCellIdentifier;
 }
 
 -(Class)itemCollectionViewCellClass{return [WD_QTableDefaultViewCell class];}
@@ -109,7 +151,7 @@
     NSMutableArray *widths = [[NSMutableArray alloc] init];
     [headingModels enumerateObjectsUsingBlock:^(WD_QTableModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [self constructHeadingSupplementary:cell By:obj];
-        CGFloat width = [cell sizeThatFits:CGSizeMake(MAXFLOAT, height)].width;
+        CGFloat width = [cell sizeThatFitWidthByHeight:height];
         [widths addObject:[NSNumber numberWithFloat:width]];
     }];
     return widths;

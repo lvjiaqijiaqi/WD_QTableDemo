@@ -30,6 +30,12 @@
 -(Class)mainSupplementaryViewClass;
 -(Class)sectionSupplementaryViewClass;
 
+-(NSString *)itemCollectionViewCellIdentifier;
+-(NSString *)leadingSupplementaryIdentifier;
+-(NSString *)headingSupplementaryCellIdentifier;
+-(NSString *)mainSupplementaryCellIdentifier;
+-(NSString *)sectionSupplementaryCellIdentifier;
+    
 /*
    通过WD_QTableModel为cell填充数据并且配置样式。
 */

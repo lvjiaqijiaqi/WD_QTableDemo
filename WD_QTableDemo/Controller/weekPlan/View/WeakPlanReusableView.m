@@ -46,9 +46,7 @@
 }
 
 -(CGSize)sizeThatFits:(CGSize)size{
-    CGFloat height = size.height;
-    CGFloat width = [self.rightLabel sizeThatFits:CGSizeMake(MAXFLOAT, height)].width + 10;
-    return CGSizeMake(width, height);
+    return CGSizeZero;
 }
 -(CGFloat)sizeThatFitHeighByWidth:(CGFloat)width{
     return [self.rightLabel sizeThatFits:CGSizeMake(width, MAXFLOAT)].height + 10;

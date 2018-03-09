@@ -19,7 +19,6 @@
         
         _sign = 0;
         _level = 0;
-        _collapse = 1;
         
         _collapseRow = 1;
         _collapseCol = 1;
@@ -48,6 +47,7 @@
     }
     return _subTitle;
 }
+
 +(WD_QTableModel *)placeModel{
     WD_QTableModel * placeModel = [[self alloc] init];
     placeModel.collapseRow = 0;

@@ -289,6 +289,15 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
     
 }
 
+/* layout改变的时候（比如转屏）调用的方法 */
+-(CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset{
+    return proposedContentOffset;
+}
+/* 加速滑动的时候 可以改变滑动结束的CGPoint */
+-(CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity{
+    return proposedContentOffset;
+}
+
 #pragma mark - UICollectionViewLayoutAttributes配置函数
 
 -(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{

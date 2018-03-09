@@ -54,11 +54,11 @@
 }
 -(void)registerCell{
     self.collectionView.backgroundColor = [self.styleConstructor WD_QTableBackgroundColor];
-    [self.collectionView registerClass:[self.styleConstructor itemCollectionViewCellClass] forCellWithReuseIdentifier:[NSString stringWithFormat:@"cell%@",[self.styleConstructor WD_QTableReuseCellPrefix]]];
-    [self.collectionView registerClass:[self.styleConstructor mainSupplementaryViewClass] forSupplementaryViewOfKind:@"mainSupplementaryView" withReuseIdentifier:[NSString stringWithFormat:@"supplmentCell%@",[self.styleConstructor WD_QTableReuseCellPrefix]]];
-    [self.collectionView registerClass:[self.styleConstructor headingSupplementaryViewClass] forSupplementaryViewOfKind:@"headingSupplementaryView" withReuseIdentifier:[NSString stringWithFormat:@"supplmentCell%@",[self.styleConstructor WD_QTableReuseCellPrefix]]];
-    [self.collectionView registerClass:[self.styleConstructor leadingSupplementaryViewClass] forSupplementaryViewOfKind:@"leadingSupplementaryView" withReuseIdentifier:[NSString stringWithFormat:@"supplmentCell%@",[self.styleConstructor WD_QTableReuseCellPrefix]]];
-    [self.collectionView registerClass:[self.styleConstructor sectionSupplementaryViewClass] forSupplementaryViewOfKind:@"sectionSupplementaryView" withReuseIdentifier:[NSString stringWithFormat:@"supplmentCell%@",[self.styleConstructor WD_QTableReuseCellPrefix]]];
+    [self.collectionView registerClass:[self.styleConstructor itemCollectionViewCellClass] forCellWithReuseIdentifier:[self.styleConstructor itemCollectionViewCellIdentifier]];
+    [self.collectionView registerClass:[self.styleConstructor mainSupplementaryViewClass] forSupplementaryViewOfKind:@"mainSupplementaryView" withReuseIdentifier:[self.styleConstructor mainSupplementaryCellIdentifier]];
+    [self.collectionView registerClass:[self.styleConstructor headingSupplementaryViewClass] forSupplementaryViewOfKind:@"headingSupplementaryView" withReuseIdentifier:[self.styleConstructor headingSupplementaryCellIdentifier]];
+    [self.collectionView registerClass:[self.styleConstructor leadingSupplementaryViewClass] forSupplementaryViewOfKind:@"leadingSupplementaryView" withReuseIdentifier:[self.styleConstructor leadingSupplementaryIdentifier]];
+    [self.collectionView registerClass:[self.styleConstructor sectionSupplementaryViewClass] forSupplementaryViewOfKind:@"sectionSupplementaryView" withReuseIdentifier:[self.styleConstructor sectionSupplementaryCellIdentifier]];
 }
 #pragma mark - 初始化方法
 - (instancetype)initWithLayoutConfig:(id<WD_QTableDefaultLayoutConstructorDelegate> )layoutConstructor StyleConstructor:(id<WD_QTableDefaultStyleConstructorDelegate> )styleConstructor
@@ -470,22 +470,26 @@
     return rowNum ? rowNum : 1;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[NSString stringWithFormat:@"cell%@",[self.styleConstructor WD_QTableReuseCellPrefix]] forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[self.styleConstructor itemCollectionViewCellIdentifier] forIndexPath:indexPath];
     [self.styleConstructor constructItemCollectionView:cell By:[self modelForItem:indexPath]];
     return cell;
 }
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    WD_QTableBaseReusableView *cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[NSString stringWithFormat:@"supplmentCell%@",[self.styleConstructor WD_QTableReuseCellPrefix]] forIndexPath:indexPath];
+    WD_QTableBaseReusableView *cell = nil;
     cell.supplementaryName = kind;
     cell.delegate = self;
     cell.indexPath = indexPath;
     if ([kind isEqualToString:@"leadingSupplementaryView"]) {
+        cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[self.styleConstructor leadingSupplementaryIdentifier] forIndexPath:indexPath];
         [self.styleConstructor constructLeadingSupplementary:cell By:[self modelForLeading:indexPath.item level:indexPath.section]];
     }else if ([kind isEqualToString:@"headingSupplementaryView"]){
+        cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[self.styleConstructor headingSupplementaryCellIdentifier] forIndexPath:indexPath];
         [self.styleConstructor constructHeadingSupplementary:cell By:[self modelForHeading:indexPath.item level:indexPath.section]];
     }else if ([kind isEqualToString:@"mainSupplementaryView"]){
+        cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[self.styleConstructor mainSupplementaryCellIdentifier] forIndexPath:indexPath];
         [self.styleConstructor constructMainSupplementary:cell By:self.mainModel];
     }else if ([kind isEqualToString:@"sectionSupplementaryView"]){
+        cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[self.styleConstructor sectionSupplementaryCellIdentifier] forIndexPath:indexPath];
         [self.styleConstructor constructSectionSupplementary:cell By:[self modelForLeading:indexPath.item level:0].sectionModel];
     }
     return cell;

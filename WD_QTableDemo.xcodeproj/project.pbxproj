@@ -23,7 +23,6 @@
 		ADBB0D832050C50400757D68 /* WD_QRefreshTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D562050C50400757D68 /* WD_QRefreshTable.m */; };
 		ADBB0D842050C50400757D68 /* WD_QTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D582050C50400757D68 /* WD_QTable.m */; };
 		ADBB0D852050C50400757D68 /* WD_QTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */; };
-		ADBB0D862050C50400757D68 /* WD_QTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D5E2050C50400757D68 /* WD_QTableViewModel.m */; };
 		ADBB0D872050C50400757D68 /* WD_QViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D602050C50400757D68 /* WD_QViewModel.m */; };
 		ADBB0D882050C50400757D68 /* WD_QTableAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D702050C50400757D68 /* WD_QTableAdaptor.m */; };
 		ADBB0D892050C50400757D68 /* WD_QTableParse.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D722050C50400757D68 /* WD_QTableParse.m */; };
@@ -110,8 +109,6 @@
 		ADBB0D592050C50400757D68 /* WD_QTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableHeader.h; sourceTree = "<group>"; };
 		ADBB0D5B2050C50400757D68 /* WD_QTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableModel.h; sourceTree = "<group>"; };
 		ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableModel.m; sourceTree = "<group>"; };
-		ADBB0D5D2050C50400757D68 /* WD_QTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableViewModel.h; sourceTree = "<group>"; };
-		ADBB0D5E2050C50400757D68 /* WD_QTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableViewModel.m; sourceTree = "<group>"; };
 		ADBB0D5F2050C50400757D68 /* WD_QViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QViewModel.h; sourceTree = "<group>"; };
 		ADBB0D602050C50400757D68 /* WD_QViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QViewModel.m; sourceTree = "<group>"; };
 		ADBB0D6F2050C50400757D68 /* WD_QTableAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableAdaptor.h; sourceTree = "<group>"; };
@@ -340,8 +337,6 @@
 			children = (
 				ADBB0D5B2050C50400757D68 /* WD_QTableModel.h */,
 				ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */,
-				ADBB0D5D2050C50400757D68 /* WD_QTableViewModel.h */,
-				ADBB0D5E2050C50400757D68 /* WD_QTableViewModel.m */,
 				ADBB0D5F2050C50400757D68 /* WD_QViewModel.h */,
 				ADBB0D602050C50400757D68 /* WD_QViewModel.m */,
 			);
@@ -747,7 +742,6 @@
 				ADBB0D812050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m in Sources */,
 				ADBB0DDE20510A0300757D68 /* WeakPlanTableStyleConstructor.m in Sources */,
 				ADBB0D802050C50400757D68 /* JQ_CollectionViewLayout.m in Sources */,
-				ADBB0D862050C50400757D68 /* WD_QTableViewModel.m in Sources */,
 				ADBB0DA92050C50800757D68 /* MASConstraint.m in Sources */,
 				ADBB0DCB2050C60800757D68 /* ComplexTableViewController.m in Sources */,
 				ADBB0DB42050C55100757D68 /* MyTableViewController.m in Sources */,
