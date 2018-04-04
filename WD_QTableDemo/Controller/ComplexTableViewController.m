@@ -12,7 +12,7 @@
 
 @interface ComplexTableViewController ()
 
-@property(nonatomic,strong) WD_QTable *table;
+@property(nonatomic,strong) WD_QFitTable *table;
 
 @end
 
@@ -30,7 +30,7 @@
     return label;
 }
 
--(WD_QTable *)table{
+-(WD_QFitTable *)table{
     if (!_table) {
         WD_QTableDefaultLayoutConstructor *config =  [[WD_QTableDefaultLayoutConstructor alloc] init];
         config.inset = UIEdgeInsetsMake(200, 0, 0, 0);

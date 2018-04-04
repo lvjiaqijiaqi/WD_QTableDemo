@@ -1,12 +1,12 @@
 //
-//  WD_QTable.m
+//  WD_QFitTable.m
 //  WD_QTableDemo
 //
-//  Created by jqlv on 2018/1/9.
+//  Created by jqlv on 2018/4/4.
 //  Copyright © 2018年 jqlv. All rights reserved.
 //
 
-#import "WD_QTable.h"
+#import "WD_QFitTable.h"
 
 #import "WD_QTableBaseReusableView.h"
 #import "WD_QTableBaseViewCell.h"
@@ -19,7 +19,7 @@
 #define Lock() dispatch_semaphore_wait(self.lock, DISPATCH_TIME_FOREVER)
 #define Unlock() dispatch_semaphore_signal(self.lock)
 
-@interface WD_QTable ()<WD_QTableBaseReusableViewDelegate,JQ_CollectionViewLayoutDelegate,WD_QTableBaseCellViewDelegate>
+@interface WD_QFitTable ()<WD_QTableBaseReusableViewDelegate,JQ_CollectionViewLayoutDelegate,WD_QTableBaseCellViewDelegate>
 
 @property (nonatomic,strong) id<WD_QTableDefaultStyleConstructorDelegate> styleConstructor;
 @property (nonatomic,strong) id<WD_QTableDefaultLayoutConstructorDelegate> layoutConstructor;
@@ -27,22 +27,26 @@
 @property (nonatomic,strong) JQ_CollectionViewLayout *collectionLayout;
 
 @property (nonatomic,strong) WD_QTableModel *mainModel;
-@property (nonatomic,strong) NSMutableArray<NSMutableArray<WD_QTableModel *> *> *datas;
-@property (nonatomic,strong) NSMutableArray<NSMutableArray<WD_QTableModel *> *> *headings;
-@property (nonatomic,strong) NSMutableArray<NSMutableArray<WD_QTableModel *> *> *leadings;
-
-@property (nonatomic,strong) WD_QViewModel *variationModel;
 @property (nonatomic,strong) dispatch_semaphore_t lock;
 
+@property (nonatomic,strong) WD_QViewModel *variationModel;
 
-@property (nonatomic,strong) NSMutableArray<NSMutableArray *> *tableDatas;
+@property (nonatomic,strong) NSMutableArray<WD_QTableModel *> *headings;
+@property (nonatomic,strong) NSMutableArray<WD_QTableModel *> *leadings;
+@property (nonatomic,strong) NSMutableArray<WD_QTableModel *> *datas;
 
 @property (nonatomic,assign) NSInteger colsNum;
 @property (nonatomic,assign) NSInteger rowsNum;
 
+@property (nonatomic,assign) NSInteger LeadingRowNum;
+@property (nonatomic,assign) NSInteger HeadingColNum;
+
+@property (nonatomic,assign) NSInteger LeadingLevel;
+@property (nonatomic,assign) NSInteger HeadingLevel;
+
 @end
 
-@implementation WD_QTable
+@implementation WD_QFitTable
 
 #pragma mark - 辅助GET方法
 -(JQ_CollectionViewLayout *)layout{
@@ -62,7 +66,7 @@
 -(void)registerCell{
     self.collectionView.backgroundColor = [self.styleConstructor WD_QTableBackgroundColor];
     [[self.styleConstructor itemCollectionViewCellClass] enumerateObjectsUsingBlock:^(Class  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-         [self.collectionView registerClass:obj forCellWithReuseIdentifier:NSStringFromClass(obj)];
+        [self.collectionView registerClass:obj forCellWithReuseIdentifier:NSStringFromClass(obj)];
     }];
     [[self.styleConstructor mainSupplementaryViewClass] enumerateObjectsUsingBlock:^(Class  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [self.collectionView registerClass:obj forSupplementaryViewOfKind:@"mainSupplementaryView" withReuseIdentifier:NSStringFromClass(obj)];
@@ -86,13 +90,20 @@
         _needTranspostionForModel = NO;
         /* 初始化数据数组 */
         self.datas = [NSMutableArray array];
-        //self.tableDatas = [NSMutableArray]
         self.headings = [NSMutableArray array];
         self.leadings = [NSMutableArray array];
-        self.variationModel = [[WD_QViewModel alloc] init];
+        //self.variationModel = [[WD_QViewModel alloc] init];
         [self initCollectionView];
         self.styleConstructor  = styleConstructor;
         self.layoutConstructor = layoutConstructor;
+        
+        self.rowsNum = 0;
+        self.colsNum = 0;
+        self.LeadingLevel = 0;
+        self.HeadingLevel = 0;
+        self.LeadingRowNum = 0;
+        self.HeadingColNum = 0;
+        
         _lock = dispatch_semaphore_create(1);
     }
     return self;
@@ -124,10 +135,10 @@
 #pragma mark - collectionHead处理
 -(void)setHeadView:(UIView *)headView{
     [super setHeadView:headView];
-    [self.collectionView addSubview:self.headView];
     CGRect rect = headView.frame;
-    rect.origin.y = -[self.layoutConstructor QTableInset].top;
+    rect.origin.y = - [self.layoutConstructor QTableInset].top;
     self.headView.frame = rect;
+    [self.collectionView addSubview:self.headView];
 }
 
 -(void)updateHeadH:(CGFloat)newH{
@@ -201,26 +212,62 @@
 }
 
 
-#pragma mark - 插入缺省
-
--(void)inserRowAtIndex:(NSInteger)rowId{
-    
-}
--(void)inserColAtIndex:(NSInteger)colId{
-    
-}
 
 #pragma mark - 更新内容
 
 -(void)updateItem:(WD_QTableModel *)updateModel AtCol:(NSInteger)Col InRow:(NSInteger)Row{
-    self.datas[Col][Row] = updateModel;
+    self.datas[[self indexAtCol:Col InRow:Row]] = updateModel;
     [self.layout invalidLayoutAtRow:Row InCol:Col];
+    [self.collectionView reloadData];
 }
--(void)updateLeading:(WD_QTableModel *)updateModel AtCol:(NSInteger)col InRow:(NSInteger)Row{
-    
+-(void)updateLeading:(WD_QTableModel *)updateModel AtRow:(NSInteger)row InLevel:(NSInteger)level{
+    NSInteger validIndex = [self indexLeadingAtIdx:row InLevel:level];
+    if (validIndex < self.leadings.count) {
+        self.leadings[validIndex] = updateModel;
+        [self.layout invalidLayoutAtRow:row InCol:0];
+        [self.collectionView reloadData];
+    }
 }
--(void)updateHeading:(WD_QTableModel *)updateModel AtCol:(NSInteger)col InRow:(NSInteger)Row{
+-(void)updateHeading:(WD_QTableModel *)updateModel AtCol:(NSInteger)col InLevel:(NSInteger)level{
+    NSInteger validIndex = [self indexHeadingAtIdx:col InLevel:level];
+    if (validIndex < self.leadings.count) {
+        self.leadings[validIndex] = updateModel;
+        [self.layout invalidLayoutAtRow:0 InCol:col];
+        
+    }
+}
+
+#pragma mark - 插入缺省
+-(void)insertEmptyRowAtRow:(NSInteger)rowId{
     
+    NSMutableArray<WD_QTableModel *> *leadingModels = [NSMutableArray array];
+    for (NSInteger index = self.LeadingLevel ; index > 0; index-- ) {
+        [leadingModels addObject:[WD_QTableModel emptyModel]];
+    }
+    [self insertLeadingModels:leadingModels atRow:rowId];
+    
+    NSMutableArray<WD_QTableModel *> *models = [NSMutableArray array];
+    for (NSInteger index = self.colsNum ; index > 0; index-- ) {
+        [models addObject:[WD_QTableModel emptyModel]];
+    }
+    [self insertModels:models AtRow:rowId];
+    [self.layout invalidLayoutAtRowIndex:rowId];
+    [self reloadData];
+}
+-(void)insertEmptyColAtCol:(NSInteger)colId{
+    NSMutableArray<WD_QTableModel *> *headingModels = [NSMutableArray array];
+    for (NSInteger index = self.HeadingLevel ; index > 0; index-- ) {
+        [headingModels addObject:[WD_QTableModel emptyModel]];
+    }
+    [self insertHeadingModels:headingModels atCol:colId];
+    
+    NSMutableArray<WD_QTableModel *> *models = [NSMutableArray array];
+    for (NSInteger index = self.rowsNum ; index > 0; index-- ) {
+        [models addObject:[WD_QTableModel emptyModel]];
+    }
+    [self insertModels:models AtCol:colId];
+    [self.layout invalidLayoutAtColIndex:colId];
+    [self reloadData];
 }
 
 #pragma mark - Item 处理 重置，更新，插入
@@ -233,39 +280,59 @@
     [self updateItemModel:newData];
 }
 -(void)updateItemModel:(NSArray<NSArray<WD_QTableModel *> *>*)newData{
-    [newData enumerateObjectsUsingBlock:^(NSArray<WD_QTableModel *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self.datas addObject:[NSMutableArray arrayWithArray:obj]];
-    }];
-    self.variationModel.datas = newData;
-}
-/*
--(void)updateItems:(NSArray<NSArray<NSString *> *>*)newData{
-    self.datas = [NSMutableArray arrayWithCapacity:newData.count];
-    [newData enumerateObjectsUsingBlock:^(NSArray<NSString *> * _Nonnull items, NSUInteger itemIdx, BOOL * _Nonnull stop) {
-        NSMutableArray *models = [NSMutableArray array];
-        [items enumerateObjectsUsingBlock:^(NSString * _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
-            WD_QTableModel *model =  [[WD_QTableModel alloc] init];
-            model.title = item;
-            [models addObject:model];
+    [newData enumerateObjectsUsingBlock:^(NSArray<WD_QTableModel *> * _Nonnull section, NSUInteger idx, BOOL * _Nonnull stop) {
+        [section enumerateObjectsUsingBlock:^(WD_QTableModel * _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
+            [self.datas addObject:item];
         }];
-        [self.datas addObject:models];
     }];
-    self.variationModel.datas = self.datas;
+    /* 更新行数和列数 */
+    if (self.needTranspostionForModel) { //行为基准
+        self.rowsNum = newData.count;
+        self.colsNum = [newData firstObject].count;
+    } else { //列为基准
+        self.rowsNum = [newData firstObject].count;
+        self.colsNum = newData.count;
+    }
 }
-*/
+-(void)insertModels:(NSArray<WD_QTableModel *> *)newModels AtRow:(NSInteger)rowIdx{
+    NSMutableIndexSet *insetIndexSets =  [[NSMutableIndexSet alloc] init];
+    if (self.needTranspostionForModel) {
+        [insetIndexSets addIndexesInRange:NSMakeRange(rowIdx * self.colsNum, newModels.count)];
+    }else{
+        for (NSInteger i = self.colsNum - 1 ; i >= 0; i--) {
+            [insetIndexSets addIndex:i * self.rowsNum + rowIdx];
+        }
+    }
+    self.rowsNum++ ;
+    [self.datas insertObjects:newModels atIndexes:insetIndexSets];
+}
+-(void)insertModels:(NSArray<WD_QTableModel *> *)newModels AtCol:(NSInteger)colIdx{
+    NSMutableIndexSet *insetIndexSets =  [[NSMutableIndexSet alloc] init];
+    if (self.needTranspostionForModel) {
+        [insetIndexSets addIndexesInRange:NSMakeRange(colIdx * self.rowsNum, newModels.count)];
+    }else{
+        for (NSInteger i = self.rowsNum - 1 ; i >= 0; i--) {
+            [insetIndexSets addIndex:i * self.colsNum + colIdx];
+        }
+    }
+    self.colsNum++ ;
+    [self.datas insertObjects:newModels atIndexes:insetIndexSets];
+}
 
 #pragma mark - Heading 处理 重置，更新，插入
 -(void)resetHeadingModel:(NSArray<WD_QTableModel *> *)newModels{
     [self.headings removeAllObjects];
+    self.HeadingColNum = 0;
+    self.HeadingLevel = 0;
     [self updateHeadingModel:newModels];
 }
+
 -(void)updateHeadingModel:(NSArray<WD_QTableModel *> *)newModels{
-    if (self.headings.count == 0) {
-        [self.headings addObject:[NSMutableArray array]];
-    }
-    [self.headings[0] addObjectsFromArray:newModels];
-    self.variationModel.headings = [NSArray arrayWithObject:newModels];
+    [self.headings addObjectsFromArray:newModels];
+    self.HeadingColNum += newModels.count;
+    self.HeadingLevel = 1;
 }
+
 -(void)resetHeadingModelWithArr:(NSArray<NSString *> *)newArr{
     [self.headings removeAllObjects];
     NSMutableArray<WD_QTableModel *> *headingModels = [NSMutableArray arrayWithCapacity:newArr.count];
@@ -276,6 +343,7 @@
     }];
     [self resetHeadingModel:headingModels];
 }
+
 -(void)updateHeadingModelWithArr:(NSArray<NSString *> *)newArr{
     NSMutableArray<WD_QTableModel *> *headingModels = [NSMutableArray arrayWithCapacity:newArr.count];
     [newArr enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -285,42 +353,10 @@
     }];
     [self updateHeadingModel:headingModels];
 }
--(void)resetHeadingModels:(NSArray<WD_QTableModel *> *)newModels DependLevel:(NSInteger)level{
-    [self.headings removeAllObjects];
-    [self updateHeadingModels:newModels DependLevel:level];
-}
--(void)updateHeadingModels:(NSArray<WD_QTableModel *> *)newModels DependLevel:(NSInteger)level{
-    NSMutableArray<NSMutableArray<WD_QTableModel *> *> *ModifyModels = [NSMutableArray array];
-    for (NSInteger i = level; i > 0 ; i--) {
-        [ModifyModels addObject:[NSMutableArray array]];
-    }
-    NSMutableArray<WD_QTableModel *> *modelStack =  [NSMutableArray array];
-    [modelStack addObjectsFromArray:[[newModels reverseObjectEnumerator] allObjects]];
-    for (WD_QTableModel *newModel = [modelStack lastObject]; newModel != nil; newModel = [modelStack lastObject]) {
-        [modelStack removeLastObject];
-        [ModifyModels[newModel.level] addObject:newModel];
-        for (NSInteger i = newModel.collapseRow - 1; i >= 0; i--) {
-            for (NSInteger j = newModel.collapseCol - 1; j >= 0; j--) {
-                if (i || j) {
-                    [ModifyModels[newModel.level + i] addObject:[WD_QTableModel placeModel]];
-                }
-            }
-        }
-        if (newModel.childrenModels) {
-            [modelStack addObjectsFromArray:[[newModel.childrenModels reverseObjectEnumerator] allObjects]];
-        }
-    }
-    [ModifyModels enumerateObjectsUsingBlock:^(NSMutableArray<WD_QTableModel *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if(self.headings.count <= idx) [self.headings addObject:[NSMutableArray array]];
-        [self.headings[idx] addObjectsFromArray:obj];
-    }];
-    self.variationModel.headings = ModifyModels;
-}
+
 -(void)resetMultipleHeadingModel:(NSArray<NSArray<WD_QTableModel *> *> *)newModels{
     [self.headings removeAllObjects];
-    for (NSInteger i = self.headings.count ; i < newModels.count ; i++) {
-        [self.headings addObject:[NSMutableArray array]];
-    }
+    self.HeadingColNum = 0;
     [self updateMultipleHeadingModel:newModels];
 }
 -(void)updateMultipleHeadingModel:(NSArray<NSArray<WD_QTableModel *> *> *)newModels{
@@ -348,65 +384,37 @@
             }];
         }
     }
-    [ModifyModels enumerateObjectsUsingBlock:^(NSMutableArray<WD_QTableModel *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self.headings[idx] addObjectsFromArray:obj];
-    }];
-    self.variationModel.headings = ModifyModels;
+    for (NSInteger i = 0,itemCount = [ModifyModels firstObject].count ; i < itemCount ; i++) {
+        for (NSInteger j = 0,levelCount = ModifyModels.count ; j < levelCount; j++) {
+            [self.headings addObject:ModifyModels[i][j]];
+        }
+    }
+    self.HeadingLevel = ModifyModels.count;
+    self.HeadingColNum += [ModifyModels firstObject].count;
+    //self.variationModel.headings = ModifyModels;
+}
+
+-(void)insertHeadingModels:(NSArray<WD_QTableModel *> *)newModels atCol:(NSInteger)colId{
+    [self.headings insertObjects:newModels atIndexes:[NSIndexSet indexSetWithIndex:colId]];
+    self.HeadingColNum ++;
 }
 
 #pragma mark - leading处理 重置，更新，插入
 -(void)resetLeadingModel:(NSArray<WD_QTableModel *> *)newModels{
     [self.leadings removeAllObjects];
+    self.LeadingRowNum = 0;
     [self updateLeadingModel:newModels];
 }
 -(void)updateLeadingModel:(NSArray<WD_QTableModel *> *)newModels{
-    if (self.leadings.count == 0) {
-        [self.leadings addObject:[NSMutableArray array]];
-    }
-    [self.leadings[0] addObjectsFromArray:newModels];
-    self.variationModel.leadings = [NSArray arrayWithObject:newModels];
+    [self.leadings addObjectsFromArray:newModels];
+    self.LeadingRowNum += newModels.count;
+    self.LeadingLevel = 1;
+  //self.variationModel.leadings = [NSArray arrayWithObject:newModels];
 }
--(void)resetLeadingModels:(NSArray<WD_QTableModel *> *)newModels DependLevel:(NSInteger)level{
-    [self.leadings removeAllObjects];
-    [self updateLeadingModels:newModels DependLevel:level];
-}
--(void)updateLeadingModels:(NSArray<WD_QTableModel *> *)newModels DependLevel:(NSInteger)level{
-    NSMutableArray<NSMutableArray<WD_QTableModel *> *> *ModifyModels = [NSMutableArray array];
-    for (NSInteger i = level; i > 0 ; i--) {
-        [ModifyModels addObject:[NSMutableArray array]];
-    }
-    NSMutableArray<WD_QTableModel *> *modelStack =  [NSMutableArray array];
-    [modelStack addObjectsFromArray:[[newModels reverseObjectEnumerator] allObjects]];
-    for (WD_QTableModel *newModel = [modelStack lastObject]; newModel != nil; newModel = [modelStack lastObject]) {
-        [modelStack removeLastObject];
-        [ModifyModels[newModel.level] addObject:newModel];
-        for (NSInteger i = newModel.collapseCol - 1; i >= 0; i--) {
-            for (NSInteger j = newModel.collapseRow - 1; j >= 0; j--) {
-                if (i || j) {
-                   [ModifyModels[newModel.level + i] addObject:[WD_QTableModel placeModel]];
-                }
-            }
-        }
-        if (newModel.childrenModels) {
-            [modelStack addObjectsFromArray:[[newModel.childrenModels reverseObjectEnumerator] allObjects]];
-        }
-    }
-    [ModifyModels enumerateObjectsUsingBlock:^(NSMutableArray<WD_QTableModel *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if(self.leadings.count <= idx) [self.leadings addObject:[NSMutableArray array]];
-        [self.leadings[idx] addObjectsFromArray:obj];
-    }];
-    self.variationModel.leadings = ModifyModels;
-}
-
 -(void)resetLeadingModelWithArr:(NSArray<NSString *> *)newArr{
     [self.leadings removeAllObjects];
-    NSMutableArray<WD_QTableModel *> *leadingModels = [NSMutableArray arrayWithCapacity:newArr.count];
-    [newArr enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        WD_QTableModel *leadingModel = [[WD_QTableModel alloc] init];
-        leadingModel.title = obj;
-        [leadingModels addObject:leadingModel];
-    }];
-    [self resetLeadingModel:leadingModels];
+    self.LeadingRowNum = 0;
+    [self updateLeadingModelWithArr:newArr];
 }
 -(void)updateLeadingModelWithArr:(NSArray<NSString *> *)newArr{
     NSMutableArray<WD_QTableModel *> *leadingModels = [NSMutableArray arrayWithCapacity:newArr.count];
@@ -417,13 +425,10 @@
     }];
     [self updateLeadingModel:leadingModels];
 }
+
 -(void)resetMultipleLeadingModel:(NSArray<NSArray<WD_QTableModel *> *> *)newModels{
-    //清空
     [self.leadings removeAllObjects];
-    //添加
-    for (NSInteger i = self.leadings.count ; i < newModels.count ; i++) {
-        [self.leadings addObject:[NSMutableArray array]];
-    }
+    self.LeadingRowNum = 0;
     [self updateMultipleLeadingModel:newModels];
 }
 -(void)updateMultipleLeadingModel:(NSArray<NSArray<WD_QTableModel *> *> *)newModels{
@@ -451,70 +456,76 @@
             }];
         }
     }
-    [ModifyModels enumerateObjectsUsingBlock:^(NSMutableArray<WD_QTableModel *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self.leadings[idx] addObjectsFromArray:obj];
-    }];
-    self.variationModel.leadings = ModifyModels;
+    for (NSInteger i = 0,itemCount = [ModifyModels firstObject].count ; i < itemCount ; i++) {
+        for (NSInteger j = 0,levelCount = ModifyModels.count ; j < levelCount; j++) {
+            [self.leadings addObject:ModifyModels[i][j]];
+        }
+    }
+    self.LeadingLevel = ModifyModels.count;
+    self.LeadingRowNum += [ModifyModels firstObject].count;
+    //self.variationModel.leadings = ModifyModels;
+}
+
+-(void)insertLeadingModels:(NSArray<WD_QTableModel *> *)newModels atRow:(NSInteger)rowId{
+    [self.leadings insertObjects:newModels atIndexes:[NSIndexSet indexSetWithIndex:rowId]];
+    self.LeadingRowNum ++;
 }
 
 #pragma mark - Model辅助方法
 
+-(NSInteger)indexAtCol:(NSInteger)colId InRow:(NSInteger)rowId{
+    if (self.needTranspostionForModel) { //行为基准
+        return self.colsNum * rowId + colId;
+    } else { //列为基准
+        return self.rowsNum * colId + rowId;
+    }
+}
+-(NSInteger)indexLeadingAtIdx:(NSInteger)idx InLevel:(NSInteger)level{
+    return idx * self.HeadingLevel + level;
+}
+-(NSInteger)indexHeadingAtIdx:(NSInteger)idx InLevel:(NSInteger)level{
+    return idx * self.LeadingLevel + level;
+}
 -(WD_QTableModel *)modelForHeading:(NSInteger)idx level:(NSInteger)level{
-    if (self.headings.count > level) {
-        if (self.headings[level].count > idx) {
-            WD_QTableModel *model = self.headings[level][idx];
-            model.indexPath = [NSIndexPath indexPathForRow:idx inSection:level];
-            return model;
-        }
+    NSInteger validIndex = [self indexHeadingAtIdx:idx InLevel:level];
+    if (validIndex < self.headings.count) {
+        return self.headings[validIndex];
     }
     return [WD_QTableModel placeModel];
 }
 -(WD_QTableModel *)modelForLeading:(NSInteger)idx level:(NSInteger)level{
-    if (self.leadings.count > level) {
-        if (self.leadings[level].count > idx) {
-            WD_QTableModel *model = self.leadings[level][idx];
-            model.indexPath = [NSIndexPath indexPathForRow:idx inSection:level];
-            return model;
-        }
+    NSInteger validIndex = [self indexLeadingAtIdx:idx InLevel:level];
+    if (validIndex < self.leadings.count) {
+        return self.leadings[validIndex];
     }
     return [WD_QTableModel placeModel];
 }
-
 -(WD_QTableModel *)modelForItem:(NSIndexPath *)indexPath{
     //常规数据是以列为基准的， data:列->行  section:列 item:行
-    if (!self.needTranspostionForModel) {
-        if (self.datas.count > indexPath.section) {
-            if (self.datas[indexPath.section].count > indexPath.item) {
-                WD_QTableModel *model = self.datas[indexPath.section][indexPath.item];
-                model.indexPath = indexPath;
-                return model;
-            }
-        }
-    }else{ //needTranspostionForModel data:行->列 section:行 item:列
-        if (self.datas.count > indexPath.item) {
-            if (self.datas[indexPath.item].count > indexPath.section) {
-                WD_QTableModel *model = self.datas[indexPath.item][indexPath.section];
-                model.indexPath = indexPath;
-                return model;
-            }
-        }
+    return [self modelForItemAtCol:indexPath.section InRow:indexPath.row];
+}
+-(WD_QTableModel *)modelForItemAtCol:(NSInteger)colId InRow:(NSInteger)rowId{
+    NSInteger validIndex = [self indexAtCol:colId InRow:rowId];
+    if (validIndex < self.datas.count) {
+        return self.datas[validIndex];
     }
-    return [[WD_QTableModel alloc] init];
+    return [WD_QTableModel placeModel];
 }
 
 #pragma mark - UICollectionViewDelegate
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    NSInteger colNum = [self colsNum];
-    if(self.leadings.count > colNum) colNum = self.leadings.count;
-    if (self.headings.count && [self.headings lastObject].count > colNum) colNum = [self.headings lastObject].count;
-    return colNum ? colNum : 1;
+    NSInteger numberOfSections = self.colsNum;
+    if (self.HeadingLevel > numberOfSections ) numberOfSections = self.HeadingLevel;
+    if (self.LeadingLevel > numberOfSections ) numberOfSections = self.LeadingLevel;
+    if (self.HeadingColNum > numberOfSections ) numberOfSections = self.HeadingColNum;
+    return numberOfSections;
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    NSInteger rowNum = [self rowsNum];
-    if(self.headings.count > rowNum) rowNum = self.headings.count;
-    if (self.leadings.count && [self.leadings lastObject].count > rowNum) rowNum = [self.leadings lastObject].count;
-    return rowNum ? rowNum : 1;
+    NSInteger numberInSection = self.rowsNum;
+    if (self.HeadingColNum > numberInSection ) numberInSection = self.HeadingColNum;
+    if (self.LeadingRowNum > numberInSection ) numberInSection = self.LeadingRowNum;
+    return numberInSection;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     WD_QTableBaseViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[self.styleConstructor itemCollectionViewCellIdentifier:indexPath] forIndexPath:indexPath];
@@ -550,6 +561,7 @@
     if(self.didSelectItemBlock) self.didSelectItemBlock(indexPath.row,indexPath.section,[self modelForItem:indexPath]);
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [self WD_QTableDidSelectAtIndexPath:indexPath];
 }
 
 -(void)WD_QTableReusableViewName:(NSString *)SupplementaryName didSelectSupplementaryAtIndexPath:(NSIndexPath *)indexPath{
@@ -600,30 +612,12 @@
 
 #pragma mark - layout callBack
 
--(NSInteger)colsNum{
-    NSInteger colNum = 0 ;
-    if (self.needTranspostionForModel) {
-        colNum = self.datas.count ? self.datas[0].count : 0;
-    }else{
-        colNum = self.datas.count;
-    }
-    return colNum >= [self.headings lastObject].count ? colNum : [self.headings lastObject].count;
-}
--(NSInteger)rowsNum{
-    NSInteger rowNum = 0;
-    if (self.needTranspostionForModel) {
-        rowNum = self.datas.count;
-    }else{
-        rowNum = self.datas.count ? self.datas[0].count : 0;
-    }
-    return rowNum >= [self.leadings lastObject].count ? rowNum : [self.leadings lastObject].count;
-}
 
 -(NSInteger)colNumberOfCollectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout{
-    return [self colsNum];
+    return self.colsNum > self.HeadingColNum ? self.colsNum : self.HeadingColNum;
 }
 -(NSInteger)rowNumberOfCollectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout{
-    return [self rowsNum];
+    return self.rowsNum > self.LeadingRowNum ? self.rowsNum : self.LeadingRowNum ;
 }
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout heightOfRow:(NSInteger)row{
     return [self.layoutConstructor rowHeightAtRowId:row];
@@ -664,17 +658,17 @@
 /* 可选 Leading-Heading级数 */
 
 -(NSInteger)leadingLevelOfcollectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout{
-    return self.leadings.count;
+    return self.LeadingLevel;
 }
 -(NSInteger)headingLevelOfcollectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout{
-    return self.headings.count;
+    return self.HeadingLevel;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout ItemCollapseColNumberInRow:(NSInteger)row AtCol:(NSInteger)col{
-        return [self modelForItem:[NSIndexPath indexPathForItem:row inSection:col]].collapseCol;
+    return [self modelForItem:[NSIndexPath indexPathForItem:row inSection:col]].collapseCol;
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout ItemCollapseRowNumberInCol:(NSInteger)col AtRow:(NSInteger)row{
-        return [self modelForItem:[NSIndexPath indexPathForItem:row inSection:col]].collapseRow;
+    return [self modelForItem:[NSIndexPath indexPathForItem:row inSection:col]].collapseRow;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout LeadingCollapseColNumberInRow:(NSInteger)row AtLevel:(NSInteger)level{
@@ -690,5 +684,5 @@
     return [self modelForHeading:col level:level].collapseRow;
 }
 
-@end
 
+@end

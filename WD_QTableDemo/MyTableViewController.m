@@ -15,6 +15,7 @@
 #import "CustomLayoutViewController.h"
 #import "TipsViewController.h"
 #import "AutoComplexTableViewController.h"
+#import "EditTableViewController.h"
 
 @interface MyTableViewController ()
 
@@ -27,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.lists = @[@"基本表格",@"复合表头表格",@"纵向加载更多",@"横向加载更多",@"自定义样式",@"自定义布局",@"自动布局表格：本周计划",@"设计思路和使用小结"];
+    self.lists = @[@"基本表格",@"复合表头表格",@"纵向加载更多",@"横向加载更多",@"自定义样式",@"自定义布局",@"自动布局表格：本周计划",@"可编辑的表格",@"设计思路和使用小结"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
 }
@@ -91,9 +92,13 @@
             controller = [[AutoComplexTableViewController alloc] init];
             controller.navigationItem.title = @"AutoComplexTableViewController";
             break;
-        case 7:
+        case 8:
             controller = [[TipsViewController alloc] init];
             controller.navigationItem.title = @"TipsViewController";
+            break;
+        case 7:
+            controller = [[EditTableViewController alloc] init];
+            controller.navigationItem.title = @"EditTableViewController";
             break;
         default:
             controller = [[BaseTableViewController alloc] init];

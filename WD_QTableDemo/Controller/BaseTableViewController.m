@@ -12,7 +12,7 @@
 
 @interface BaseTableViewController ()
 
-@property(nonatomic,strong) WD_QTable *table;
+@property(nonatomic,strong) WD_QFitTable *table;
 
 @end
 
@@ -30,11 +30,11 @@
     return label;
 }
 
--(WD_QTable *)table{
+-(WD_QFitTable *)table{
     if (!_table) {
         WD_QTableDefaultLayoutConstructor *config =  [[WD_QTableDefaultLayoutConstructor alloc] init];
         WD_QTableDefaultStyleConstructor *style = [[WD_QTableDefaultStyleConstructor alloc] init];
-        _table = [[WD_QTable alloc] initWithLayoutConfig:config StyleConstructor:style];
+        _table = [[WD_QFitTable alloc] initWithLayoutConfig:config StyleConstructor:style];
         config.inset = UIEdgeInsetsMake(200, 0, 0, 0);
         _table.headView = [self tipsLabel];
         _table.needTranspostionForModel = YES;
@@ -50,7 +50,11 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-    
+
+-(void)insertNew:(id)sender{
+    [self.table insertEmptyRowAtRow:2];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -74,6 +78,7 @@
     };
 
     [self loadData];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(insertNew:)];
     // Do any additional setup after loading the view.
 }
 

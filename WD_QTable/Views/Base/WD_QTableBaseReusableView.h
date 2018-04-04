@@ -26,6 +26,7 @@
 
 @property(strong,nonatomic) UITapGestureRecognizer *tapPressGesture;
 
+- (void)initComponent;
 -(CGSize)sizeThatFits:(CGSize)size;
 -(CGFloat)sizeThatFitHeighByWidth:(CGFloat)width;
 -(CGFloat)sizeThatFitWidthByHeight:(CGFloat)height;

@@ -10,15 +10,6 @@
 
 @implementation WD_QTableBaseReusableView
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        [self initComponent];
-    }
-    return self;
-}
-
 - (void)initComponent
 {
     UITapGestureRecognizer *tapPressGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPress:)];

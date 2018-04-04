@@ -46,5 +46,6 @@ typedef NS_ENUM(NSUInteger, WD_QTableCellType) {
 @property(nonatomic,strong) NSArray<WD_QTableModel *> *childrenModels;
 
 +(WD_QTableModel *)placeModel;
++(WD_QTableModel *)emptyModel;
 
 @end

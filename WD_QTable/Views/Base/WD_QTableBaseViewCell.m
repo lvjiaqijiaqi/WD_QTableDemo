@@ -10,6 +10,20 @@
 
 @implementation WD_QTableBaseViewCell
 
+- (void)initComponent
+{
+    UITapGestureRecognizer *tapPressGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPress:)];
+    [self addGestureRecognizer:tapPressGesture];
+    self.tapPressGesture = tapPressGesture;
+}
+
+- (void)tapPress:(UITapGestureRecognizer *)recognizer
+{
+    if (self.delegate) {
+        [self.delegate WD_QTableDidSelectAtIndexPath:self.indexPath];
+    }
+}
+
 -(CGSize)sizeThatFits:(CGSize)size{
     return [super sizeThatFits:size];
 }

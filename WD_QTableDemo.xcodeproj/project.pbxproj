@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD5D8410205779C400CE3F1D /* WD_QTableOtherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5D840F205779C400CE3F1D /* WD_QTableOtherViewCell.m */; };
+		AD5D84142057A28300CE3F1D /* WD_QTableBaseColAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5D84132057A28300CE3F1D /* WD_QTableBaseColAdaptor.m */; };
 		ADBB0D132050C4D400757D68 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D122050C4D400757D68 /* AppDelegate.m */; };
 		ADBB0D192050C4D400757D68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBB0D172050C4D400757D68 /* Main.storyboard */; };
 		ADBB0D1B2050C4D400757D68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBB0D1A2050C4D400757D68 /* Assets.xcassets */; };
@@ -56,6 +58,12 @@
 		ADBB0DDE20510A0300757D68 /* WeakPlanTableStyleConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DDD20510A0300757D68 /* WeakPlanTableStyleConstructor.m */; };
 		ADBB0DE220510D7000757D68 /* WeakPlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DE120510D7000757D68 /* WeakPlanTableViewCell.m */; };
 		ADBB0DE520510F0900757D68 /* WeakPlanReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DE420510F0900757D68 /* WeakPlanReusableView.m */; };
+		ADC30DD62073A172002AE183 /* WD_QEditTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC30DD52073A172002AE183 /* WD_QEditTable.m */; };
+		ADCDD637207468A9003C8D65 /* WD_QFitTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD636207468A9003C8D65 /* WD_QFitTable.m */; };
+		ADCDD63A2074C4F3003C8D65 /* EditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD6392074C4F3003C8D65 /* EditTableViewController.m */; };
+		ADCDD63E2074CCD6003C8D65 /* EditTableStyleConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD63D2074CCD6003C8D65 /* EditTableStyleConstructor.m */; };
+		ADCDD6422074CD16003C8D65 /* EditTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD6412074CD16003C8D65 /* EditTableCell.m */; };
+		ADCDD6452074CD2F003C8D65 /* EditTableReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD6442074CD2F003C8D65 /* EditTableReusableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +84,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD5D840E205779C400CE3F1D /* WD_QTableOtherViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableOtherViewCell.h; sourceTree = "<group>"; };
+		AD5D840F205779C400CE3F1D /* WD_QTableOtherViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QTableOtherViewCell.m; sourceTree = "<group>"; };
+		AD5D84122057A28300CE3F1D /* WD_QTableBaseColAdaptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableBaseColAdaptor.h; sourceTree = "<group>"; };
+		AD5D84132057A28300CE3F1D /* WD_QTableBaseColAdaptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QTableBaseColAdaptor.m; sourceTree = "<group>"; };
 		ADBB0D0E2050C4D400757D68 /* WD_QTableDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WD_QTableDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBB0D112050C4D400757D68 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ADBB0D122050C4D400757D68 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -178,6 +190,18 @@
 		ADBB0DE120510D7000757D68 /* WeakPlanTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakPlanTableViewCell.m; sourceTree = "<group>"; };
 		ADBB0DE320510F0900757D68 /* WeakPlanReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakPlanReusableView.h; sourceTree = "<group>"; };
 		ADBB0DE420510F0900757D68 /* WeakPlanReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakPlanReusableView.m; sourceTree = "<group>"; };
+		ADC30DD42073A172002AE183 /* WD_QEditTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QEditTable.h; sourceTree = "<group>"; };
+		ADC30DD52073A172002AE183 /* WD_QEditTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QEditTable.m; sourceTree = "<group>"; };
+		ADCDD635207468A9003C8D65 /* WD_QFitTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QFitTable.h; sourceTree = "<group>"; };
+		ADCDD636207468A9003C8D65 /* WD_QFitTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QFitTable.m; sourceTree = "<group>"; };
+		ADCDD6382074C4F3003C8D65 /* EditTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTableViewController.h; sourceTree = "<group>"; };
+		ADCDD6392074C4F3003C8D65 /* EditTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTableViewController.m; sourceTree = "<group>"; };
+		ADCDD63C2074CCD6003C8D65 /* EditTableStyleConstructor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTableStyleConstructor.h; sourceTree = "<group>"; };
+		ADCDD63D2074CCD6003C8D65 /* EditTableStyleConstructor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTableStyleConstructor.m; sourceTree = "<group>"; };
+		ADCDD6402074CD16003C8D65 /* EditTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTableCell.h; sourceTree = "<group>"; };
+		ADCDD6412074CD16003C8D65 /* EditTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTableCell.m; sourceTree = "<group>"; };
+		ADCDD6432074CD2F003C8D65 /* EditTableReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTableReusableView.h; sourceTree = "<group>"; };
+		ADCDD6442074CD2F003C8D65 /* EditTableReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTableReusableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,7 +351,11 @@
 				ADBB0D562050C50400757D68 /* WD_QRefreshTable.m */,
 				ADBB0D572050C50400757D68 /* WD_QTable.h */,
 				ADBB0D582050C50400757D68 /* WD_QTable.m */,
+				ADC30DD42073A172002AE183 /* WD_QEditTable.h */,
+				ADC30DD52073A172002AE183 /* WD_QEditTable.m */,
 				ADBB0D592050C50400757D68 /* WD_QTableHeader.h */,
+				ADCDD635207468A9003C8D65 /* WD_QFitTable.h */,
+				ADCDD636207468A9003C8D65 /* WD_QFitTable.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -453,6 +481,8 @@
 				ADBB0D702050C50400757D68 /* WD_QTableAdaptor.m */,
 				ADBB0D712050C50400757D68 /* WD_QTableParse.h */,
 				ADBB0D722050C50400757D68 /* WD_QTableParse.m */,
+				AD5D84122057A28300CE3F1D /* WD_QTableBaseColAdaptor.h */,
+				AD5D84132057A28300CE3F1D /* WD_QTableBaseColAdaptor.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -465,6 +495,8 @@
 				ADBB0D7A2050C50400757D68 /* WD_QTableDefaultReusableView.m */,
 				ADBB0D7B2050C50400757D68 /* WD_QTableDefaultViewCell.h */,
 				ADBB0D7C2050C50400757D68 /* WD_QTableDefaultViewCell.m */,
+				AD5D840E205779C400CE3F1D /* WD_QTableOtherViewCell.h */,
+				AD5D840F205779C400CE3F1D /* WD_QTableOtherViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -515,6 +547,7 @@
 		ADBB0DB72050C60800757D68 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				ADCDD63B2074C955003C8D65 /* EditTable */,
 				ADBB0DDB2051080200757D68 /* weekPlan */,
 				ADBB0DB82050C60800757D68 /* BaseTableViewController.h */,
 				ADBB0DB92050C60800757D68 /* BaseTableViewController.m */,
@@ -528,6 +561,8 @@
 				ADBB0DC52050C60800757D68 /* RefreashTableCrossViewController.m */,
 				ADBB0DC62050C60800757D68 /* RefreashTableViewController.h */,
 				ADBB0DC72050C60800757D68 /* RefreashTableViewController.m */,
+				ADCDD6382074C4F3003C8D65 /* EditTableViewController.h */,
+				ADCDD6392074C4F3003C8D65 /* EditTableViewController.m */,
 				ADBB0DC82050C60800757D68 /* TipsViewController.h */,
 				ADBB0DC92050C60800757D68 /* TipsViewController.m */,
 			);
@@ -575,6 +610,27 @@
 				ADBB0DE420510F0900757D68 /* WeakPlanReusableView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		ADCDD63B2074C955003C8D65 /* EditTable */ = {
+			isa = PBXGroup;
+			children = (
+				ADCDD63F2074CCE6003C8D65 /* Views */,
+				ADCDD63C2074CCD6003C8D65 /* EditTableStyleConstructor.h */,
+				ADCDD63D2074CCD6003C8D65 /* EditTableStyleConstructor.m */,
+			);
+			path = EditTable;
+			sourceTree = "<group>";
+		};
+		ADCDD63F2074CCE6003C8D65 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADCDD6402074CD16003C8D65 /* EditTableCell.h */,
+				ADCDD6412074CD16003C8D65 /* EditTableCell.m */,
+				ADCDD6432074CD2F003C8D65 /* EditTableReusableView.h */,
+				ADCDD6442074CD2F003C8D65 /* EditTableReusableView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -715,22 +771,28 @@
 				ADBB0D7F2050C50400757D68 /* WD_QTableDefaultStyleConstructor.m in Sources */,
 				ADBB0DCD2050C60800757D68 /* CustomStyleConstructor.m in Sources */,
 				ADBB0DCA2050C60800757D68 /* BaseTableViewController.m in Sources */,
+				AD5D84142057A28300CE3F1D /* WD_QTableBaseColAdaptor.m in Sources */,
 				ADBB0DCE2050C60800757D68 /* CustomStyleConstructor2.m in Sources */,
+				ADCDD6422074CD16003C8D65 /* EditTableCell.m in Sources */,
 				ADBB0D842050C50400757D68 /* WD_QTable.m in Sources */,
 				ADBB0D872050C50400757D68 /* WD_QViewModel.m in Sources */,
 				ADBB0DD22050C60800757D68 /* TipsViewController.m in Sources */,
 				ADBB0DCC2050C60800757D68 /* CustomLayoutViewController.m in Sources */,
+				ADCDD6452074CD2F003C8D65 /* EditTableReusableView.m in Sources */,
 				ADBB0DAB2050C50800757D68 /* MASLayoutConstraint.m in Sources */,
 				ADBB0D8C2050C50400757D68 /* WD_QTableDefaultReusableView.m in Sources */,
 				ADBB0D852050C50400757D68 /* WD_QTableModel.m in Sources */,
 				ADBB0D882050C50400757D68 /* WD_QTableAdaptor.m in Sources */,
 				ADBB0D7E2050C50400757D68 /* WD_QTableDefaultLayoutConstructor.m in Sources */,
 				ADBB0D8A2050C50400757D68 /* WD_QTableBaseReusableView.m in Sources */,
+				AD5D8410205779C400CE3F1D /* WD_QTableOtherViewCell.m in Sources */,
 				ADBB0DD52050D1A300757D68 /* AutoComplexTableViewController.m in Sources */,
 				ADBB0DAC2050C50800757D68 /* MASViewAttribute.m in Sources */,
+				ADCDD63A2074C4F3003C8D65 /* EditTableViewController.m in Sources */,
 				ADBB0D212050C4D400757D68 /* main.m in Sources */,
 				ADBB0DAA2050C50800757D68 /* MASConstraintMaker.m in Sources */,
 				ADBB0DB02050C50800757D68 /* View+MASAdditions.m in Sources */,
+				ADCDD637207468A9003C8D65 /* WD_QFitTable.m in Sources */,
 				ADBB0DAD2050C50800757D68 /* MASViewConstraint.m in Sources */,
 				ADBB0DE520510F0900757D68 /* WeakPlanReusableView.m in Sources */,
 				ADBB0DD02050C60800757D68 /* RefreashTableCrossViewController.m in Sources */,
@@ -743,6 +805,7 @@
 				ADBB0DDE20510A0300757D68 /* WeakPlanTableStyleConstructor.m in Sources */,
 				ADBB0D802050C50400757D68 /* JQ_CollectionViewLayout.m in Sources */,
 				ADBB0DA92050C50800757D68 /* MASConstraint.m in Sources */,
+				ADC30DD62073A172002AE183 /* WD_QEditTable.m in Sources */,
 				ADBB0DCB2050C60800757D68 /* ComplexTableViewController.m in Sources */,
 				ADBB0DB42050C55100757D68 /* MyTableViewController.m in Sources */,
 				ADBB0D822050C50400757D68 /* WD_QBaseTable.m in Sources */,
@@ -750,6 +813,7 @@
 				ADBB0DAF2050C50800757D68 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				ADBB0DAE2050C50800757D68 /* NSArray+MASAdditions.m in Sources */,
 				ADBB0DB12050C50800757D68 /* ViewController+MASAdditions.m in Sources */,
+				ADCDD63E2074CCD6003C8D65 /* EditTableStyleConstructor.m in Sources */,
 				ADBB0DCF2050C60800757D68 /* CustomStyleTableViewController.m in Sources */,
 				ADBB0D132050C4D400757D68 /* AppDelegate.m in Sources */,
 				ADBB0D832050C50400757D68 /* WD_QRefreshTable.m in Sources */,
@@ -919,6 +983,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 547ZEB69CW;
 				INFOPLIST_FILE = WD_QTableDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jqlv.WD-QTableDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -933,6 +998,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 547ZEB69CW;
 				INFOPLIST_FILE = WD_QTableDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jqlv.WD-QTableDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -12,11 +12,14 @@
 #import "WD_QTableAutoLayoutConstructor.h"
 #import "WeakPlanTableStyleConstructor.h"
 #import "WD_QTableParse.h"
+#import "WD_QTableBaseColAdaptor.h"
+
 #import "Masonry.h"
 
 @interface AutoComplexTableViewController ()
 
 @property(nonatomic,strong) WD_QTable *table;
+@property(nonatomic,strong) WD_QTableAutoLayoutConstructor *config;
 
 @end
 
@@ -39,10 +42,16 @@
         config.inset = UIEdgeInsetsMake(50, 0, 0, 0);
         WeakPlanTableStyleConstructor *style = [[WeakPlanTableStyleConstructor alloc] init];
         _table = [[WD_QTable alloc] initWithLayoutConfig:config StyleConstructor:style];
-        WD_QTableAdaptor *autoHandle =  [[WD_QTableAdaptor alloc] initWithTableStyle:style ToLayout:config];
+        WD_QTableBaseColAdaptor *autoHandle =  [[WD_QTableBaseColAdaptor alloc] initWithTableStyle:style ToLayout:config];
+        _config = config;
         autoHandle.defaultRowH = 50.f;
         _table.autoLayoutHandle = autoHandle;
         _table.headView = [self tipsLabel];
+        __weak typeof(self) weakSelf = self;
+        _table.didSelectItemBlock = ^(NSInteger row, NSInteger col, WD_QTableModel *model) {
+            weakSelf.config.RowsH[2] = [NSNumber numberWithFloat:100];
+            [weakSelf.table reloadData];
+        };
     }
     return _table;
 }

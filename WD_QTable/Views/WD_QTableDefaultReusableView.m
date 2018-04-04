@@ -69,7 +69,7 @@
 }
 
 -(CGFloat)sizeThatFitHeighByWidth:(CGFloat)width{
-    return [self.mainLabel sizeThatFits:CGSizeMake(width, MAXFLOAT)].height + 10;
+    return [self.mainLabel sizeThatFits:CGSizeMake(width - 10, MAXFLOAT)].height + 10;
 }
 -(CGFloat)sizeThatFitWidthByHeight:(CGFloat)height{
     //CGRect frame = [self.mainLabel.attributedText boundingRectWithSize:CGSizeMake(MAXFLOAT, height) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];

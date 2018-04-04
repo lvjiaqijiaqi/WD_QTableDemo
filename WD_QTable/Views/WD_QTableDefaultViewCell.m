@@ -61,7 +61,7 @@
     return CGSizeZero;
 }
 -(CGFloat)sizeThatFitHeighByWidth:(CGFloat)width{
-    return [self.mainLabel sizeThatFits:CGSizeMake(width, MAXFLOAT)].height + 10;
+    return [self.mainLabel sizeThatFits:CGSizeMake(width - 10, MAXFLOAT)].height + 10;
 }
 -(CGFloat)sizeThatFitWidthByHeight:(CGFloat)height{
     return [self.mainLabel sizeThatFits:CGSizeMake(MAXFLOAT, height)].width + 10;

@@ -24,17 +24,18 @@
 /*
    为WD_QTable提供复用的view的Class，该Class是UICollectionViewcell和UICollectionReuseCell的子类。
 */
--(Class)itemCollectionViewCellClass;
--(Class)leadingSupplementaryViewClass;
--(Class)headingSupplementaryViewClass;
--(Class)mainSupplementaryViewClass;
--(Class)sectionSupplementaryViewClass;
+-(NSArray<Class> *)itemCollectionViewCellClass;
+-(NSArray<Class> *)leadingSupplementaryViewClass;
+-(NSArray<Class> *)headingSupplementaryViewClass;
+-(NSArray<Class> *)mainSupplementaryViewClass;
+-(NSArray<Class> *)sectionSupplementaryViewClass;
 
--(NSString *)itemCollectionViewCellIdentifier;
--(NSString *)leadingSupplementaryIdentifier;
--(NSString *)headingSupplementaryCellIdentifier;
--(NSString *)mainSupplementaryCellIdentifier;
--(NSString *)sectionSupplementaryCellIdentifier;
+/* indexPath section:列ID item:行ID */
+-(NSString *)itemCollectionViewCellIdentifier:(NSIndexPath *)indexPath;
+-(NSString *)leadingSupplementaryIdentifier:(NSIndexPath *)indexPath;
+-(NSString *)headingSupplementaryCellIdentifier:(NSIndexPath *)indexPath;
+-(NSString *)mainSupplementaryCellIdentifier:(NSIndexPath *)indexPath;
+-(NSString *)sectionSupplementaryCellIdentifier:(NSIndexPath *)indexPath;
     
 /*
    通过WD_QTableModel为cell填充数据并且配置样式。

@@ -11,9 +11,16 @@
 #import "WD_QTableAutoLayoutConstructor.h"
 #import "WD_QViewModel.h"
 
+typedef NS_ENUM(NSUInteger, WD_QTableCellIdx) {
+    WD_QTableCellIdxItem,
+    WD_QTableCellIdxLeading,
+    WD_QTableCellIdxHeading,
+};
+
+
 @protocol WD_QTableAdaptorDelegate<NSObject>
 
--(void)commitChange:(WD_QViewModel *)models Reset:(BOOL)reset;
+-(void)commitChange:(WD_QViewModel *)models FromIndex:(NSInteger)index;
 
 @end
 
@@ -28,6 +35,14 @@
 @property (nonatomic, assign) CGFloat MinxRowW;
 @property (nonatomic, assign) CGFloat defaultRowH;
 
+
 -(instancetype)initWithTableStyle:(id<WD_QTableDefaultStyleConstructorDelegate>)style ToLayout:(WD_QTableAutoLayoutConstructor *)layout;
+
+-(CGFloat)adjustWidthForOriginWidth:(CGFloat)originWidth ByExtraWidth:(CGFloat)extraWidth;
+-(CGFloat)fitRowHeightToColsWidth:(NSMutableArray<NSNumber *> *)adjustFitWidths ByRowModel:(NSArray<WD_QTableModel *> *)models ForType:(NSInteger)type AtRowId:(NSInteger)rowId FromCol:(NSInteger)colId;
+-(CGFloat)fitColWidthToRowHeights:(NSMutableArray<NSNumber *> *)adjustFitHeigths ByRowModel:(NSArray<WD_QTableModel *> *)models ForType:(NSInteger)type AtCol:(NSInteger)colId FromRow:(NSInteger)rowId;
+
+-(NSMutableArray *)mergeMaxValueToArr:(NSArray<NSNumber *> *)mainArr FromArr:(NSArray<NSNumber *> *)subArr;
+-(NSArray<NSNumber *> *)optimizeWidth:(NSMutableArray<NSNumber *> *)widths ByContainerWidth:(CGFloat)width;
 
 @end

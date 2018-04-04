@@ -16,7 +16,7 @@
 
 @interface CustomLayoutViewController ()
 
-@property(nonatomic,strong) WD_QTable *table;
+@property(nonatomic,strong) WD_QFitTable *table;
 
 @end
 
@@ -35,7 +35,7 @@
     return label;
 }
 
--(WD_QTable *)table{
+-(WD_QFitTable *)table{
     if (!_table) {
         WD_QTableAutoLayoutConstructor *config =  [[WD_QTableAutoLayoutConstructor alloc] init];
         config.inset = UIEdgeInsetsMake(300, 0, 0, 0);
@@ -89,10 +89,10 @@
     
     
     NSMutableArray<NSMutableArray<WD_QTableModel *> *> *data = [NSMutableArray array];
-    for (NSInteger col = 0; col < colNum; col++) {
+    for (NSInteger row = 0; row < rowNum; row++) {
         NSMutableArray *colArr = [NSMutableArray array];
         NSString *title = [self randomProductContent];
-        for (NSInteger row = 0; row < rowNum; row++) {
+        for (NSInteger col = 0; col < colNum; col++) {
             WD_QTableModel *model = [[WD_QTableModel alloc] init];
             model.title = title;
             [colArr addObject:model];

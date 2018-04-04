@@ -30,6 +30,7 @@
 
 - (void)initComponent
 {
+    [super initComponent];
     self.mainText = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     self.mainText.editable = NO;
     self.mainText.scrollEnabled = NO;

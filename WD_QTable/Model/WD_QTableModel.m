@@ -30,6 +30,7 @@
         _isPlace = NO;
         
         _childrenModels = nil;
+        _indexPath = nil;
         
     }
     return self;
@@ -55,5 +56,7 @@
     placeModel.isPlace = YES;
     return placeModel;
 }
-
++(WD_QTableModel *)emptyModel{
+    return [[self alloc] init];
+}
 @end

@@ -14,7 +14,7 @@
 
 @interface CustomStyleTableViewController ()
 
-@property(nonatomic,strong) WD_QTable *table;
+@property(nonatomic,strong) WD_QFitTable *table;
 
 @property(nonatomic,strong) id<WD_QTableDefaultStyleConstructorDelegate> style1;
 @property(nonatomic,strong) id<WD_QTableDefaultStyleConstructorDelegate> style2;
@@ -35,7 +35,7 @@
     return label;
 }
 
--(WD_QTable *)table{
+-(WD_QFitTable *)table{
     if (!_table) {
         self.style1 = [[CustomStyleConstructor alloc] init];
         self.style2 = [[CustomStyleConstructor2 alloc] init];

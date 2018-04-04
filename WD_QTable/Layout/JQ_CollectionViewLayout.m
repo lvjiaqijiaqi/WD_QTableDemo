@@ -76,6 +76,9 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
     [self.rowsPosition removeAllObjects];
     [self.colsPosition removeAllObjects];
     
+    [self.HeadingPos removeAllObjects];
+    [self.LeadingPos removeAllObjects];
+    
     _rowNum = 0;
     _colNum = 0;
     
@@ -93,6 +96,60 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
     }
     self.invalidContext = [[JQ_CollectionViewLayoutInvalidationContext alloc] init];
     
+}
+
+-(void)invalidLayoutAtRow:(NSInteger)rowIdx InCol:(NSInteger)colIdx{
+    
+    NSInteger rows = self.rowsPosition.count;
+    [self.rowsPosition removeObjectsInRange:NSMakeRange(rowIdx, rows - rowIdx)];
+    NSInteger cols = self.colsPosition.count;
+    [self.colsPosition removeObjectsInRange:NSMakeRange(colIdx, cols - colIdx)];
+    
+    [self.LeadingPos removeAllObjects];
+    self.leadingMarginToItem = 0.f;
+    for (NSInteger row = 0 ; row < [self leadingLevel] ; row++ ) {
+        [self.LeadingPos addObject:[NSNumber numberWithFloat:self.leadingMarginToItem]];
+        self.leadingMarginToItem  += [self leadingWidth:row];
+    }
+    
+    /* headingMarginToItem */
+    [self.HeadingPos removeAllObjects];
+    self.headingMarginToItem = 0.f;
+    for (NSInteger col = 0 ; col < [self headingLevel] ; col++ ) {
+        [self.HeadingPos addObject:[NSNumber numberWithFloat:self.headingMarginToItem]];
+        self.headingMarginToItem += [self headingHeight:col];
+    }
+    self.invalidContext = [[JQ_CollectionViewLayoutInvalidationContext alloc] init];
+    [self invalidateLayout];
+}
+-(void)invalidLayoutAtRowIndex:(NSInteger)rowIdx{
+    NSInteger rows = self.rowsPosition.count;
+    [self.rowsPosition removeObjectsInRange:NSMakeRange(rowIdx, rows - rowIdx)];
+    [self.colsPosition removeAllObjects];
+    
+    [self.LeadingPos removeAllObjects];
+    self.leadingMarginToItem = 0.f;
+    for (NSInteger row = 0 ; row < [self leadingLevel] ; row++ ) {
+        [self.LeadingPos addObject:[NSNumber numberWithFloat:self.leadingMarginToItem]];
+        self.leadingMarginToItem  += [self leadingWidth:row];
+    }
+    self.invalidContext = [[JQ_CollectionViewLayoutInvalidationContext alloc] init];
+    [self invalidateLayout];
+}
+-(void)invalidLayoutAtColIndex:(NSInteger)colIdx{
+    NSInteger cols = self.colsPosition.count;
+    [self.colsPosition removeObjectsInRange:NSMakeRange(colIdx, cols - colIdx)];
+    [self.rowsPosition removeAllObjects];
+    
+    /* headingMarginToItem */
+    [self.HeadingPos removeAllObjects];
+    self.headingMarginToItem = 0.f;
+    for (NSInteger col = 0 ; col < [self headingLevel] ; col++ ) {
+        [self.HeadingPos addObject:[NSNumber numberWithFloat:self.headingMarginToItem]];
+        self.headingMarginToItem += [self headingHeight:col];
+    }
+    self.invalidContext = [[JQ_CollectionViewLayoutInvalidationContext alloc] init];
+    [self invalidateLayout];
 }
 
 #pragma mark - 辅助函数
@@ -238,7 +295,14 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
     /* iphoneX 这个地方有问题 */
     [super invalidateLayoutWithContext:[self invalidationContextForBoundsChange:self.collectionView.bounds]];
 }
-
+/*
+-(BOOL)shouldInvalidateLayoutForPreferredLayoutAttributes:(UICollectionViewLayoutAttributes *)preferredAttributes withOriginalAttributes:(UICollectionViewLayoutAttributes *)originalAttributes{
+    return YES;
+}
+-(UICollectionViewLayoutInvalidationContext *)invalidationContextForPreferredLayoutAttributes:(UICollectionViewLayoutAttributes *)preferredAttributes withOriginalAttributes:(UICollectionViewLayoutAttributes *)originalAttributes{
+    return [super invalidationContextForPreferredLayoutAttributes:preferredAttributes withOriginalAttributes:originalAttributes];
+}
+*/
 -(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect{
     
     NSMutableArray<UICollectionViewLayoutAttributes *> *layoutAttributes = [NSMutableArray array];
@@ -336,12 +400,15 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
     return CGRectZero;
 }
 -(NSArray *)indexPathOfItemsInRect:(CGRect)rect{
-    /*  item:row  section:col  */
+    /* item:行ID section:列ID */
+    NSMutableArray<NSIndexPath *> *indexPaths = [NSMutableArray array];
+    if ( (0 == [self colsNumber]) || (0 == [self rowsNumber]) ) {
+        return indexPaths;
+    }
     NSInteger minVisibleCol =  [self colIndexFromXCoordinate:CGRectGetMinX(rect)];
     NSInteger maxVisibleCol =  [self colIndexFromXCoordinate:CGRectGetMaxX(rect)];
     NSInteger minVisibleRow =  [self rowIndexFromYCoordinate:CGRectGetMinY(rect)];
     NSInteger maxVisibleRow =  [self rowIndexFromYCoordinate:CGRectGetMaxY(rect)];
-    NSMutableArray<NSIndexPath *> *indexPaths = [NSMutableArray array];
     for (NSInteger col = minVisibleCol;  col <= maxVisibleCol && col >= 0; col++) {
         for (NSInteger row = minVisibleRow;  row <= maxVisibleRow && row >= 0 ; row++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:row inSection:col];
@@ -351,9 +418,13 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
     return indexPaths;
 }
 -(NSArray *)indexPathOfHeadingSuplementaryInRect:(CGRect)rect{
+    
+    NSMutableArray *indexPaths = [NSMutableArray array];
+    if ( 0 == [self colsNumber] ) {
+        return indexPaths;
+    }
     NSInteger minVisibleCol =  [self colIndexFromXCoordinate:CGRectGetMinX(rect)];
     NSInteger maxVisibleCol =  [self colIndexFromXCoordinate:CGRectGetMaxX(rect)];
-    NSMutableArray *indexPaths = [NSMutableArray array];
     for (NSInteger idx = minVisibleCol; idx <= maxVisibleCol && idx >= 0; idx++) {
         for (NSInteger level = 0 ; level < [self headingLevel] ; level++ ) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:level];
@@ -363,9 +434,12 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
     return indexPaths;
 }
 -(NSArray *)indexPathOfLeadingSuplementaryInRect:(CGRect)rect{
+    NSMutableArray *indexPaths = [NSMutableArray array];
+    if ( 0 == [self rowsNumber] ) {
+        return indexPaths;
+    }
     NSInteger minVisibleRow =  [self rowIndexFromYCoordinate:CGRectGetMinY(rect)];
     NSInteger maxVisibleRow =  [self rowIndexFromYCoordinate:CGRectGetMaxY(rect)];
-    NSMutableArray *indexPaths = [NSMutableArray array];
     for (NSInteger idx = minVisibleRow; idx <= maxVisibleRow && idx >= 0; idx++) {
         for (NSInteger level = 0 ; level < [self leadingLevel] ; level++ ) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:level];
@@ -376,6 +450,9 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
 }
 -(NSArray *)indexPathOfMainSuplementaryInRect:(CGRect)rect{
     NSMutableArray *indexPaths = [NSMutableArray array];
+    if ( (0 == [self colsNumber]) && (0 == [self rowsNumber]) ) {
+        return indexPaths;
+    }
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [indexPaths addObject:indexPath];
     return indexPaths;
