@@ -43,6 +43,7 @@
 
 - (void)initComponent
 {
+    [super initComponent];
     self.leftLine = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     self.rightLine = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     self.topLine = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];

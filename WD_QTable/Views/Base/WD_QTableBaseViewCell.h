@@ -11,6 +11,7 @@
 @protocol WD_QTableBaseCellViewDelegate
 
 -(void)WD_QTableDidSelectAtIndexPath:(NSIndexPath *)indexPath;
+-(void)WD_QTableDidLongPressAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -21,6 +22,7 @@
 @property (strong, nonatomic)  NSIndexPath *indexPath;
 
 @property(strong,nonatomic) UITapGestureRecognizer *tapPressGesture;
+@property(strong,nonatomic) UILongPressGestureRecognizer *longPressGesture;
 
 - (void)initComponent;
 -(CGFloat)sizeThatFitHeighByWidth:(CGFloat)width;

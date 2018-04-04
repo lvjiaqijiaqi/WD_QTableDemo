@@ -15,6 +15,17 @@
     UITapGestureRecognizer *tapPressGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPress:)];
     [self addGestureRecognizer:tapPressGesture];
     self.tapPressGesture = tapPressGesture;
+    
+    UILongPressGestureRecognizer *longPressGesture =  [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+    [self addGestureRecognizer:longPressGesture];
+    self.longPressGesture = longPressGesture;
+}
+
+- (void)longPress:(UILongPressGestureRecognizer *)recognizer
+{
+    if (self.delegate) {
+        [self.delegate WD_QTableReusableViewName:self.supplementaryName didLongPressSupplementaryAtIndexPath:self.indexPath];
+    }
 }
 
 - (void)tapPress:(UITapGestureRecognizer *)recognizer

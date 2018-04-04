@@ -536,9 +536,6 @@
 }
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     WD_QTableBaseReusableView *cell = nil;
-    cell.supplementaryName = kind;
-    cell.delegate = self;
-    cell.indexPath = indexPath;
     if ([kind isEqualToString:@"leadingSupplementaryView"]) {
         cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[self.styleConstructor leadingSupplementaryIdentifier:indexPath] forIndexPath:indexPath];
         [self.styleConstructor constructLeadingSupplementary:cell By:[self modelForLeading:indexPath.item level:indexPath.section]];
@@ -552,6 +549,9 @@
         cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[self.styleConstructor sectionSupplementaryCellIdentifier:indexPath] forIndexPath:indexPath];
         [self.styleConstructor constructSectionSupplementary:cell By:[self modelForLeading:indexPath.item level:0].sectionModel];
     }
+    cell.supplementaryName = kind;
+    cell.delegate = self;
+    cell.indexPath = indexPath;
     return cell;
 }
 
@@ -559,9 +559,6 @@
 
 -(void)WD_QTableDidSelectAtIndexPath:(NSIndexPath *)indexPath{
     if(self.didSelectItemBlock) self.didSelectItemBlock(indexPath.row,indexPath.section,[self modelForItem:indexPath]);
-}
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [self WD_QTableDidSelectAtIndexPath:indexPath];
 }
 
 -(void)WD_QTableReusableViewName:(NSString *)SupplementaryName didSelectSupplementaryAtIndexPath:(NSIndexPath *)indexPath{
@@ -572,6 +569,23 @@
         if(self.didSelectLeadingBlock) self.didSelectLeadingBlock(indexPath);
     }else if ([SupplementaryName isEqualToString:@"sectionSupplementaryView"]) {
         if(self.didSelectSectionBlock)  self.didSelectSectionBlock(indexPath);
+    }
+}
+
+-(void)WD_QTableDidLongPressAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.didLongPressItemBlock) {
+        self.didLongPressItemBlock(indexPath.row,indexPath.section,[self modelForItem:indexPath]);
+    }
+}
+
+-(void)WD_QTableReusableViewName:(NSString *)SupplementaryName didLongPressSupplementaryAtIndexPath:(NSIndexPath *)indexPath{
+    if ([SupplementaryName isEqualToString:@"mainSupplementaryView"]) {
+    }else if ([SupplementaryName isEqualToString:@"headingSupplementaryView"]) {
+        if(self.didLongPressHeadingBlock) self.didLongPressHeadingBlock(indexPath);
+    }else if ([SupplementaryName isEqualToString:@"leadingSupplementaryView"]) {
+        if(self.didLongPressLeadingBlock) self.didLongPressLeadingBlock(indexPath);
+    }else if ([SupplementaryName isEqualToString:@"sectionSupplementaryView"]) {
+        if(self.didLongPressSectionBlock)  self.didLongPressSectionBlock(indexPath);
     }
 }
 

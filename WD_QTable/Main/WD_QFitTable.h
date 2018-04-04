@@ -36,19 +36,19 @@
  @param  indexPath 索引
  **/
 @property(nonatomic,copy) void(^didSelectLeadingBlock)(NSIndexPath *indexPath);
-
+@property(nonatomic,copy) void(^didLongPressLeadingBlock)(NSIndexPath *indexPath);
 /**
  响应Heading点击事件
  @param  indexPath 索引
  **/
 @property(nonatomic,copy) void(^didSelectHeadingBlock)(NSIndexPath *indexPath);
-
+@property(nonatomic,copy) void(^didLongPressHeadingBlock)(NSIndexPath *indexPath);
 /**
  响应Section点击事件
  @param  indexPath 索引
  **/
 @property(nonatomic,copy) void(^didSelectSectionBlock)(NSIndexPath *indexPath);
-
+@property(nonatomic,copy) void(^didLongPressSectionBlock)(NSIndexPath *indexPath);
 /**
  响应cell点击事件
  @param  row
@@ -56,6 +56,7 @@
  @param  WD_QTableModel
  **/
 @property(nonatomic,copy) void(^didSelectItemBlock)(NSInteger row, NSInteger col , WD_QTableModel *model);
+@property(nonatomic,copy) void(^didLongPressItemBlock)(NSInteger row, NSInteger col , WD_QTableModel *model);
 
 #pragma mark - 初始化方法
 /**

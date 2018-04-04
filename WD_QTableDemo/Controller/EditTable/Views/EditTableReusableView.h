@@ -6,9 +6,9 @@
 //  Copyright © 2018年 jqlv. All rights reserved.
 //
 
-#import "WD_QTableDefaultReusableView.h"
+#import "WD_QTableBaseReusableView.h"
 
-@interface EditTableReusableView : WD_QTableDefaultReusableView
+@interface EditTableReusableView : WD_QTableBaseReusableView
 
 @property (strong, nonatomic)  UILabel *mainLabel;
 
