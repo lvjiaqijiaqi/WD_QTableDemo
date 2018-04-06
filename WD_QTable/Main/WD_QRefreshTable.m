@@ -20,7 +20,7 @@
 
 @implementation WD_QRefreshTable
 
--(instancetype)initWithLayoutConfig:(id<WD_QTableDefaultLayoutConstructorDelegate>)layoutConstructor StyleConstructor:(id<WD_QTableDefaultStyleConstructorDelegate>)styleConstructor{
+-(instancetype)initWithLayoutConfig:(id<WD_QTableLayoutConstructorDelegate>)layoutConstructor StyleConstructor:(id<WD_QTableStyleConstructorDelegate>)styleConstructor{
     self = [super initWithLayoutConfig:layoutConstructor StyleConstructor:styleConstructor];
     if (self) {
         _refreshDirection = WD_QRefreshTableDirectionHorizontal;
@@ -34,20 +34,14 @@
     self.offsetYOld = self.collectionView.contentOffset.y;
     [self.collectionView addObserver:self forKeyPath:@"panGestureRecognizer.state" options:NSKeyValueObservingOptionNew context:NULL];
 }
--(void)updateData{
-    [self reloadDataToTop:NO];
-}
--(void)reloadData{
-    [super reloadData];
-    self.refreshStatus = NO;
-}
 -(void)loadMoreData{
-    [self reloadData];
+    [self updateData];
     [self reloadComplete];
 }
 -(void)reloadComplete{
     self.refreshStatus = NO;
 }
+
 - (void)scrollViewDidScrollForGesture:(UIScrollView *)scrollView
 {
     

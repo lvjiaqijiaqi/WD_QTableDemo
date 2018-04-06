@@ -79,8 +79,8 @@
         }
         [data addObject:rowArr];
     }
-    [self.table updateLeadingModel:leadings];
-    [self.table updateItemModel:data];
+    [self.table insertLeadingModel:leadings];
+    [self.table insertItemModel:data];
     [self.table loadMoreData];
     index++;
 }

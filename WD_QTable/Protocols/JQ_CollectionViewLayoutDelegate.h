@@ -1,16 +1,17 @@
 //
-//  JQ_CollectionViewLayout.h
+//  JQ_CollectionViewLayoutDelegate.h
 //  WD_QTableDemo
 //
-//  Created by jqlv on 2018/1/9.
+//  Created by lvjiaqi on 2018/4/6.
 //  Copyright © 2018年 jqlv. All rights reserved.
 //
 
+#ifndef JQ_CollectionViewLayoutDelegate_h
+#define JQ_CollectionViewLayoutDelegate_h
+
 #import <UIKit/UIKit.h>
 
-
 @class JQ_CollectionViewLayout;
-
 @protocol JQ_CollectionViewLayoutDelegate<NSObject>
 
 @required
@@ -27,10 +28,10 @@
 
 /* ITEM edges */
 /*-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout marginLeftOfCol:(NSInteger)col;
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout marginTopOfRow:(NSInteger)row;
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout marginRightOfCol:(NSInteger)col;
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout marginBottomOfRow:(NSInteger)row;
-*/
+ -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout marginTopOfRow:(NSInteger)row;
+ -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout marginRightOfCol:(NSInteger)col;
+ -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout marginBottomOfRow:(NSInteger)row;
+ */
 /* Item跨度 */
 -(NSInteger)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout ItemCollapseColNumberInRow:(NSInteger)row AtCol:(NSInteger)col;
 -(NSInteger)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout ItemCollapseRowNumberInCol:(NSInteger)col AtRow:(NSInteger)row;
@@ -59,13 +60,4 @@
 
 @end
 
-
-@interface JQ_CollectionViewLayout : UICollectionViewLayout
-
-@property(nonatomic,weak) id<JQ_CollectionViewLayoutDelegate> layoutDelegate;
--(void)resetLayout;
--(void)updateLayout;
--(void)invalidLayoutAtRowIndex:(NSInteger)rowIdx;
--(void)invalidLayoutAtColIndex:(NSInteger)colIdx;
--(void)invalidLayoutAtRow:(NSInteger)rowIdx InCol:(NSInteger)colIdx;
-@end
+#endif /* JQ_CollectionViewLayoutDelegate_h */

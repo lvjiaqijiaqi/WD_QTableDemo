@@ -12,7 +12,7 @@
 
 @interface BaseTableViewController ()
 
-@property(nonatomic,strong) WD_QFitTable *table;
+@property(nonatomic,strong) WD_QTable *table;
 
 @end
 
@@ -30,11 +30,11 @@
     return label;
 }
 
--(WD_QFitTable *)table{
+-(WD_QTable *)table{
     if (!_table) {
         WD_QTableDefaultLayoutConstructor *config =  [[WD_QTableDefaultLayoutConstructor alloc] init];
         WD_QTableDefaultStyleConstructor *style = [[WD_QTableDefaultStyleConstructor alloc] init];
-        _table = [[WD_QFitTable alloc] initWithLayoutConfig:config StyleConstructor:style];
+        _table = [[WD_QTable alloc] initWithLayoutConfig:config StyleConstructor:style];
         config.inset = UIEdgeInsetsMake(200, 0, 0, 0);
         _table.headView = [self tipsLabel];
         _table.needTranspostionForModel = YES;

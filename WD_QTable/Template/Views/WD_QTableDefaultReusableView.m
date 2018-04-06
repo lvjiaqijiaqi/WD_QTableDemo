@@ -16,8 +16,6 @@
 @property(strong,nonatomic) UIView *topLine;
 @property(strong,nonatomic) UIView *bottomLine;
 
-@property(strong,nonatomic) UILongPressGestureRecognizer *longPressGesture;
-
 @end
 
 @implementation WD_QTableDefaultReusableView

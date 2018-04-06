@@ -6,14 +6,7 @@
 //  Copyright © 2018年 wind. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@protocol WD_QTableBaseCellViewDelegate
-
--(void)WD_QTableDidSelectAtIndexPath:(NSIndexPath *)indexPath;
--(void)WD_QTableDidLongPressAtIndexPath:(NSIndexPath *)indexPath;
-
-@end
+#import "WD_QTableCellDelegate.h"
 
 @interface WD_QTableBaseViewCell : UICollectionViewCell
 

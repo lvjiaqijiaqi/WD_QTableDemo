@@ -6,7 +6,7 @@
 //  Copyright © 2018年 jqlv. All rights reserved.
 //
 
-#import "WD_QTableModelProtocol.h"
+#import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, WD_QTableCellType) {
     WD_QTableCellTypeCellUnknown,
@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, WD_QTableCellType) {
     WD_QTableCellTypeCellDate
 };
 
-@interface WD_QTableModel : NSObject<WD_QTableModelProtocol>
+@interface WD_QTableModel : NSObject
 
 /* title */
 @property(nonatomic,strong) NSString *title;

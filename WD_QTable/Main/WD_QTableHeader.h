@@ -9,9 +9,8 @@
 #ifndef WD_QTableHeader_h
 #define WD_QTableHeader_h
 
-#import "WD_QTable.h"
 #import "WD_QRefreshTable.h"
-#import "WD_QFitTable.h"
+#import "WD_QTable.h"
 
 #import "WD_QTableBaseReusableView.h"
 

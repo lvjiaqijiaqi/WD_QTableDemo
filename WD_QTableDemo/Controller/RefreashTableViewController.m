@@ -65,8 +65,8 @@
         }
         [data addObject:rowArr];
     }
-    [self.table updateHeadingModel:headings];
-    [self.table updateItemModel:data];
+    [self.table insertHeadingModel:headings];
+    [self.table insertItemModel:data];
     [self.table loadMoreData];
     index++;
 }

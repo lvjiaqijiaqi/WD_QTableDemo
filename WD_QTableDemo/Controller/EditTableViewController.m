@@ -13,17 +13,17 @@
 
 @interface EditTableViewController ()
 
-@property(nonatomic,strong) WD_QFitTable *table;
+@property(nonatomic,strong) WD_QTable *table;
 
 @end
 
 @implementation EditTableViewController
 
--(WD_QFitTable *)table{
+-(WD_QTable *)table{
     if (!_table) {
         WD_QTableDefaultLayoutConstructor *config =  [[WD_QTableDefaultLayoutConstructor alloc] init];
         EditTableStyleConstructor *style = [[EditTableStyleConstructor alloc] init];
-        _table = [[WD_QFitTable alloc] initWithLayoutConfig:config StyleConstructor:style];
+        _table = [[WD_QTable alloc] initWithLayoutConfig:config StyleConstructor:style];
         config.inset = UIEdgeInsetsMake(0, 0, 0, 0);
         _table.needTranspostionForModel = YES;
     }

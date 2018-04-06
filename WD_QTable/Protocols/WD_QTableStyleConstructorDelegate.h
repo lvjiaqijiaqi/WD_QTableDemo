@@ -10,8 +10,7 @@
 #define WD_QTableStyleConstructorDelegate_h
 
 #import <UIKit/UIKit.h>
-
-@protocol WD_QTableModelProtocol;
+#import "WD_QTableModel.h"
 
 @protocol WD_QTableStyleConstructorDelegate
 
@@ -35,11 +34,11 @@
 /*
  通过WD_QTableModel为cell填充数据并且配置样式。
  */
--(void)constructItemCollectionView:(UICollectionViewCell *)cell By:(id<WD_QTableModelProtocol>)model;
--(void)constructSectionSupplementary:(UICollectionReusableView *)cell By:(id<WD_QTableModelProtocol>)model;
--(void)constructLeadingSupplementary:(UICollectionReusableView *)cell By:(id<WD_QTableModelProtocol>)model;
--(void)constructMainSupplementary:(UICollectionReusableView *)cell By:(id<WD_QTableModelProtocol>)model;
--(void)constructHeadingSupplementary:(UICollectionReusableView *)cell By:(id<WD_QTableModelProtocol>)model;
+-(void)constructItemCollectionView:(UICollectionViewCell *)cell By:(WD_QTableModel *)model;
+-(void)constructSectionSupplementary:(UICollectionReusableView *)cell By:(WD_QTableModel *)model;
+-(void)constructLeadingSupplementary:(UICollectionReusableView *)cell By:(WD_QTableModel *)model;
+-(void)constructMainSupplementary:(UICollectionReusableView *)cell By:(WD_QTableModel *)model;
+-(void)constructHeadingSupplementary:(UICollectionReusableView *)cell By:(WD_QTableModel *)model;
 
 /*
  表格的背景色

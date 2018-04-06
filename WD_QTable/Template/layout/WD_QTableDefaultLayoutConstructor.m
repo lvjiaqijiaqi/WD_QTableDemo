@@ -7,7 +7,6 @@
 //
 
 #import "WD_QTableDefaultLayoutConstructor.h"
-#import "WD_QTable.h"
 #import "WD_QTableModel.h"
 
 #define WD_QTableDefaultItemW 100.f

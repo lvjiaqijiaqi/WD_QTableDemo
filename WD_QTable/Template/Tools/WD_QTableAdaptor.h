@@ -9,25 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "WD_QTableDefaultStyleConstructor.h"
 #import "WD_QTableAutoLayoutConstructor.h"
-#import "WD_QViewModel.h"
+#import "WD_QTableChangeDelegate.h"
 
 typedef NS_ENUM(NSUInteger, WD_QTableCellIdx) {
     WD_QTableCellIdxItem,
     WD_QTableCellIdxLeading,
     WD_QTableCellIdxHeading,
 };
-
-@protocol WD_QTableAdaptorDelegate<NSObject>
-
-//-(void)commitChange:(WD_QViewModel *)models FromIndex:(NSInteger)index;
-//-(void)commitInsert:(WD_QViewModel *)models AtIndex:(NSInteger)index;
-//-(void)commitDeleteAt:(nsinde)
-
-@end
-
 @class WD_QTableDefaultViewCell;
 
-@interface WD_QTableAdaptor : NSObject<WD_QTableAdaptorDelegate>
+@interface WD_QTableAdaptor : NSObject<WD_QTableChangeDelegate>
 
 @property (nonatomic, strong) id<WD_QTableStyleConstructorDelegate> styleConstructor;
 @property (nonatomic, strong) WD_QTableAutoLayoutConstructor* layoutConstructor;

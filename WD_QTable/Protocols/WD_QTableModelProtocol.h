@@ -19,6 +19,7 @@
 -(NSIndexPath *)indexPath;
 -(BOOL)isPlace;
 -(NSArray<id<WD_QTableModelProtocol>> *)childrenModels;
+-(void)setTitle:(NSString *)title;
 
 +(id<WD_QTableModelProtocol>)placeModel;
 +(id<WD_QTableModelProtocol>)emptyModel;

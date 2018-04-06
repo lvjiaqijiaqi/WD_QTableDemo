@@ -16,7 +16,7 @@
 
 @interface CustomLayoutViewController ()
 
-@property(nonatomic,strong) WD_QFitTable *table;
+@property(nonatomic,strong) WD_QTable *table;
 
 @end
 
@@ -35,7 +35,7 @@
     return label;
 }
 
--(WD_QFitTable *)table{
+-(WD_QTable *)table{
     if (!_table) {
         WD_QTableAutoLayoutConstructor *config =  [[WD_QTableAutoLayoutConstructor alloc] init];
         config.inset = UIEdgeInsetsMake(300, 0, 0, 0);

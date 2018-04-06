@@ -12,7 +12,6 @@
   WD_QTableDefaultLayoutConstructor:WIND表格标准配置类,
   如果需要自定义可以继承该类，或者自己重新写只需要实现WD_QTableDefaultLayoutConstructorDelegate协议即可。
 */
-#import <UIKit/UIKit.h>
 #import "JQ_CollectionViewLayout.h"
 #import "WD_QTableLayoutConstructorDelegate.h"
 

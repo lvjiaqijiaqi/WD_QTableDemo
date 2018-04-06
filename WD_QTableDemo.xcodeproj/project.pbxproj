@@ -23,7 +23,6 @@
 		ADBB0D812050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D512050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m */; };
 		ADBB0D822050C50400757D68 /* WD_QBaseTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D542050C50400757D68 /* WD_QBaseTable.m */; };
 		ADBB0D832050C50400757D68 /* WD_QRefreshTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D562050C50400757D68 /* WD_QRefreshTable.m */; };
-		ADBB0D842050C50400757D68 /* WD_QTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D582050C50400757D68 /* WD_QTable.m */; };
 		ADBB0D852050C50400757D68 /* WD_QTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */; };
 		ADBB0D872050C50400757D68 /* WD_QViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D602050C50400757D68 /* WD_QViewModel.m */; };
 		ADBB0D882050C50400757D68 /* WD_QTableAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D702050C50400757D68 /* WD_QTableAdaptor.m */; };
@@ -58,8 +57,7 @@
 		ADBB0DDE20510A0300757D68 /* WeakPlanTableStyleConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DDD20510A0300757D68 /* WeakPlanTableStyleConstructor.m */; };
 		ADBB0DE220510D7000757D68 /* WeakPlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DE120510D7000757D68 /* WeakPlanTableViewCell.m */; };
 		ADBB0DE520510F0900757D68 /* WeakPlanReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DE420510F0900757D68 /* WeakPlanReusableView.m */; };
-		ADC30DD62073A172002AE183 /* WD_QEditTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC30DD52073A172002AE183 /* WD_QEditTable.m */; };
-		ADCDD637207468A9003C8D65 /* WD_QFitTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD636207468A9003C8D65 /* WD_QFitTable.m */; };
+		ADCDD637207468A9003C8D65 /* WD_QTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD636207468A9003C8D65 /* WD_QTable.m */; };
 		ADCDD63A2074C4F3003C8D65 /* EditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD6392074C4F3003C8D65 /* EditTableViewController.m */; };
 		ADCDD63E2074CCD6003C8D65 /* EditTableStyleConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD63D2074CCD6003C8D65 /* EditTableStyleConstructor.m */; };
 		ADCDD6422074CD16003C8D65 /* EditTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD6412074CD16003C8D65 /* EditTableCell.m */; };
@@ -84,6 +82,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ABB5AA7A20772C7C00B5D66B /* JQ_CollectionViewLayoutDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JQ_CollectionViewLayoutDelegate.h; sourceTree = "<group>"; };
+		ABB5AA7B20772FAF00B5D66B /* WD_QTableCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableCellDelegate.h; sourceTree = "<group>"; };
+		ABB5AA822077543D00B5D66B /* WD_QTableChangeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableChangeDelegate.h; sourceTree = "<group>"; };
 		AD5D840E205779C400CE3F1D /* WD_QTableOtherViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableOtherViewCell.h; sourceTree = "<group>"; };
 		AD5D840F205779C400CE3F1D /* WD_QTableOtherViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QTableOtherViewCell.m; sourceTree = "<group>"; };
 		AD5D84122057A28300CE3F1D /* WD_QTableBaseColAdaptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableBaseColAdaptor.h; sourceTree = "<group>"; };
@@ -116,8 +117,6 @@
 		ADBB0D542050C50400757D68 /* WD_QBaseTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QBaseTable.m; sourceTree = "<group>"; };
 		ADBB0D552050C50400757D68 /* WD_QRefreshTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QRefreshTable.h; sourceTree = "<group>"; };
 		ADBB0D562050C50400757D68 /* WD_QRefreshTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QRefreshTable.m; sourceTree = "<group>"; };
-		ADBB0D572050C50400757D68 /* WD_QTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTable.h; sourceTree = "<group>"; };
-		ADBB0D582050C50400757D68 /* WD_QTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTable.m; sourceTree = "<group>"; };
 		ADBB0D592050C50400757D68 /* WD_QTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableHeader.h; sourceTree = "<group>"; };
 		ADBB0D5B2050C50400757D68 /* WD_QTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableModel.h; sourceTree = "<group>"; };
 		ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableModel.m; sourceTree = "<group>"; };
@@ -190,13 +189,10 @@
 		ADBB0DE120510D7000757D68 /* WeakPlanTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakPlanTableViewCell.m; sourceTree = "<group>"; };
 		ADBB0DE320510F0900757D68 /* WeakPlanReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakPlanReusableView.h; sourceTree = "<group>"; };
 		ADBB0DE420510F0900757D68 /* WeakPlanReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakPlanReusableView.m; sourceTree = "<group>"; };
-		ADC30DD42073A172002AE183 /* WD_QEditTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QEditTable.h; sourceTree = "<group>"; };
-		ADC30DD52073A172002AE183 /* WD_QEditTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QEditTable.m; sourceTree = "<group>"; };
-		ADC99B23207715CC008203E2 /* WD_QTableModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableModelProtocol.h; sourceTree = "<group>"; };
 		ADC99B25207716AB008203E2 /* WD_QTableLayoutConstructorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableLayoutConstructorDelegate.h; sourceTree = "<group>"; };
 		ADC99B262077173D008203E2 /* WD_QTableStyleConstructorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableStyleConstructorDelegate.h; sourceTree = "<group>"; };
-		ADCDD635207468A9003C8D65 /* WD_QFitTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QFitTable.h; sourceTree = "<group>"; };
-		ADCDD636207468A9003C8D65 /* WD_QFitTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QFitTable.m; sourceTree = "<group>"; };
+		ADCDD635207468A9003C8D65 /* WD_QTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTable.h; sourceTree = "<group>"; };
+		ADCDD636207468A9003C8D65 /* WD_QTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QTable.m; sourceTree = "<group>"; };
 		ADCDD6382074C4F3003C8D65 /* EditTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTableViewController.h; sourceTree = "<group>"; };
 		ADCDD6392074C4F3003C8D65 /* EditTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTableViewController.m; sourceTree = "<group>"; };
 		ADCDD63C2074CCD6003C8D65 /* EditTableStyleConstructor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTableStyleConstructor.h; sourceTree = "<group>"; };
@@ -232,6 +228,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ABB5AA7F20773F7200B5D66B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D5B2050C50400757D68 /* WD_QTableModel.h */,
+				ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ABB5AA8020773F7B00B5D66B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB0D752050C50400757D68 /* WD_QTableBaseReusableView.h */,
+				ADBB0D762050C50400757D68 /* WD_QTableBaseReusableView.m */,
+				ADBB0D772050C50400757D68 /* WD_QTableBaseViewCell.h */,
+				ADBB0D782050C50400757D68 /* WD_QTableBaseViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		ADBB0D052050C4D300757D68 = {
 			isa = PBXGroup;
 			children = (
@@ -257,7 +273,6 @@
 		ADBB0D102050C4D400757D68 /* WD_QTableDemo */ = {
 			isa = PBXGroup;
 			children = (
-				ADBB0DD72050DE6B00757D68 /* View */,
 				ADBB0DD62050DE5A00757D68 /* Style */,
 				ADBB0DB72050C60800757D68 /* Controller */,
 				ADBB0DB22050C55100757D68 /* MyTableViewController.h */,
@@ -296,19 +311,9 @@
 			children = (
 				ADC99B2420771669008203E2 /* Protocols */,
 				ADBB0D522050C50400757D68 /* Main */,
-				ADC99B272077185A008203E2 /* DefaultMoudule */,
-				ADBB0D612050C50400757D68 /* Moudle */,
+				ADC99B272077185A008203E2 /* Template */,
 			);
 			path = WD_QTable;
-			sourceTree = "<group>";
-		};
-		ADBB0D442050C50400757D68 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D452050C50400757D68 /* layout */,
-				ADBB0D4A2050C50400757D68 /* style */,
-			);
-			path = Configuration;
 			sourceTree = "<group>";
 		};
 		ADBB0D452050C50400757D68 /* layout */ = {
@@ -345,17 +350,16 @@
 		ADBB0D522050C50400757D68 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				ADBB0D4D2050C50400757D68 /* Layout */,
+				ABB5AA8020773F7B00B5D66B /* Views */,
+				ABB5AA7F20773F7200B5D66B /* Model */,
+				ADBB0D592050C50400757D68 /* WD_QTableHeader.h */,
 				ADBB0D532050C50400757D68 /* WD_QBaseTable.h */,
 				ADBB0D542050C50400757D68 /* WD_QBaseTable.m */,
+				ADCDD635207468A9003C8D65 /* WD_QTable.h */,
+				ADCDD636207468A9003C8D65 /* WD_QTable.m */,
 				ADBB0D552050C50400757D68 /* WD_QRefreshTable.h */,
 				ADBB0D562050C50400757D68 /* WD_QRefreshTable.m */,
-				ADBB0D572050C50400757D68 /* WD_QTable.h */,
-				ADBB0D582050C50400757D68 /* WD_QTable.m */,
-				ADC30DD42073A172002AE183 /* WD_QEditTable.h */,
-				ADC30DD52073A172002AE183 /* WD_QEditTable.m */,
-				ADBB0D592050C50400757D68 /* WD_QTableHeader.h */,
-				ADCDD635207468A9003C8D65 /* WD_QFitTable.h */,
-				ADCDD636207468A9003C8D65 /* WD_QFitTable.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -363,115 +367,10 @@
 		ADBB0D5A2050C50400757D68 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ADBB0D5B2050C50400757D68 /* WD_QTableModel.h */,
-				ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */,
 				ADBB0D5F2050C50400757D68 /* WD_QViewModel.h */,
 				ADBB0D602050C50400757D68 /* WD_QViewModel.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		ADBB0D612050C50400757D68 /* Moudle */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D622050C50400757D68 /* BondBalanceMoudle */,
-				ADBB0D642050C50400757D68 /* BondGuaranteeMoudle */,
-				ADBB0D662050C50400757D68 /* BondHistoryPerformanceMoudle */,
-				ADBB0D682050C50400757D68 /* BondStockRightMoudle */,
-				ADBB0D6A2050C50400757D68 /* FinanceMoudle */,
-				ADBB0D6D2050C50400757D68 /* FinancePerKeyMoudle */,
-			);
-			path = Moudle;
-			sourceTree = "<group>";
-		};
-		ADBB0D622050C50400757D68 /* BondBalanceMoudle */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D632050C50400757D68 /* Views */,
-			);
-			path = BondBalanceMoudle;
-			sourceTree = "<group>";
-		};
-		ADBB0D632050C50400757D68 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		ADBB0D642050C50400757D68 /* BondGuaranteeMoudle */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D652050C50400757D68 /* Views */,
-			);
-			path = BondGuaranteeMoudle;
-			sourceTree = "<group>";
-		};
-		ADBB0D652050C50400757D68 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		ADBB0D662050C50400757D68 /* BondHistoryPerformanceMoudle */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D672050C50400757D68 /* Views */,
-			);
-			path = BondHistoryPerformanceMoudle;
-			sourceTree = "<group>";
-		};
-		ADBB0D672050C50400757D68 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		ADBB0D682050C50400757D68 /* BondStockRightMoudle */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D692050C50400757D68 /* Views */,
-			);
-			path = BondStockRightMoudle;
-			sourceTree = "<group>";
-		};
-		ADBB0D692050C50400757D68 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		ADBB0D6A2050C50400757D68 /* FinanceMoudle */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D6B2050C50400757D68 /* config */,
-				ADBB0D6C2050C50400757D68 /* Views */,
-			);
-			path = FinanceMoudle;
-			sourceTree = "<group>";
-		};
-		ADBB0D6B2050C50400757D68 /* config */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = config;
-			sourceTree = "<group>";
-		};
-		ADBB0D6C2050C50400757D68 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		ADBB0D6D2050C50400757D68 /* FinancePerKeyMoudle */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FinancePerKeyMoudle;
 			sourceTree = "<group>";
 		};
 		ADBB0D6E2050C50400757D68 /* Tools */ = {
@@ -490,7 +389,6 @@
 		ADBB0D732050C50400757D68 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ADBB0D742050C50400757D68 /* Base */,
 				ADBB0D792050C50400757D68 /* WD_QTableDefaultReusableView.h */,
 				ADBB0D7A2050C50400757D68 /* WD_QTableDefaultReusableView.m */,
 				ADBB0D7B2050C50400757D68 /* WD_QTableDefaultViewCell.h */,
@@ -499,17 +397,6 @@
 				AD5D840F205779C400CE3F1D /* WD_QTableOtherViewCell.m */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		ADBB0D742050C50400757D68 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D752050C50400757D68 /* WD_QTableBaseReusableView.h */,
-				ADBB0D762050C50400757D68 /* WD_QTableBaseReusableView.m */,
-				ADBB0D772050C50400757D68 /* WD_QTableBaseViewCell.h */,
-				ADBB0D782050C50400757D68 /* WD_QTableBaseViewCell.m */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		ADBB0D8E2050C50800757D68 /* Masonry */ = {
@@ -580,13 +467,6 @@
 			path = Style;
 			sourceTree = "<group>";
 		};
-		ADBB0DD72050DE6B00757D68 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		ADBB0DDB2051080200757D68 /* weekPlan */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,23 +495,25 @@
 		ADC99B2420771669008203E2 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				ADC99B23207715CC008203E2 /* WD_QTableModelProtocol.h */,
 				ADC99B25207716AB008203E2 /* WD_QTableLayoutConstructorDelegate.h */,
 				ADC99B262077173D008203E2 /* WD_QTableStyleConstructorDelegate.h */,
+				ABB5AA7A20772C7C00B5D66B /* JQ_CollectionViewLayoutDelegate.h */,
+				ABB5AA7B20772FAF00B5D66B /* WD_QTableCellDelegate.h */,
+				ABB5AA822077543D00B5D66B /* WD_QTableChangeDelegate.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		ADC99B272077185A008203E2 /* DefaultMoudule */ = {
+		ADC99B272077185A008203E2 /* Template */ = {
 			isa = PBXGroup;
 			children = (
 				ADBB0D5A2050C50400757D68 /* Model */,
-				ADBB0D4D2050C50400757D68 /* Layout */,
-				ADBB0D442050C50400757D68 /* Configuration */,
+				ADBB0D452050C50400757D68 /* layout */,
+				ADBB0D4A2050C50400757D68 /* style */,
 				ADBB0D732050C50400757D68 /* Views */,
 				ADBB0D6E2050C50400757D68 /* Tools */,
 			);
-			path = DefaultMoudule;
+			path = Template;
 			sourceTree = "<group>";
 		};
 		ADCDD63B2074C955003C8D65 /* EditTable */ = {
@@ -796,7 +678,6 @@
 				AD5D84142057A28300CE3F1D /* WD_QTableBaseColAdaptor.m in Sources */,
 				ADBB0DCE2050C60800757D68 /* CustomStyleConstructor2.m in Sources */,
 				ADCDD6422074CD16003C8D65 /* EditTableCell.m in Sources */,
-				ADBB0D842050C50400757D68 /* WD_QTable.m in Sources */,
 				ADBB0D872050C50400757D68 /* WD_QViewModel.m in Sources */,
 				ADBB0DD22050C60800757D68 /* TipsViewController.m in Sources */,
 				ADBB0DCC2050C60800757D68 /* CustomLayoutViewController.m in Sources */,
@@ -814,7 +695,7 @@
 				ADBB0D212050C4D400757D68 /* main.m in Sources */,
 				ADBB0DAA2050C50800757D68 /* MASConstraintMaker.m in Sources */,
 				ADBB0DB02050C50800757D68 /* View+MASAdditions.m in Sources */,
-				ADCDD637207468A9003C8D65 /* WD_QFitTable.m in Sources */,
+				ADCDD637207468A9003C8D65 /* WD_QTable.m in Sources */,
 				ADBB0DAD2050C50800757D68 /* MASViewConstraint.m in Sources */,
 				ADBB0DE520510F0900757D68 /* WeakPlanReusableView.m in Sources */,
 				ADBB0DD02050C60800757D68 /* RefreashTableCrossViewController.m in Sources */,
@@ -827,7 +708,6 @@
 				ADBB0DDE20510A0300757D68 /* WeakPlanTableStyleConstructor.m in Sources */,
 				ADBB0D802050C50400757D68 /* JQ_CollectionViewLayout.m in Sources */,
 				ADBB0DA92050C50800757D68 /* MASConstraint.m in Sources */,
-				ADC30DD62073A172002AE183 /* WD_QEditTable.m in Sources */,
 				ADBB0DCB2050C60800757D68 /* ComplexTableViewController.m in Sources */,
 				ADBB0DB42050C55100757D68 /* MyTableViewController.m in Sources */,
 				ADBB0D822050C50400757D68 /* WD_QBaseTable.m in Sources */,

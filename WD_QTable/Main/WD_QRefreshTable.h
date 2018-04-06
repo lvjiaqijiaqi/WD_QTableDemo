@@ -9,7 +9,7 @@
 //  继承WD_QTable，支持滑动加载刷新
 
 
-#import "WD_QFitTable.h"
+#import "WD_QTable.h"
 
 /*
  WD_QRefreshTableDirection 枚举
@@ -21,7 +21,7 @@ typedef NS_ENUM(NSUInteger, WD_QRefreshTableDirection) {
     WD_QRefreshTableDirectionVertical
 };
 
-@interface WD_QRefreshTable : WD_QFitTable
+@interface WD_QRefreshTable : WD_QTable
 
 @property(nonatomic,assign) NSInteger refreshDirection;
 
