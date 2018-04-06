@@ -14,27 +14,11 @@
 */
 #import <UIKit/UIKit.h>
 #import "JQ_CollectionViewLayout.h"
+#import "WD_QTableLayoutConstructorDelegate.h"
 
 @class WD_QTable;
 
-@protocol WD_QTableDefaultLayoutConstructorDelegate
-
-@required
-
--(CGRect)QTableFrame;
--(UIEdgeInsets)QTableInset;
-
--(UIEdgeInsets)QTableItemCellInset:(NSIndexPath *)index;
--(CGFloat)rowHeightAtRowId:(NSInteger)rowId;
--(CGFloat)colWidthAtcolId:(NSInteger)colId;
--(CGFloat)leadingWAtLevel:(NSInteger)level;
--(CGFloat)headingHAtLevel:(NSInteger)level;
-
--(BOOL)adjustLayoutForNewFrame:(CGRect)frame colCount:(NSInteger)colCount andRowCount:(NSInteger)rowCount;
-
-@end
-
-@interface WD_QTableDefaultLayoutConstructor : NSObject<WD_QTableDefaultLayoutConstructorDelegate>
+@interface WD_QTableDefaultLayoutConstructor : NSObject<WD_QTableLayoutConstructorDelegate>
 
 @property(nonatomic,assign) CGRect frame;
 @property(nonatomic,assign) UIEdgeInsets inset;

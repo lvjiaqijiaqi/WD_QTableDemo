@@ -64,6 +64,7 @@
 
 @property(nonatomic,weak) id<JQ_CollectionViewLayoutDelegate> layoutDelegate;
 -(void)resetLayout;
+-(void)updateLayout;
 -(void)invalidLayoutAtRowIndex:(NSInteger)rowIdx;
 -(void)invalidLayoutAtColIndex:(NSInteger)colIdx;
 -(void)invalidLayoutAtRow:(NSInteger)rowIdx InCol:(NSInteger)colIdx;

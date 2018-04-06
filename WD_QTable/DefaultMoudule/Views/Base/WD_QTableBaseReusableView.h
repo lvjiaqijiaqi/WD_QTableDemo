@@ -15,6 +15,7 @@
 
 -(void)WD_QTableReusableViewName:(NSString *)SupplementaryName didSelectSupplementaryAtIndexPath:(NSIndexPath *)indexPath;
 -(void)WD_QTableReusableViewName:(NSString *)SupplementaryName didLongPressSupplementaryAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 @interface WD_QTableBaseReusableView : UICollectionReusableView
@@ -27,7 +28,7 @@
 @property(strong,nonatomic) UITapGestureRecognizer *tapPressGesture;
 @property(strong,nonatomic) UILongPressGestureRecognizer *longPressGesture;
 
-- (void)initComponent;
+-(void)initComponent;
 -(CGSize)sizeThatFits:(CGSize)size;
 -(CGFloat)sizeThatFitHeighByWidth:(CGFloat)width;
 -(CGFloat)sizeThatFitWidthByHeight:(CGFloat)height;

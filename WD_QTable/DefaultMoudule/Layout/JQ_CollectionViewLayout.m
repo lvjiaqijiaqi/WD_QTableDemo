@@ -98,6 +98,11 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
     
 }
 
+-(void)updateLayout{
+    self.invalidContext = [[JQ_CollectionViewLayoutInvalidationContext alloc] init];
+    [self invalidateLayout];
+}
+
 -(void)invalidLayoutAtRow:(NSInteger)rowIdx InCol:(NSInteger)colIdx{
     
     NSInteger rows = self.rowsPosition.count;

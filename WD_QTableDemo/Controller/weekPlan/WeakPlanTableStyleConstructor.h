@@ -8,6 +8,6 @@
 
 #import "WD_QTableDefaultStyleConstructor.h"
 
-@interface WeakPlanTableStyleConstructor : NSObject<WD_QTableDefaultStyleConstructorDelegate>
+@interface WeakPlanTableStyleConstructor : NSObject<WD_QTableStyleConstructorDelegate>
 
 @end

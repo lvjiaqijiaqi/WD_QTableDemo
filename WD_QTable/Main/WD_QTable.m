@@ -11,25 +11,24 @@
 #import "WD_QTableBaseReusableView.h"
 #import "WD_QTableBaseViewCell.h"
 
-#import "WD_QTableDefaultStyleConstructor.h"
-#import "WD_QTableDefaultLayoutConstructor.h"
-
-#import "WD_QTableModel.h"
+#import "WD_QTableLayoutConstructorDelegate.h"
+#import "WD_QTableStyleConstructorDelegate.h"
+#import "WD_QTableModelProtocol.h"
 
 #define Lock() dispatch_semaphore_wait(self.lock, DISPATCH_TIME_FOREVER)
 #define Unlock() dispatch_semaphore_signal(self.lock)
 
 @interface WD_QTable ()<WD_QTableBaseReusableViewDelegate,JQ_CollectionViewLayoutDelegate,WD_QTableBaseCellViewDelegate>
 
-@property (nonatomic,strong) id<WD_QTableDefaultStyleConstructorDelegate> styleConstructor;
-@property (nonatomic,strong) id<WD_QTableDefaultLayoutConstructorDelegate> layoutConstructor;
+@property (nonatomic,strong) id<WD_QTableStyleConstructorDelegate> styleConstructor;
+@property (nonatomic,strong) id<WD_QTableLayoutConstructorDelegate> layoutConstructor;
 
 @property (nonatomic,strong) JQ_CollectionViewLayout *collectionLayout;
 
 @property (nonatomic,strong) WD_QTableModel *mainModel;
-@property (nonatomic,strong) NSMutableArray<NSMutableArray<WD_QTableModel *> *> *datas;
-@property (nonatomic,strong) NSMutableArray<NSMutableArray<WD_QTableModel *> *> *headings;
-@property (nonatomic,strong) NSMutableArray<NSMutableArray<WD_QTableModel *> *> *leadings;
+@property (nonatomic,strong) NSMutableArray<NSMutableArray<id<WD_QTableModelProtocol>> *> *datas;
+@property (nonatomic,strong) NSMutableArray<NSMutableArray<id<WD_QTableModelProtocol>> *> *headings;
+@property (nonatomic,strong) NSMutableArray<NSMutableArray<id<WD_QTableModelProtocol>> *> *leadings;
 
 @property (nonatomic,strong) WD_QViewModel *variationModel;
 @property (nonatomic,strong) dispatch_semaphore_t lock;
@@ -49,14 +48,14 @@
     return self.collectionLayout;
 }
 #pragma mark - LayoutConstructor相关
--(void)updateLayoutConstructor:(id<WD_QTableDefaultLayoutConstructorDelegate>)layoutConstructor{
+-(void)updateLayoutConstructor:(id<WD_QTableLayoutConstructorDelegate>)layoutConstructor{
     self.view.frame = [layoutConstructor QTableFrame];
     self.collectionView.contentInset = [layoutConstructor QTableInset];
 }
 
 #pragma mark - StyleConstructor相关
 
--(void)updateStyleConstructor:(id<WD_QTableDefaultStyleConstructorDelegate>)styleConstructor{
+-(void)updateStyleConstructor:(id<WD_QTableStyleConstructorDelegate>)styleConstructor{
     [self registerCell];
 }
 -(void)registerCell{
@@ -79,7 +78,7 @@
 }
 
 #pragma mark - 初始化方法
-- (instancetype)initWithLayoutConfig:(id<WD_QTableDefaultLayoutConstructorDelegate> )layoutConstructor StyleConstructor:(id<WD_QTableDefaultStyleConstructorDelegate> )styleConstructor
+- (instancetype)initWithLayoutConfig:(id<WD_QTableLayoutConstructorDelegate> )layoutConstructor StyleConstructor:(id<WD_QTableStyleConstructorDelegate> )styleConstructor
 {
     self = [super init];
     if (self) {
@@ -110,7 +109,7 @@
     self.collectionView.bounces = NO;
 }
 
--(void)changeStyleConstructor:(id<WD_QTableDefaultStyleConstructorDelegate>)constructor LayoutConstructor:(id<WD_QTableDefaultLayoutConstructorDelegate>)layoutConstructor{
+-(void)changeStyleConstructor:(id<WD_QTableStyleConstructorDelegate>)constructor LayoutConstructor:(id<WD_QTableLayoutConstructorDelegate>)layoutConstructor{
     if (constructor){
         self.styleConstructor = constructor;
         [self updateStyleConstructor:self.styleConstructor];
@@ -163,7 +162,7 @@
 -(void)updateData{
     if (self.autoLayoutHandle) {
         self.variationModel.frame = self.collectionView.frame;
-        [self.autoLayoutHandle commitChange:self.variationModel FromIndex:0];
+        //[self.autoLayoutHandle commitChange:self.variationModel FromIndex:0];
         [self.variationModel clear];
     }
     [self.collectionLayout invalidateLayout];
@@ -175,7 +174,7 @@
         self.variationModel.frame = self.collectionView.frame;
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             self.variationModel.needTranspostionForModel = self.needTranspostionForModel;
-            [self.autoLayoutHandle commitChange:self.variationModel FromIndex:0];
+            //[self.autoLayoutHandle commitChange:self.variationModel FromIndex:0];
             [self.variationModel clear];
             Unlock();
             dispatch_async(dispatch_get_main_queue(), ^{
