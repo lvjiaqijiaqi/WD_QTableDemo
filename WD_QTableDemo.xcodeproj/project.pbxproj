@@ -7,8 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD5D8410205779C400CE3F1D /* WD_QTableOtherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5D840F205779C400CE3F1D /* WD_QTableOtherViewCell.m */; };
-		AD5D84142057A28300CE3F1D /* WD_QTableBaseColAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5D84132057A28300CE3F1D /* WD_QTableBaseColAdaptor.m */; };
+		ABB5AB062078F5E800B5D66B /* WD_QTableBaseColAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAD32078F5E800B5D66B /* WD_QTableBaseColAdaptor.m */; };
+		ABB5AB072078F5E800B5D66B /* WD_QTableParse.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAD42078F5E800B5D66B /* WD_QTableParse.m */; };
+		ABB5AB082078F5E800B5D66B /* WD_QTableAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAD62078F5E800B5D66B /* WD_QTableAdaptor.m */; };
+		ABB5AB092078F5E800B5D66B /* WD_QTableDefaultLayoutConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AADA2078F5E800B5D66B /* WD_QTableDefaultLayoutConstructor.m */; };
+		ABB5AB0A2078F5E800B5D66B /* WD_QTableAutoLayoutConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AADB2078F5E800B5D66B /* WD_QTableAutoLayoutConstructor.m */; };
+		ABB5AB0B2078F5E800B5D66B /* WD_QTableDefaultStyleConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AADF2078F5E800B5D66B /* WD_QTableDefaultStyleConstructor.m */; };
+		ABB5AB0C2078F5E800B5D66B /* WD_QViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAE12078F5E800B5D66B /* WD_QViewModel.m */; };
+		ABB5AB0D2078F5E800B5D66B /* WD_QTableDefaultViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAE62078F5E800B5D66B /* WD_QTableDefaultViewCell.m */; };
+		ABB5AB0E2078F5E800B5D66B /* WD_QTableDefaultReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAE72078F5E800B5D66B /* WD_QTableDefaultReusableView.m */; };
+		ABB5AB0F2078F5E800B5D66B /* WD_QTableOtherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAE82078F5E800B5D66B /* WD_QTableOtherViewCell.m */; };
+		ABB5AB102078F5E800B5D66B /* JQ_CollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAEF2078F5E800B5D66B /* JQ_CollectionViewLayout.m */; };
+		ABB5AB112078F5E800B5D66B /* JQ_CollectionViewLayoutInvalidationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAF22078F5E800B5D66B /* JQ_CollectionViewLayoutInvalidationContext.m */; };
+		ABB5AB122078F5E800B5D66B /* WD_QRefreshTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAF32078F5E800B5D66B /* WD_QRefreshTable.m */; };
+		ABB5AB132078F5E800B5D66B /* WD_QTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAF42078F5E800B5D66B /* WD_QTable.m */; };
+		ABB5AB142078F5E800B5D66B /* WD_QTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAF72078F5E800B5D66B /* WD_QTableModel.m */; };
+		ABB5AB152078F5E800B5D66B /* WD_QBaseTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAF82078F5E800B5D66B /* WD_QBaseTable.m */; };
+		ABB5AB162078F5E800B5D66B /* WD_QTableBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAFC2078F5E800B5D66B /* WD_QTableBaseViewCell.m */; };
+		ABB5AB172078F5E800B5D66B /* WD_QTableBaseReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAFD2078F5E800B5D66B /* WD_QTableBaseReusableView.m */; };
 		ADBB0D132050C4D400757D68 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D122050C4D400757D68 /* AppDelegate.m */; };
 		ADBB0D192050C4D400757D68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBB0D172050C4D400757D68 /* Main.storyboard */; };
 		ADBB0D1B2050C4D400757D68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBB0D1A2050C4D400757D68 /* Assets.xcassets */; };
@@ -16,21 +32,6 @@
 		ADBB0D212050C4D400757D68 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D202050C4D400757D68 /* main.m */; };
 		ADBB0D2B2050C4D400757D68 /* WD_QTableDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D2A2050C4D400757D68 /* WD_QTableDemoTests.m */; };
 		ADBB0D362050C4D400757D68 /* WD_QTableDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D352050C4D400757D68 /* WD_QTableDemoUITests.m */; };
-		ADBB0D7D2050C50400757D68 /* WD_QTableAutoLayoutConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D472050C50400757D68 /* WD_QTableAutoLayoutConstructor.m */; };
-		ADBB0D7E2050C50400757D68 /* WD_QTableDefaultLayoutConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D492050C50400757D68 /* WD_QTableDefaultLayoutConstructor.m */; };
-		ADBB0D7F2050C50400757D68 /* WD_QTableDefaultStyleConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D4C2050C50400757D68 /* WD_QTableDefaultStyleConstructor.m */; };
-		ADBB0D802050C50400757D68 /* JQ_CollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D4F2050C50400757D68 /* JQ_CollectionViewLayout.m */; };
-		ADBB0D812050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D512050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m */; };
-		ADBB0D822050C50400757D68 /* WD_QBaseTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D542050C50400757D68 /* WD_QBaseTable.m */; };
-		ADBB0D832050C50400757D68 /* WD_QRefreshTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D562050C50400757D68 /* WD_QRefreshTable.m */; };
-		ADBB0D852050C50400757D68 /* WD_QTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */; };
-		ADBB0D872050C50400757D68 /* WD_QViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D602050C50400757D68 /* WD_QViewModel.m */; };
-		ADBB0D882050C50400757D68 /* WD_QTableAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D702050C50400757D68 /* WD_QTableAdaptor.m */; };
-		ADBB0D892050C50400757D68 /* WD_QTableParse.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D722050C50400757D68 /* WD_QTableParse.m */; };
-		ADBB0D8A2050C50400757D68 /* WD_QTableBaseReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D762050C50400757D68 /* WD_QTableBaseReusableView.m */; };
-		ADBB0D8B2050C50400757D68 /* WD_QTableBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D782050C50400757D68 /* WD_QTableBaseViewCell.m */; };
-		ADBB0D8C2050C50400757D68 /* WD_QTableDefaultReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D7A2050C50400757D68 /* WD_QTableDefaultReusableView.m */; };
-		ADBB0D8D2050C50400757D68 /* WD_QTableDefaultViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D7C2050C50400757D68 /* WD_QTableDefaultViewCell.m */; };
 		ADBB0DA82050C50800757D68 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D902050C50800757D68 /* MASCompositeConstraint.m */; };
 		ADBB0DA92050C50800757D68 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D932050C50800757D68 /* MASConstraint.m */; };
 		ADBB0DAA2050C50800757D68 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0D952050C50800757D68 /* MASConstraintMaker.m */; };
@@ -57,7 +58,6 @@
 		ADBB0DDE20510A0300757D68 /* WeakPlanTableStyleConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DDD20510A0300757D68 /* WeakPlanTableStyleConstructor.m */; };
 		ADBB0DE220510D7000757D68 /* WeakPlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DE120510D7000757D68 /* WeakPlanTableViewCell.m */; };
 		ADBB0DE520510F0900757D68 /* WeakPlanReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB0DE420510F0900757D68 /* WeakPlanReusableView.m */; };
-		ADCDD637207468A9003C8D65 /* WD_QTable.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD636207468A9003C8D65 /* WD_QTable.m */; };
 		ADCDD63A2074C4F3003C8D65 /* EditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD6392074C4F3003C8D65 /* EditTableViewController.m */; };
 		ADCDD63E2074CCD6003C8D65 /* EditTableStyleConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD63D2074CCD6003C8D65 /* EditTableStyleConstructor.m */; };
 		ADCDD6422074CD16003C8D65 /* EditTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCDD6412074CD16003C8D65 /* EditTableCell.m */; };
@@ -82,13 +82,49 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		ABB5AA7A20772C7C00B5D66B /* JQ_CollectionViewLayoutDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JQ_CollectionViewLayoutDelegate.h; sourceTree = "<group>"; };
-		ABB5AA7B20772FAF00B5D66B /* WD_QTableCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableCellDelegate.h; sourceTree = "<group>"; };
-		ABB5AA822077543D00B5D66B /* WD_QTableChangeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableChangeDelegate.h; sourceTree = "<group>"; };
-		AD5D840E205779C400CE3F1D /* WD_QTableOtherViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableOtherViewCell.h; sourceTree = "<group>"; };
-		AD5D840F205779C400CE3F1D /* WD_QTableOtherViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QTableOtherViewCell.m; sourceTree = "<group>"; };
-		AD5D84122057A28300CE3F1D /* WD_QTableBaseColAdaptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableBaseColAdaptor.h; sourceTree = "<group>"; };
-		AD5D84132057A28300CE3F1D /* WD_QTableBaseColAdaptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QTableBaseColAdaptor.m; sourceTree = "<group>"; };
+		ABB5AAD22078F5E800B5D66B /* WD_QTableAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableAdaptor.h; sourceTree = "<group>"; };
+		ABB5AAD32078F5E800B5D66B /* WD_QTableBaseColAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableBaseColAdaptor.m; sourceTree = "<group>"; };
+		ABB5AAD42078F5E800B5D66B /* WD_QTableParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableParse.m; sourceTree = "<group>"; };
+		ABB5AAD52078F5E800B5D66B /* WD_QTableBaseColAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableBaseColAdaptor.h; sourceTree = "<group>"; };
+		ABB5AAD62078F5E800B5D66B /* WD_QTableAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableAdaptor.m; sourceTree = "<group>"; };
+		ABB5AAD72078F5E800B5D66B /* WD_QTableParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableParse.h; sourceTree = "<group>"; };
+		ABB5AAD92078F5E800B5D66B /* WD_QTableAutoLayoutConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableAutoLayoutConstructor.h; sourceTree = "<group>"; };
+		ABB5AADA2078F5E800B5D66B /* WD_QTableDefaultLayoutConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDefaultLayoutConstructor.m; sourceTree = "<group>"; };
+		ABB5AADB2078F5E800B5D66B /* WD_QTableAutoLayoutConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableAutoLayoutConstructor.m; sourceTree = "<group>"; };
+		ABB5AADC2078F5E800B5D66B /* WD_QTableDefaultLayoutConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableDefaultLayoutConstructor.h; sourceTree = "<group>"; };
+		ABB5AADE2078F5E800B5D66B /* WD_QTableDefaultStyleConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableDefaultStyleConstructor.h; sourceTree = "<group>"; };
+		ABB5AADF2078F5E800B5D66B /* WD_QTableDefaultStyleConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDefaultStyleConstructor.m; sourceTree = "<group>"; };
+		ABB5AAE12078F5E800B5D66B /* WD_QViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QViewModel.m; sourceTree = "<group>"; };
+		ABB5AAE22078F5E800B5D66B /* WD_QViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QViewModel.h; sourceTree = "<group>"; };
+		ABB5AAE42078F5E800B5D66B /* WD_QTableOtherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableOtherViewCell.h; sourceTree = "<group>"; };
+		ABB5AAE52078F5E800B5D66B /* WD_QTableDefaultReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableDefaultReusableView.h; sourceTree = "<group>"; };
+		ABB5AAE62078F5E800B5D66B /* WD_QTableDefaultViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDefaultViewCell.m; sourceTree = "<group>"; };
+		ABB5AAE72078F5E800B5D66B /* WD_QTableDefaultReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDefaultReusableView.m; sourceTree = "<group>"; };
+		ABB5AAE82078F5E800B5D66B /* WD_QTableOtherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableOtherViewCell.m; sourceTree = "<group>"; };
+		ABB5AAE92078F5E800B5D66B /* WD_QTableDefaultViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableDefaultViewCell.h; sourceTree = "<group>"; };
+		ABB5AAEB2078F5E800B5D66B /* WD_QTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTable.h; sourceTree = "<group>"; };
+		ABB5AAEC2078F5E800B5D66B /* WD_QTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableHeader.h; sourceTree = "<group>"; };
+		ABB5AAED2078F5E800B5D66B /* WD_QBaseTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QBaseTable.h; sourceTree = "<group>"; };
+		ABB5AAEF2078F5E800B5D66B /* JQ_CollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQ_CollectionViewLayout.m; sourceTree = "<group>"; };
+		ABB5AAF02078F5E800B5D66B /* JQ_CollectionViewLayoutInvalidationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQ_CollectionViewLayoutInvalidationContext.h; sourceTree = "<group>"; };
+		ABB5AAF12078F5E800B5D66B /* JQ_CollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQ_CollectionViewLayout.h; sourceTree = "<group>"; };
+		ABB5AAF22078F5E800B5D66B /* JQ_CollectionViewLayoutInvalidationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQ_CollectionViewLayoutInvalidationContext.m; sourceTree = "<group>"; };
+		ABB5AAF32078F5E800B5D66B /* WD_QRefreshTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QRefreshTable.m; sourceTree = "<group>"; };
+		ABB5AAF42078F5E800B5D66B /* WD_QTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTable.m; sourceTree = "<group>"; };
+		ABB5AAF62078F5E800B5D66B /* WD_QTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableModel.h; sourceTree = "<group>"; };
+		ABB5AAF72078F5E800B5D66B /* WD_QTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableModel.m; sourceTree = "<group>"; };
+		ABB5AAF82078F5E800B5D66B /* WD_QBaseTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QBaseTable.m; sourceTree = "<group>"; };
+		ABB5AAFA2078F5E800B5D66B /* WD_QTableBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableBaseViewCell.h; sourceTree = "<group>"; };
+		ABB5AAFB2078F5E800B5D66B /* WD_QTableBaseReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableBaseReusableView.h; sourceTree = "<group>"; };
+		ABB5AAFC2078F5E800B5D66B /* WD_QTableBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableBaseViewCell.m; sourceTree = "<group>"; };
+		ABB5AAFD2078F5E800B5D66B /* WD_QTableBaseReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableBaseReusableView.m; sourceTree = "<group>"; };
+		ABB5AAFE2078F5E800B5D66B /* WD_QRefreshTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QRefreshTable.h; sourceTree = "<group>"; };
+		ABB5AB002078F5E800B5D66B /* WD_QTableModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableModelProtocol.h; sourceTree = "<group>"; };
+		ABB5AB012078F5E800B5D66B /* WD_QTableChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableChangeDelegate.h; sourceTree = "<group>"; };
+		ABB5AB022078F5E800B5D66B /* WD_QTableCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableCellDelegate.h; sourceTree = "<group>"; };
+		ABB5AB032078F5E800B5D66B /* WD_QTableLayoutConstructorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableLayoutConstructorDelegate.h; sourceTree = "<group>"; };
+		ABB5AB042078F5E800B5D66B /* JQ_CollectionViewLayoutDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQ_CollectionViewLayoutDelegate.h; sourceTree = "<group>"; };
+		ABB5AB052078F5E800B5D66B /* WD_QTableStyleConstructorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableStyleConstructorDelegate.h; sourceTree = "<group>"; };
 		ADBB0D0E2050C4D400757D68 /* WD_QTableDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WD_QTableDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBB0D112050C4D400757D68 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ADBB0D122050C4D400757D68 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -103,37 +139,6 @@
 		ADBB0D312050C4D400757D68 /* WD_QTableDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WD_QTableDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBB0D352050C4D400757D68 /* WD_QTableDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDemoUITests.m; sourceTree = "<group>"; };
 		ADBB0D372050C4D400757D68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ADBB0D462050C50400757D68 /* WD_QTableAutoLayoutConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableAutoLayoutConstructor.h; sourceTree = "<group>"; };
-		ADBB0D472050C50400757D68 /* WD_QTableAutoLayoutConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableAutoLayoutConstructor.m; sourceTree = "<group>"; };
-		ADBB0D482050C50400757D68 /* WD_QTableDefaultLayoutConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableDefaultLayoutConstructor.h; sourceTree = "<group>"; };
-		ADBB0D492050C50400757D68 /* WD_QTableDefaultLayoutConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDefaultLayoutConstructor.m; sourceTree = "<group>"; };
-		ADBB0D4B2050C50400757D68 /* WD_QTableDefaultStyleConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableDefaultStyleConstructor.h; sourceTree = "<group>"; };
-		ADBB0D4C2050C50400757D68 /* WD_QTableDefaultStyleConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDefaultStyleConstructor.m; sourceTree = "<group>"; };
-		ADBB0D4E2050C50400757D68 /* JQ_CollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQ_CollectionViewLayout.h; sourceTree = "<group>"; };
-		ADBB0D4F2050C50400757D68 /* JQ_CollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQ_CollectionViewLayout.m; sourceTree = "<group>"; };
-		ADBB0D502050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQ_CollectionViewLayoutInvalidationContext.h; sourceTree = "<group>"; };
-		ADBB0D512050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQ_CollectionViewLayoutInvalidationContext.m; sourceTree = "<group>"; };
-		ADBB0D532050C50400757D68 /* WD_QBaseTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QBaseTable.h; sourceTree = "<group>"; };
-		ADBB0D542050C50400757D68 /* WD_QBaseTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QBaseTable.m; sourceTree = "<group>"; };
-		ADBB0D552050C50400757D68 /* WD_QRefreshTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QRefreshTable.h; sourceTree = "<group>"; };
-		ADBB0D562050C50400757D68 /* WD_QRefreshTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QRefreshTable.m; sourceTree = "<group>"; };
-		ADBB0D592050C50400757D68 /* WD_QTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableHeader.h; sourceTree = "<group>"; };
-		ADBB0D5B2050C50400757D68 /* WD_QTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableModel.h; sourceTree = "<group>"; };
-		ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableModel.m; sourceTree = "<group>"; };
-		ADBB0D5F2050C50400757D68 /* WD_QViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QViewModel.h; sourceTree = "<group>"; };
-		ADBB0D602050C50400757D68 /* WD_QViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QViewModel.m; sourceTree = "<group>"; };
-		ADBB0D6F2050C50400757D68 /* WD_QTableAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableAdaptor.h; sourceTree = "<group>"; };
-		ADBB0D702050C50400757D68 /* WD_QTableAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableAdaptor.m; sourceTree = "<group>"; };
-		ADBB0D712050C50400757D68 /* WD_QTableParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableParse.h; sourceTree = "<group>"; };
-		ADBB0D722050C50400757D68 /* WD_QTableParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableParse.m; sourceTree = "<group>"; };
-		ADBB0D752050C50400757D68 /* WD_QTableBaseReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableBaseReusableView.h; sourceTree = "<group>"; };
-		ADBB0D762050C50400757D68 /* WD_QTableBaseReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableBaseReusableView.m; sourceTree = "<group>"; };
-		ADBB0D772050C50400757D68 /* WD_QTableBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableBaseViewCell.h; sourceTree = "<group>"; };
-		ADBB0D782050C50400757D68 /* WD_QTableBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableBaseViewCell.m; sourceTree = "<group>"; };
-		ADBB0D792050C50400757D68 /* WD_QTableDefaultReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableDefaultReusableView.h; sourceTree = "<group>"; };
-		ADBB0D7A2050C50400757D68 /* WD_QTableDefaultReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDefaultReusableView.m; sourceTree = "<group>"; };
-		ADBB0D7B2050C50400757D68 /* WD_QTableDefaultViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableDefaultViewCell.h; sourceTree = "<group>"; };
-		ADBB0D7C2050C50400757D68 /* WD_QTableDefaultViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableDefaultViewCell.m; sourceTree = "<group>"; };
 		ADBB0D8F2050C50800757D68 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		ADBB0D902050C50800757D68 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		ADBB0D912050C50800757D68 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -189,10 +194,6 @@
 		ADBB0DE120510D7000757D68 /* WeakPlanTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakPlanTableViewCell.m; sourceTree = "<group>"; };
 		ADBB0DE320510F0900757D68 /* WeakPlanReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakPlanReusableView.h; sourceTree = "<group>"; };
 		ADBB0DE420510F0900757D68 /* WeakPlanReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakPlanReusableView.m; sourceTree = "<group>"; };
-		ADC99B25207716AB008203E2 /* WD_QTableLayoutConstructorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableLayoutConstructorDelegate.h; sourceTree = "<group>"; };
-		ADC99B262077173D008203E2 /* WD_QTableStyleConstructorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTableStyleConstructorDelegate.h; sourceTree = "<group>"; };
-		ADCDD635207468A9003C8D65 /* WD_QTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WD_QTable.h; sourceTree = "<group>"; };
-		ADCDD636207468A9003C8D65 /* WD_QTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WD_QTable.m; sourceTree = "<group>"; };
 		ADCDD6382074C4F3003C8D65 /* EditTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTableViewController.h; sourceTree = "<group>"; };
 		ADCDD6392074C4F3003C8D65 /* EditTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTableViewController.m; sourceTree = "<group>"; };
 		ADCDD63C2074CCD6003C8D65 /* EditTableStyleConstructor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTableStyleConstructor.h; sourceTree = "<group>"; };
@@ -228,31 +229,149 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		ABB5AA7F20773F7200B5D66B /* Model */ = {
+		ABB5AACF2078F5E800B5D66B /* WD_QTable */ = {
 			isa = PBXGroup;
 			children = (
-				ADBB0D5B2050C50400757D68 /* WD_QTableModel.h */,
-				ADBB0D5C2050C50400757D68 /* WD_QTableModel.m */,
+				ABB5AAD02078F5E800B5D66B /* Template */,
+				ABB5AAEA2078F5E800B5D66B /* Main */,
+				ABB5AAFF2078F5E800B5D66B /* Protocols */,
+			);
+			path = WD_QTable;
+			sourceTree = SOURCE_ROOT;
+		};
+		ABB5AAD02078F5E800B5D66B /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				ABB5AAD12078F5E800B5D66B /* Tools */,
+				ABB5AAD82078F5E800B5D66B /* layout */,
+				ABB5AADD2078F5E800B5D66B /* style */,
+				ABB5AAE02078F5E800B5D66B /* Model */,
+				ABB5AAE32078F5E800B5D66B /* Views */,
+			);
+			path = Template;
+			sourceTree = "<group>";
+		};
+		ABB5AAD12078F5E800B5D66B /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				ABB5AAD22078F5E800B5D66B /* WD_QTableAdaptor.h */,
+				ABB5AAD32078F5E800B5D66B /* WD_QTableBaseColAdaptor.m */,
+				ABB5AAD42078F5E800B5D66B /* WD_QTableParse.m */,
+				ABB5AAD52078F5E800B5D66B /* WD_QTableBaseColAdaptor.h */,
+				ABB5AAD62078F5E800B5D66B /* WD_QTableAdaptor.m */,
+				ABB5AAD72078F5E800B5D66B /* WD_QTableParse.h */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		ABB5AAD82078F5E800B5D66B /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				ABB5AAD92078F5E800B5D66B /* WD_QTableAutoLayoutConstructor.h */,
+				ABB5AADA2078F5E800B5D66B /* WD_QTableDefaultLayoutConstructor.m */,
+				ABB5AADB2078F5E800B5D66B /* WD_QTableAutoLayoutConstructor.m */,
+				ABB5AADC2078F5E800B5D66B /* WD_QTableDefaultLayoutConstructor.h */,
+			);
+			path = layout;
+			sourceTree = "<group>";
+		};
+		ABB5AADD2078F5E800B5D66B /* style */ = {
+			isa = PBXGroup;
+			children = (
+				ABB5AADE2078F5E800B5D66B /* WD_QTableDefaultStyleConstructor.h */,
+				ABB5AADF2078F5E800B5D66B /* WD_QTableDefaultStyleConstructor.m */,
+			);
+			path = style;
+			sourceTree = "<group>";
+		};
+		ABB5AAE02078F5E800B5D66B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ABB5AAE12078F5E800B5D66B /* WD_QViewModel.m */,
+				ABB5AAE22078F5E800B5D66B /* WD_QViewModel.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		ABB5AA8020773F7B00B5D66B /* Views */ = {
+		ABB5AAE32078F5E800B5D66B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ADBB0D752050C50400757D68 /* WD_QTableBaseReusableView.h */,
-				ADBB0D762050C50400757D68 /* WD_QTableBaseReusableView.m */,
-				ADBB0D772050C50400757D68 /* WD_QTableBaseViewCell.h */,
-				ADBB0D782050C50400757D68 /* WD_QTableBaseViewCell.m */,
+				ABB5AAE42078F5E800B5D66B /* WD_QTableOtherViewCell.h */,
+				ABB5AAE52078F5E800B5D66B /* WD_QTableDefaultReusableView.h */,
+				ABB5AAE62078F5E800B5D66B /* WD_QTableDefaultViewCell.m */,
+				ABB5AAE72078F5E800B5D66B /* WD_QTableDefaultReusableView.m */,
+				ABB5AAE82078F5E800B5D66B /* WD_QTableOtherViewCell.m */,
+				ABB5AAE92078F5E800B5D66B /* WD_QTableDefaultViewCell.h */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		ABB5AAEA2078F5E800B5D66B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				ABB5AAEB2078F5E800B5D66B /* WD_QTable.h */,
+				ABB5AAEC2078F5E800B5D66B /* WD_QTableHeader.h */,
+				ABB5AAED2078F5E800B5D66B /* WD_QBaseTable.h */,
+				ABB5AAEE2078F5E800B5D66B /* Layout */,
+				ABB5AAF32078F5E800B5D66B /* WD_QRefreshTable.m */,
+				ABB5AAF42078F5E800B5D66B /* WD_QTable.m */,
+				ABB5AAF52078F5E800B5D66B /* Model */,
+				ABB5AAF82078F5E800B5D66B /* WD_QBaseTable.m */,
+				ABB5AAF92078F5E800B5D66B /* Views */,
+				ABB5AAFE2078F5E800B5D66B /* WD_QRefreshTable.h */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		ABB5AAEE2078F5E800B5D66B /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				ABB5AAEF2078F5E800B5D66B /* JQ_CollectionViewLayout.m */,
+				ABB5AAF02078F5E800B5D66B /* JQ_CollectionViewLayoutInvalidationContext.h */,
+				ABB5AAF12078F5E800B5D66B /* JQ_CollectionViewLayout.h */,
+				ABB5AAF22078F5E800B5D66B /* JQ_CollectionViewLayoutInvalidationContext.m */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		ABB5AAF52078F5E800B5D66B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ABB5AAF62078F5E800B5D66B /* WD_QTableModel.h */,
+				ABB5AAF72078F5E800B5D66B /* WD_QTableModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ABB5AAF92078F5E800B5D66B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ABB5AAFA2078F5E800B5D66B /* WD_QTableBaseViewCell.h */,
+				ABB5AAFB2078F5E800B5D66B /* WD_QTableBaseReusableView.h */,
+				ABB5AAFC2078F5E800B5D66B /* WD_QTableBaseViewCell.m */,
+				ABB5AAFD2078F5E800B5D66B /* WD_QTableBaseReusableView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ABB5AAFF2078F5E800B5D66B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				ABB5AB002078F5E800B5D66B /* WD_QTableModelProtocol.h */,
+				ABB5AB012078F5E800B5D66B /* WD_QTableChangeDelegate.h */,
+				ABB5AB022078F5E800B5D66B /* WD_QTableCellDelegate.h */,
+				ABB5AB032078F5E800B5D66B /* WD_QTableLayoutConstructorDelegate.h */,
+				ABB5AB042078F5E800B5D66B /* JQ_CollectionViewLayoutDelegate.h */,
+				ABB5AB052078F5E800B5D66B /* WD_QTableStyleConstructorDelegate.h */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		ADBB0D052050C4D300757D68 = {
 			isa = PBXGroup;
 			children = (
+				ABB5AACF2078F5E800B5D66B /* WD_QTable */,
 				ADBB0D8E2050C50800757D68 /* Masonry */,
-				ADBB0D432050C50400757D68 /* WD_QTable */,
 				ADBB0D102050C4D400757D68 /* WD_QTableDemo */,
 				ADBB0D292050C4D400757D68 /* WD_QTableDemoTests */,
 				ADBB0D342050C4D400757D68 /* WD_QTableDemoUITests */,
@@ -304,99 +423,6 @@
 				ADBB0D372050C4D400757D68 /* Info.plist */,
 			);
 			path = WD_QTableDemoUITests;
-			sourceTree = "<group>";
-		};
-		ADBB0D432050C50400757D68 /* WD_QTable */ = {
-			isa = PBXGroup;
-			children = (
-				ADC99B2420771669008203E2 /* Protocols */,
-				ADBB0D522050C50400757D68 /* Main */,
-				ADC99B272077185A008203E2 /* Template */,
-			);
-			path = WD_QTable;
-			sourceTree = "<group>";
-		};
-		ADBB0D452050C50400757D68 /* layout */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D462050C50400757D68 /* WD_QTableAutoLayoutConstructor.h */,
-				ADBB0D472050C50400757D68 /* WD_QTableAutoLayoutConstructor.m */,
-				ADBB0D482050C50400757D68 /* WD_QTableDefaultLayoutConstructor.h */,
-				ADBB0D492050C50400757D68 /* WD_QTableDefaultLayoutConstructor.m */,
-			);
-			path = layout;
-			sourceTree = "<group>";
-		};
-		ADBB0D4A2050C50400757D68 /* style */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D4B2050C50400757D68 /* WD_QTableDefaultStyleConstructor.h */,
-				ADBB0D4C2050C50400757D68 /* WD_QTableDefaultStyleConstructor.m */,
-			);
-			path = style;
-			sourceTree = "<group>";
-		};
-		ADBB0D4D2050C50400757D68 /* Layout */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D4E2050C50400757D68 /* JQ_CollectionViewLayout.h */,
-				ADBB0D4F2050C50400757D68 /* JQ_CollectionViewLayout.m */,
-				ADBB0D502050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.h */,
-				ADBB0D512050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m */,
-			);
-			path = Layout;
-			sourceTree = "<group>";
-		};
-		ADBB0D522050C50400757D68 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D4D2050C50400757D68 /* Layout */,
-				ABB5AA8020773F7B00B5D66B /* Views */,
-				ABB5AA7F20773F7200B5D66B /* Model */,
-				ADBB0D592050C50400757D68 /* WD_QTableHeader.h */,
-				ADBB0D532050C50400757D68 /* WD_QBaseTable.h */,
-				ADBB0D542050C50400757D68 /* WD_QBaseTable.m */,
-				ADCDD635207468A9003C8D65 /* WD_QTable.h */,
-				ADCDD636207468A9003C8D65 /* WD_QTable.m */,
-				ADBB0D552050C50400757D68 /* WD_QRefreshTable.h */,
-				ADBB0D562050C50400757D68 /* WD_QRefreshTable.m */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		ADBB0D5A2050C50400757D68 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D5F2050C50400757D68 /* WD_QViewModel.h */,
-				ADBB0D602050C50400757D68 /* WD_QViewModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		ADBB0D6E2050C50400757D68 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D6F2050C50400757D68 /* WD_QTableAdaptor.h */,
-				ADBB0D702050C50400757D68 /* WD_QTableAdaptor.m */,
-				ADBB0D712050C50400757D68 /* WD_QTableParse.h */,
-				ADBB0D722050C50400757D68 /* WD_QTableParse.m */,
-				AD5D84122057A28300CE3F1D /* WD_QTableBaseColAdaptor.h */,
-				AD5D84132057A28300CE3F1D /* WD_QTableBaseColAdaptor.m */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		ADBB0D732050C50400757D68 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D792050C50400757D68 /* WD_QTableDefaultReusableView.h */,
-				ADBB0D7A2050C50400757D68 /* WD_QTableDefaultReusableView.m */,
-				ADBB0D7B2050C50400757D68 /* WD_QTableDefaultViewCell.h */,
-				ADBB0D7C2050C50400757D68 /* WD_QTableDefaultViewCell.m */,
-				AD5D840E205779C400CE3F1D /* WD_QTableOtherViewCell.h */,
-				AD5D840F205779C400CE3F1D /* WD_QTableOtherViewCell.m */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		ADBB0D8E2050C50800757D68 /* Masonry */ = {
@@ -490,30 +516,6 @@
 				ADBB0DE420510F0900757D68 /* WeakPlanReusableView.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		ADC99B2420771669008203E2 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				ADC99B25207716AB008203E2 /* WD_QTableLayoutConstructorDelegate.h */,
-				ADC99B262077173D008203E2 /* WD_QTableStyleConstructorDelegate.h */,
-				ABB5AA7A20772C7C00B5D66B /* JQ_CollectionViewLayoutDelegate.h */,
-				ABB5AA7B20772FAF00B5D66B /* WD_QTableCellDelegate.h */,
-				ABB5AA822077543D00B5D66B /* WD_QTableChangeDelegate.h */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		ADC99B272077185A008203E2 /* Template */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB0D5A2050C50400757D68 /* Model */,
-				ADBB0D452050C50400757D68 /* layout */,
-				ADBB0D4A2050C50400757D68 /* style */,
-				ADBB0D732050C50400757D68 /* Views */,
-				ADBB0D6E2050C50400757D68 /* Tools */,
-			);
-			path = Template;
 			sourceTree = "<group>";
 		};
 		ADCDD63B2074C955003C8D65 /* EditTable */ = {
@@ -672,54 +674,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADBB0D7F2050C50400757D68 /* WD_QTableDefaultStyleConstructor.m in Sources */,
+				ABB5AB062078F5E800B5D66B /* WD_QTableBaseColAdaptor.m in Sources */,
+				ABB5AB132078F5E800B5D66B /* WD_QTable.m in Sources */,
+				ABB5AB122078F5E800B5D66B /* WD_QRefreshTable.m in Sources */,
+				ABB5AB0C2078F5E800B5D66B /* WD_QViewModel.m in Sources */,
 				ADBB0DCD2050C60800757D68 /* CustomStyleConstructor.m in Sources */,
+				ABB5AB0F2078F5E800B5D66B /* WD_QTableOtherViewCell.m in Sources */,
 				ADBB0DCA2050C60800757D68 /* BaseTableViewController.m in Sources */,
-				AD5D84142057A28300CE3F1D /* WD_QTableBaseColAdaptor.m in Sources */,
 				ADBB0DCE2050C60800757D68 /* CustomStyleConstructor2.m in Sources */,
 				ADCDD6422074CD16003C8D65 /* EditTableCell.m in Sources */,
-				ADBB0D872050C50400757D68 /* WD_QViewModel.m in Sources */,
+				ABB5AB082078F5E800B5D66B /* WD_QTableAdaptor.m in Sources */,
+				ABB5AB102078F5E800B5D66B /* JQ_CollectionViewLayout.m in Sources */,
 				ADBB0DD22050C60800757D68 /* TipsViewController.m in Sources */,
 				ADBB0DCC2050C60800757D68 /* CustomLayoutViewController.m in Sources */,
 				ADCDD6452074CD2F003C8D65 /* EditTableReusableView.m in Sources */,
 				ADBB0DAB2050C50800757D68 /* MASLayoutConstraint.m in Sources */,
-				ADBB0D8C2050C50400757D68 /* WD_QTableDefaultReusableView.m in Sources */,
-				ADBB0D852050C50400757D68 /* WD_QTableModel.m in Sources */,
-				ADBB0D882050C50400757D68 /* WD_QTableAdaptor.m in Sources */,
-				ADBB0D7E2050C50400757D68 /* WD_QTableDefaultLayoutConstructor.m in Sources */,
-				ADBB0D8A2050C50400757D68 /* WD_QTableBaseReusableView.m in Sources */,
-				AD5D8410205779C400CE3F1D /* WD_QTableOtherViewCell.m in Sources */,
 				ADBB0DD52050D1A300757D68 /* AutoComplexTableViewController.m in Sources */,
+				ABB5AB0D2078F5E800B5D66B /* WD_QTableDefaultViewCell.m in Sources */,
+				ABB5AB0A2078F5E800B5D66B /* WD_QTableAutoLayoutConstructor.m in Sources */,
+				ABB5AB172078F5E800B5D66B /* WD_QTableBaseReusableView.m in Sources */,
+				ABB5AB0B2078F5E800B5D66B /* WD_QTableDefaultStyleConstructor.m in Sources */,
 				ADBB0DAC2050C50800757D68 /* MASViewAttribute.m in Sources */,
 				ADCDD63A2074C4F3003C8D65 /* EditTableViewController.m in Sources */,
+				ABB5AB142078F5E800B5D66B /* WD_QTableModel.m in Sources */,
 				ADBB0D212050C4D400757D68 /* main.m in Sources */,
 				ADBB0DAA2050C50800757D68 /* MASConstraintMaker.m in Sources */,
+				ABB5AB152078F5E800B5D66B /* WD_QBaseTable.m in Sources */,
 				ADBB0DB02050C50800757D68 /* View+MASAdditions.m in Sources */,
-				ADCDD637207468A9003C8D65 /* WD_QTable.m in Sources */,
+				ABB5AB092078F5E800B5D66B /* WD_QTableDefaultLayoutConstructor.m in Sources */,
 				ADBB0DAD2050C50800757D68 /* MASViewConstraint.m in Sources */,
 				ADBB0DE520510F0900757D68 /* WeakPlanReusableView.m in Sources */,
 				ADBB0DD02050C60800757D68 /* RefreashTableCrossViewController.m in Sources */,
 				ADBB0DD12050C60800757D68 /* RefreashTableViewController.m in Sources */,
+				ABB5AB0E2078F5E800B5D66B /* WD_QTableDefaultReusableView.m in Sources */,
 				ADBB0DA82050C50800757D68 /* MASCompositeConstraint.m in Sources */,
-				ADBB0D7D2050C50400757D68 /* WD_QTableAutoLayoutConstructor.m in Sources */,
 				ADBB0DE220510D7000757D68 /* WeakPlanTableViewCell.m in Sources */,
-				ADBB0D892050C50400757D68 /* WD_QTableParse.m in Sources */,
-				ADBB0D812050C50400757D68 /* JQ_CollectionViewLayoutInvalidationContext.m in Sources */,
 				ADBB0DDE20510A0300757D68 /* WeakPlanTableStyleConstructor.m in Sources */,
-				ADBB0D802050C50400757D68 /* JQ_CollectionViewLayout.m in Sources */,
 				ADBB0DA92050C50800757D68 /* MASConstraint.m in Sources */,
+				ABB5AB162078F5E800B5D66B /* WD_QTableBaseViewCell.m in Sources */,
 				ADBB0DCB2050C60800757D68 /* ComplexTableViewController.m in Sources */,
+				ABB5AB112078F5E800B5D66B /* JQ_CollectionViewLayoutInvalidationContext.m in Sources */,
 				ADBB0DB42050C55100757D68 /* MyTableViewController.m in Sources */,
-				ADBB0D822050C50400757D68 /* WD_QBaseTable.m in Sources */,
-				ADBB0D8D2050C50400757D68 /* WD_QTableDefaultViewCell.m in Sources */,
+				ABB5AB072078F5E800B5D66B /* WD_QTableParse.m in Sources */,
 				ADBB0DAF2050C50800757D68 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				ADBB0DAE2050C50800757D68 /* NSArray+MASAdditions.m in Sources */,
 				ADBB0DB12050C50800757D68 /* ViewController+MASAdditions.m in Sources */,
 				ADCDD63E2074CCD6003C8D65 /* EditTableStyleConstructor.m in Sources */,
 				ADBB0DCF2050C60800757D68 /* CustomStyleTableViewController.m in Sources */,
 				ADBB0D132050C4D400757D68 /* AppDelegate.m in Sources */,
-				ADBB0D832050C50400757D68 /* WD_QRefreshTable.m in Sources */,
-				ADBB0D8B2050C50400757D68 /* WD_QTableBaseViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
