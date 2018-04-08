@@ -48,7 +48,7 @@
         _table.autoLayoutHandle = autoHandle;
         _table.headView = [self tipsLabel];
         __weak typeof(self) weakSelf = self;
-        _table.didSelectItemBlock = ^(NSInteger row, NSInteger col, WD_QTableModel *model) {
+        _table.didSelectItemBlock = ^(NSInteger row, NSInteger col, WD_QTableModel *model,WD_QTableBaseViewCell *cell) {
             weakSelf.config.RowsH[2] = [NSNumber numberWithFloat:100];
             [weakSelf.table reloadData];
         };

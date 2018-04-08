@@ -64,7 +64,7 @@
         make.edges.mas_equalTo(self.view);
     }];
     __weak typeof(self) weakSelf = self;
-    self.table.didSelectItemBlock = ^(NSInteger row, NSInteger col, WD_QTableModel *model) {
+    /*self.table.didSelectItemBlock = ^(NSInteger row, NSInteger col, WD_QTableModel *model) {
         NSString *title = [NSString stringWithFormat:@"我是Item%ld行%ld列",row,col];
         [weakSelf createAlert:title];
     };
@@ -75,7 +75,7 @@
     self.table.didSelectLeadingBlock = ^(NSIndexPath *indexPath) {
         NSString *title = [NSString stringWithFormat:@"我是%ld行Leading",indexPath.row];
         [weakSelf createAlert:title];
-    };
+    };*/
 
     [self loadData];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(insertNew:)];

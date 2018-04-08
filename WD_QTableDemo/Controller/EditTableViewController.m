@@ -45,7 +45,7 @@
     }];
     __weak typeof(self) weakSelf = self;
 
-    self.table.didSelectItemBlock = ^(NSInteger row, NSInteger col, WD_QTableModel *model) {
+    self.table.didSelectItemBlock = ^(NSInteger row, NSInteger col, WD_QTableModel *model,WD_QTableBaseViewCell *cell) {
         //WD_QTableModel *model = [[WD_QTableModel alloc] init];
         model.title = @"123";
         [weakSelf.table updateItem:model AtCol:col InRow:row];

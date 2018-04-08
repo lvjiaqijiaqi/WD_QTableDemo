@@ -14,6 +14,8 @@
 @protocol JQ_CollectionViewLayoutDelegate;
 @class WD_QTableModel;
 @class JQ_CollectionViewLayout;
+@class WD_QTableBaseReusableView;
+@class WD_QTableBaseViewCell;
 
 @interface WD_QTable : WD_QBaseTable<UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -42,28 +44,28 @@
  响应Leading点击事件
  @param  indexPath 索引
  **/
-@property(nonatomic,copy) void(^didSelectLeadingBlock)(NSIndexPath *indexPath);
-@property(nonatomic,copy) void(^didLongPressLeadingBlock)(NSIndexPath *indexPath);
+@property(nonatomic,copy) void(^didSelectLeadingBlock)(NSIndexPath *indexPath,WD_QTableModel *model,WD_QTableBaseReusableView *cell);
+@property(nonatomic,copy) void(^didLongPressLeadingBlock)(NSIndexPath *indexPath,WD_QTableModel *model,WD_QTableBaseReusableView *cell);
 /**
  响应Heading点击事件
  @param  indexPath 索引
  **/
-@property(nonatomic,copy) void(^didSelectHeadingBlock)(NSIndexPath *indexPath);
-@property(nonatomic,copy) void(^didLongPressHeadingBlock)(NSIndexPath *indexPath);
+@property(nonatomic,copy) void(^didSelectHeadingBlock)(NSIndexPath *indexPath,WD_QTableModel *model,WD_QTableBaseReusableView *cell);
+@property(nonatomic,copy) void(^didLongPressHeadingBlock)(NSIndexPath *indexPath,WD_QTableModel *model,WD_QTableBaseReusableView *cell);
 /**
  响应Section点击事件
  @param  indexPath 索引
  **/
-@property(nonatomic,copy) void(^didSelectSectionBlock)(NSIndexPath *indexPath);
-@property(nonatomic,copy) void(^didLongPressSectionBlock)(NSIndexPath *indexPath);
+@property(nonatomic,copy) void(^didSelectSectionBlock)(NSIndexPath *indexPath,WD_QTableModel *model,WD_QTableBaseReusableView *cell);
+@property(nonatomic,copy) void(^didLongPressSectionBlock)(NSIndexPath *indexPath,WD_QTableModel *model,WD_QTableBaseReusableView *cell);
 /**
  响应cell点击事件
  @param  row 行索引
  @param  col 列索引
  @param  model 数据模型
  **/
-@property(nonatomic,copy) void(^didSelectItemBlock)(NSInteger row, NSInteger col , WD_QTableModel * model);
-@property(nonatomic,copy) void(^didLongPressItemBlock)(NSInteger row, NSInteger col , WD_QTableModel *model);
+@property(nonatomic,copy) void(^didSelectItemBlock)(NSInteger row, NSInteger col , WD_QTableModel * model,WD_QTableBaseViewCell *cell);
+@property(nonatomic,copy) void(^didLongPressItemBlock)(NSInteger row, NSInteger col , WD_QTableModel *model,WD_QTableBaseViewCell *cell);
 
 #pragma mark - 初始化方法
 /**
