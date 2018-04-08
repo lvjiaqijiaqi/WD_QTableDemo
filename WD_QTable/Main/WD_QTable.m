@@ -34,12 +34,6 @@
 @property (nonatomic,strong) NSMutableArray<WD_QTableModel *> *leadings;
 @property (nonatomic,strong) NSMutableArray<WD_QTableModel *> *datas;
 
-@property (nonatomic,assign) NSInteger colsNum;
-@property (nonatomic,assign) NSInteger rowsNum;
-@property (nonatomic,assign) NSInteger LeadingRowNum;
-@property (nonatomic,assign) NSInteger HeadingColNum;
-@property (nonatomic,assign) NSInteger LeadingLevel;
-@property (nonatomic,assign) NSInteger HeadingLevel;
 
 @end
 
@@ -93,12 +87,12 @@
         self.styleConstructor  = styleConstructor;
         self.layoutConstructor = layoutConstructor;
         
-        self.rowsNum = 0;
-        self.colsNum = 0;
-        self.LeadingLevel = 0;
-        self.HeadingLevel = 0;
-        self.LeadingRowNum = 0;
-        self.HeadingColNum = 0;
+        _rowsNum = 0;
+        _colsNum = 0;
+        _LeadingLevel = 0;
+        _HeadingLevel = 0;
+        _LeadingRowNum = 0;
+        _HeadingColNum = 0;
         
         _lock = dispatch_semaphore_create(1);
     }
@@ -239,11 +233,11 @@
             //[self.datas removeObjectAtIndex:[self indexAtCol:i InRow:rowId]];
         }
         [self.datas removeObjectsAtIndexes:deleteIndexs];
-        self.rowsNum--;
+        _rowsNum--;
         for (NSInteger i = 0; i < self.LeadingLevel; i++) {
             [self.leadings removeObjectAtIndex:[self indexLeadingAtIdx:rowId InLevel:i]];
         }
-        self.LeadingRowNum--;
+        _LeadingRowNum--;
         [self.layout invalidLayoutAtRowIndex:rowId];
         [self.collectionView reloadData];
     }
@@ -255,11 +249,11 @@
             [deleteIndexs addIndex:[self indexAtCol:colId InRow:i]];
         }
         [self.datas removeObjectsAtIndexes:deleteIndexs];
-        self.colsNum--;
+        _colsNum--;
         for (NSInteger i = 0; i < self.HeadingLevel; i++) {
             [self.headings removeObjectAtIndex:[self indexHeadingAtIdx:colId InLevel:i]];
         }
-        self.HeadingColNum--;
+        _HeadingColNum--;
         [self.layout invalidLayoutAtColIndex:colId];
         [self.collectionView reloadData];
     }
@@ -307,8 +301,8 @@
 }
 -(void)resetItemModel:(NSArray<NSArray<WD_QTableModel *> *>*)newData{
     [self.datas removeAllObjects];
-    self.colsNum = 0;
-    self.rowsNum = 0;
+    _colsNum = 0;
+    _rowsNum = 0;
     [self insertItemModel:newData];
 }
 -(void)insertItemModel:(NSArray<NSArray<WD_QTableModel *> *>*)newData{
@@ -320,12 +314,12 @@
     /* 更新行数和列数 */
     if (self.needTranspostionForModel) { //行为基准
         [self.autoLayoutHandle addDataChange:newData AtRowRange:NSMakeRange(self.rowsNum, 0)];
-        self.rowsNum += newData.count;
-        self.colsNum = [newData firstObject].count;
+        _rowsNum += newData.count;
+        _colsNum = [newData firstObject].count;
     } else { //列为基准
         [self.autoLayoutHandle addDataChange:newData AtColRange:NSMakeRange(self.colsNum, 0)];
-        self.rowsNum = [newData firstObject].count;
-        self.colsNum += newData.count;
+        _rowsNum = [newData firstObject].count;
+        _colsNum += newData.count;
     }
 }
 -(void)insertModels:(NSArray<WD_QTableModel *> *)newModels AtRow:(NSInteger)rowIdx{
@@ -339,7 +333,7 @@
         }];
     }
     [self.autoLayoutHandle addDataChange:@[newModels] AtRowRange:NSMakeRange(rowIdx, 0)];
-    self.rowsNum++ ;
+    _rowsNum++ ;
 }
 
 -(void)insertModels:(NSArray<WD_QTableModel *> *)newModels AtCol:(NSInteger)colIdx{
@@ -353,22 +347,22 @@
         [self.datas insertObjects:newModels atIndexes:insetIndexSets];
     }
     [self.autoLayoutHandle addDataChange:@[newModels] AtColRange:NSMakeRange(colIdx, 0)];
-    self.colsNum++ ;
+    _colsNum++ ;
 }
 
 #pragma mark - Heading insert
 -(void)resetHeadingModel:(NSArray<WD_QTableModel *> *)newModels{
     [self.headings removeAllObjects];
-    self.HeadingColNum = 0;
-    self.HeadingLevel = 0;
+    _HeadingColNum = 0;
+    _HeadingLevel = 0;
     [self insertHeadingModel:newModels];
 }
 
 -(void)insertHeadingModel:(NSArray<WD_QTableModel *> *)newModels{
     [self.headings addObjectsFromArray:newModels];
     [self.autoLayoutHandle addHeadingChange:@[newModels] AtRange:NSMakeRange(self.HeadingColNum, 0)];
-    self.HeadingColNum += newModels.count;
-    self.HeadingLevel = 1;
+    _HeadingColNum += newModels.count;
+    _HeadingLevel = 1;
 }
 
 -(void)resetHeadingModelWithArr:(NSArray<NSString *> *)newArr{
@@ -394,7 +388,7 @@
 
 -(void)resetMultipleHeadingModel:(NSArray<NSArray<WD_QTableModel *> *> *)newModels{
     [self.headings removeAllObjects];
-    self.HeadingColNum = 0;
+    _HeadingColNum = 0;
     [self insertMultipleHeadingModel:newModels];
 }
 -(void)insertMultipleHeadingModel:(NSArray<NSArray<WD_QTableModel *> *> *)newModels{
@@ -427,32 +421,32 @@
             [self.headings addObject:ModifyModels[j][i]];
         }
     }
-    self.HeadingLevel = ModifyModels.count;
+    _HeadingLevel = ModifyModels.count;
     [self.autoLayoutHandle addHeadingChange:ModifyModels AtRange:NSMakeRange(self.HeadingColNum, 0)];
-    self.HeadingColNum += [ModifyModels firstObject].count;
+    _HeadingColNum += [ModifyModels firstObject].count;
 }
 
 -(void)insertHeadingModels:(NSArray<WD_QTableModel *> *)newModels atCol:(NSInteger)colId{
     [self.headings insertObjects:newModels atIndexes:[NSIndexSet indexSetWithIndex:colId]];
     [self.autoLayoutHandle addHeadingChange:@[newModels] AtRange:NSMakeRange(colId, 0)];
-    self.HeadingColNum ++;
+    _HeadingColNum ++;
 }
 
 #pragma mark - leading insert
 -(void)resetLeadingModel:(NSArray<WD_QTableModel *> *)newModels{
     [self.leadings removeAllObjects];
-    self.LeadingRowNum = 0;
+    _LeadingRowNum = 0;
     [self insertLeadingModel:newModels];
 }
 -(void)insertLeadingModel:(NSArray<WD_QTableModel *> *)newModels{
     [self.leadings addObjectsFromArray:newModels];
     [self.autoLayoutHandle addLeadingChange:@[newModels] AtRange:NSMakeRange(self.LeadingRowNum, 0)];
-    self.LeadingRowNum += newModels.count;
-    self.LeadingLevel = 1;
+    _LeadingRowNum += newModels.count;
+    _LeadingLevel = 1;
 }
 -(void)resetLeadingModelWithArr:(NSArray<NSString *> *)newArr{
     [self.leadings removeAllObjects];
-    self.LeadingRowNum = 0;
+    _LeadingRowNum = 0;
     [self insertLeadingModelWithArr:newArr];
 }
 -(void)insertLeadingModelWithArr:(NSArray<NSString *> *)newArr{
@@ -467,7 +461,7 @@
 
 -(void)resetMultipleLeadingModel:(NSArray<NSArray<WD_QTableModel *> *> *)newModels{
     [self.leadings removeAllObjects];
-    self.LeadingRowNum = 0;
+    _LeadingRowNum = 0;
     [self insertMultipleLeadingModel:newModels];
 }
 -(void)insertMultipleLeadingModel:(NSArray<NSArray<WD_QTableModel *> *> *)newModels{
@@ -500,15 +494,15 @@
             [self.leadings addObject:ModifyModels[j][i]];
         }
     }
-    self.LeadingLevel = ModifyModels.count;
+    _LeadingLevel = ModifyModels.count;
     [self.autoLayoutHandle addLeadingChange:ModifyModels AtRange:NSMakeRange(self.LeadingRowNum, 0)];
-    self.LeadingRowNum += [ModifyModels firstObject].count;
+    _LeadingRowNum += [ModifyModels firstObject].count;
 }
 
 -(void)insertLeadingModels:(NSArray<WD_QTableModel *> *)newModels atRow:(NSInteger)rowId{
     [self.leadings insertObjects:newModels atIndexes:[NSIndexSet indexSetWithIndex:rowId]];
     [self.autoLayoutHandle addLeadingChange:@[newModels] AtRange:NSMakeRange(rowId, 0)];
-    self.LeadingRowNum ++;
+    _LeadingRowNum ++;
 }
 
 #pragma mark - Model辅助方法(Private)
@@ -521,10 +515,10 @@
     }
 }
 -(NSInteger)indexLeadingAtIdx:(NSInteger)idx InLevel:(NSInteger)level{
-    return idx * self.HeadingLevel + level;
+    return idx * self.LeadingLevel + level;
 }
 -(NSInteger)indexHeadingAtIdx:(NSInteger)idx InLevel:(NSInteger)level{
-    return idx * self.LeadingLevel + level;
+    return idx * self.HeadingLevel + level;
 }
 
 #pragma mark - Model辅助方法(Public)
@@ -574,8 +568,9 @@
     WD_QTableBaseViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[self.styleConstructor itemCollectionViewCellIdentifier:indexPath] forIndexPath:indexPath];
     cell.indexPath = indexPath;
     cell.delegate = self;
-    cell.indexPath = indexPath;
-    [self.styleConstructor constructItemCollectionView:cell By:[self modelForItem:indexPath]];
+    WD_QTableModel *model = [self modelForItem:indexPath];
+    model.indexPath = indexPath;
+    [self.styleConstructor constructItemCollectionView:cell By:model];
     return cell;
 }
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
@@ -746,6 +741,5 @@
 -(NSInteger)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout HeadingCollapseRowNumberInCol:(NSInteger)col AtLevel:(NSInteger)level{
     return [self modelForHeading:col level:level].collapseRow;
 }
-
 
 @end
