@@ -51,7 +51,7 @@
         make.edges.mas_equalTo(self.view);
     }];
     [self loadData];
-    // Do any additional setup after loading the view.
+    
 }
 
 -(void)loadData{

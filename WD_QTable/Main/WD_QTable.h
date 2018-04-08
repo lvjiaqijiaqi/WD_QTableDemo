@@ -25,6 +25,13 @@
 @property(nonatomic,assign) BOOL needTranspostionForModel;
 @property (nonatomic,strong) UICollectionView *collectionView;
 
+@property (nonatomic,assign,readonly) NSInteger colsNum;
+@property (nonatomic,assign,readonly) NSInteger rowsNum;
+@property (nonatomic,assign,readonly) NSInteger LeadingRowNum;
+@property (nonatomic,assign,readonly) NSInteger HeadingColNum;
+@property (nonatomic,assign,readonly) NSInteger LeadingLevel;
+@property (nonatomic,assign,readonly) NSInteger HeadingLevel;
+
 @property(nonatomic,strong) id<WD_QTableChangeDelegate> autoLayoutHandle;
 
 -(JQ_CollectionViewLayout *)layout;

@@ -64,7 +64,12 @@
     [self.table.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"解析" style:0 target:self action:@selector(paresOut)];
     // Do any additional setup after loading the view.
+}
+
+-(void)paresOut{
+    [WD_QTableParse parseOut:self.table];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -73,16 +78,9 @@
 
 -(void)loadData{
     
-    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"weakPlanLeadingData" ofType:@"json"];
-    //NSString *content1 = [[NSString alloc] initWithContentsOfFile:path1 encoding:NSUTF8StringEncoding error:nil];
-    //NSArray *Leadings = [WD_QTableParse parseLeadingFromJsonStr:content1 AtLevel:2];
-    
-    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"weakPlanData" ofType:@"json"];
-    NSString *content2 = [[NSString alloc] initWithContentsOfFile:path2 encoding:NSUTF8StringEncoding error:nil];
-    
-    [self.table resetItemModel:[WD_QTableParse parseDataFromJsonStr:content2]];
-    //[self.table resetLeadingModels:Leadings DependLevel:2];
-    [self.table resetHeadingModelWithArr:@[@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六",@"星期日"]];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"coursePlan" ofType:@"json"];
+    NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    [WD_QTableParse parseIn:self.table ByJsonStr:content];
     [self.table reloadData];
 }
 

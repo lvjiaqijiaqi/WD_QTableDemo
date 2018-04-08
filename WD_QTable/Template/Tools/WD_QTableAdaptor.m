@@ -121,7 +121,7 @@
 -(void)addDataChange:(NSArray<NSArray<WD_QTableModel *> *> *)models AtRowRange:(NSRange)range{
     NSInteger index = range.location;
     if (models.count == 0) {
-        [self.layoutConstructor.RowsH removeObjectAtIndex:index];
+        [self.layoutConstructor.RowsH removeObjectsInRange:range];
         return;
     }
     const NSInteger colsNum = models[0].count;
@@ -157,7 +157,7 @@
 -(void)addDataChange:(NSArray<NSArray<WD_QTableModel *> *> *)models AtColRange:(NSRange)range{
     NSInteger index = range.location;
     if (models.count == 0){
-        [self.layoutConstructor.colsW removeObjectAtIndex:index];
+        [self.layoutConstructor.colsW removeObjectsInRange:range];
         return;
     }
     const NSInteger colsNum = models.count;

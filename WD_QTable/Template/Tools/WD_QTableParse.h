@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "WD_QTableModel.h"
 
+@class WD_QTable;
+
 @interface WD_QTableParse : NSObject
 
-+(NSArray<WD_QTableModel *> *)parseHeadingFromJsonStr:(NSString *)jsonStr AtLevel:(NSInteger)level;
-+(NSArray<WD_QTableModel *> *)parseLeadingFromJsonStr:(NSString *)jsonStr AtLevel:(NSInteger)level;
-+(NSArray<NSArray<WD_QTableModel *> *> *)parseDataFromJsonStr:(NSString *)jsonStr;
++(void)parseIn:(WD_QTable *)table ByJsonStr:(NSString *)jsonStr;
++(NSString *)parseOut:(WD_QTable *)table;
+
 @end
