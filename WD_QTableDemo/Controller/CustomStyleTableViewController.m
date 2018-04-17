@@ -25,7 +25,7 @@
 
 -(UITextView *)tipsLabel{
     UITextView *label =  [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 10, 200.f)];
-    label.text = @"WD_QTableDefaultStyleConstructorDelegate协议为WD_QTable提供样式逻辑，将该逻辑分离出来以方便单独配置，\n本demo展示了怎么去配置表格的样式。右上角的切换按钮可以让表格随意的切换不同的样式，而你只需要切换不同的实现WD_QTableDefaultStyleConstructorDelegate协议的对象即可，这也是将该逻辑抽离出来的原因之一。";
+    label.text = @"WD_QTableStyleConstructorDelegate协议为WD_QTable提供样式逻辑，将该逻辑分离出来以方便单独配置，\n本demo展示了怎么去配置表格的样式。右上角的切换按钮可以让表格随意的切换不同的样式，而你只需要切换不同的实现WD_QTableDefaultStyleConstructorDelegate协议的对象即可，这也是将该逻辑抽离出来的原因之一。";
     label.font = [UIFont systemFontOfSize:15];
     label.backgroundColor = [UIColor blackColor];
     label.textColor = [UIColor whiteColor];
@@ -58,7 +58,7 @@
     }];
     [self loadData];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"style转换" style:UIBarButtonItemStylePlain target:self action:@selector(changeStyle)];
-    // Do any additional setup after loading the view.
+    
 }
 
 -(void)loadData{

@@ -42,19 +42,6 @@
     return _table;
 }
 
-
--(void)createAlert:(NSString *)title{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"关闭" style:UIAlertActionStyleDefault handler:nil];
-    [alertController addAction:okAction];
-    [self presentViewController:alertController animated:YES completion:nil];
-}
-
-
--(void)insertNew:(id)sender{
-    [self.table insertEmptyRowAtRow:2];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -64,7 +51,12 @@
         make.edges.mas_equalTo(self.view);
     }];
     __weak typeof(self) weakSelf = self;
-    /*self.table.didSelectItemBlock = ^(NSInteger row, NSInteger col, WD_QTableModel *model) {
+    self.table.didSelectItemBlock = ^(NSInteger row, NSInteger col, WD_QTableModel *model, WD_QTableBaseViewCell *cell) {
+        model.title = @"击中";
+        [weakSelf.table updateItem:model AtCol:col InRow:row];
+    };
+    /*
+    self.table.didSelectItemBlock = ^(NSInteger row, NSInteger col, WD_QTableModel *model) {
         NSString *title = [NSString stringWithFormat:@"我是Item%ld行%ld列",row,col];
         [weakSelf createAlert:title];
     };
@@ -75,11 +67,10 @@
     self.table.didSelectLeadingBlock = ^(NSIndexPath *indexPath) {
         NSString *title = [NSString stringWithFormat:@"我是%ld行Leading",indexPath.row];
         [weakSelf createAlert:title];
-    };*/
+     };
+     */
 
     [self loadData];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(insertNew:)];
-    // Do any additional setup after loading the view.
 }
 
 -(void)loadData{

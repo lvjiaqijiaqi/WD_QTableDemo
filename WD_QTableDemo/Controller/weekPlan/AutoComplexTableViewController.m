@@ -12,7 +12,6 @@
 #import "WD_QTableAutoLayoutConstructor.h"
 #import "WeakPlanTableStyleConstructor.h"
 #import "WD_QTableParse.h"
-#import "WD_QTableBaseColAdaptor.h"
 
 #import "Masonry.h"
 
@@ -42,7 +41,7 @@
         config.inset = UIEdgeInsetsMake(50, 0, 0, 0);
         WeakPlanTableStyleConstructor *style = [[WeakPlanTableStyleConstructor alloc] init];
         _table = [[WD_QTable alloc] initWithLayoutConfig:config StyleConstructor:style];
-        WD_QTableBaseColAdaptor *autoHandle =  [[WD_QTableBaseColAdaptor alloc] initWithTableStyle:style ToLayout:config];
+        WD_QTableAdaptor *autoHandle =  [[WD_QTableAdaptor alloc] initWithTableStyle:style ToLayout:config];
         _config = config;
         autoHandle.defaultRowH = 50.f;
         _table.autoLayoutHandle = autoHandle;
@@ -65,7 +64,6 @@
         make.edges.mas_equalTo(self.view);
     }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"解析" style:0 target:self action:@selector(paresOut)];
-    // Do any additional setup after loading the view.
 }
 
 -(void)paresOut{

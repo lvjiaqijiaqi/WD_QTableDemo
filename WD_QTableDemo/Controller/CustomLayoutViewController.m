@@ -25,7 +25,7 @@
 
 -(UITextView *)tipsLabel{
     UITextView *label =  [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300.f)];
-    label.text = @"WD_QTableDefaultLayoutConstructorDelegate协议是WD_QTable自定义布局接口，本demo展示了如何为WD_QTable提供自定义布局，WD_QTableAutoLayoutConstructor是一个实现WD_QTableDefaultLayoutConstructorDelegate协议的布局构造器，实现接口为为WD_QTable提供布局信息。\nautoLayoutHandle是一个实现了WD_QTableAdaptorDelegate协议的WD_QTable内部的对象，当数据源变化重新刷新的时候，WD_QTableAdaptor会收到变化的数据，我们可以提供自定义策略去更具数据重新计算layout属性，然后提交到layout构造器，WD_QTableAdaptor就是这么一个提供策略的对象";
+    label.text = @"WD_QTableLayoutConstructorDelegate协议是WD_QTable自定义布局接口，本demo展示了如何为WD_QTable提供自定义布局，WD_QTableAutoLayoutConstructor是一个实现WD_QTableDefaultLayoutConstructorDelegate协议的布局构造器，实现接口为为WD_QTable提供布局信息。\nautoLayoutHandle是一个实现了WD_QTableAdaptorDelegate协议的WD_QTable内部的对象，当数据源变化重新刷新的时候，WD_QTableAdaptor会收到变化的数据，我们可以提供自定义策略去更具数据重新计算layout属性，然后提交到layout构造器，WD_QTableAdaptor就是这么一个提供策略的对象";
     label.font = [UIFont systemFontOfSize:15];
     label.backgroundColor = [UIColor blackColor];
     label.textColor = [UIColor whiteColor];
@@ -52,12 +52,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
     [self.view addSubview:self.table.view];
     [self.table.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
-    // Do any additional setup after loading the view.
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -65,8 +63,7 @@
 }
 
 -(void)loadData{
-    
-    
+
     NSInteger rowNum = 30;
     NSInteger colNum = 10;
     

@@ -14,6 +14,7 @@
 @protocol JQ_CollectionViewLayoutDelegate;
 @class WD_QTableModel;
 @class JQ_CollectionViewLayout;
+
 @class WD_QTableBaseReusableView;
 @class WD_QTableBaseViewCell;
 
@@ -66,6 +67,7 @@
  **/
 @property(nonatomic,copy) void(^didSelectItemBlock)(NSInteger row, NSInteger col , WD_QTableModel * model,WD_QTableBaseViewCell *cell);
 @property(nonatomic,copy) void(^didLongPressItemBlock)(NSInteger row, NSInteger col , WD_QTableModel *model,WD_QTableBaseViewCell *cell);
+
 
 #pragma mark - 初始化方法
 /**
@@ -126,7 +128,7 @@
 -(void)insertItemModel:(NSArray<NSArray<WD_QTableModel *> *>*)newData;
 
 /**
-插入行数据
+ 插入行数据
  @param  newModels 一维数组
  @param  rowIdx 行索引
  **/

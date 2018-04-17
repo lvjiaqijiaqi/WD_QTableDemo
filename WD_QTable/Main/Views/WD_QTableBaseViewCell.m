@@ -24,14 +24,14 @@
 - (void)longPress:(UILongPressGestureRecognizer *)recognizer
 {
     if (self.delegate) {
-        [self.delegate WD_QTableDidLongPressAtIndexPath:self.indexPath];
+        [self.delegate WD_QTableDidLongPressCell:self AtIndexPath:self.indexPath];
     }
 }
 
 - (void)tapPress:(UITapGestureRecognizer *)recognizer
 {
     if (self.delegate) {
-        [self.delegate WD_QTableDidSelectAtIndexPath:self.indexPath];
+        [self.delegate WD_QTableDidSelectCell:self AtIndexPath:self.indexPath];
     }
 }
 

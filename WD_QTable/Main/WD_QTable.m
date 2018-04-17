@@ -167,21 +167,21 @@
     [self.collectionLayout invalidateLayout];
     [self.collectionView reloadData];
     /*if (self.autoLayoutHandle) {
-        Lock(); //锁住 避免多次调用卡主线程
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            [self.autoLayoutHandle commitChange];
-            Unlock();
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.collectionLayout resetLayout];
-                [self.collectionLayout invalidateLayout];
-                [self.collectionView reloadData];
-            });
-        });
-    }else{
-        [self.collectionLayout resetLayout];
-        [self.collectionLayout invalidateLayout];
-        [self.collectionView reloadData];
-    }*/
+     Lock(); //锁住 避免多次调用卡主线程
+     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+     [self.autoLayoutHandle commitChange];
+     Unlock();
+     dispatch_async(dispatch_get_main_queue(), ^{
+     [self.collectionLayout resetLayout];
+     [self.collectionLayout invalidateLayout];
+     [self.collectionView reloadData];
+     });
+     });
+     }else{
+     [self.collectionLayout resetLayout];
+     [self.collectionLayout invalidateLayout];
+     [self.collectionView reloadData];
+     }*/
 }
 -(void)updateData{
     [self.autoLayoutHandle commitChange];
@@ -211,6 +211,8 @@
     NSInteger validIndex = [self indexLeadingAtIdx:row InLevel:level];
     if (validIndex < self.leadings.count) {
         self.leadings[validIndex] = updateModel;
+        [self.autoLayoutHandle addLeadingUpdate:updateModel AtRow:row InLevel:level];
+        [self.autoLayoutHandle commitChange];
         [self.layout invalidLayoutAtRow:row InCol:0];
         [self.collectionView reloadData];
     }
@@ -219,7 +221,10 @@
     NSInteger validIndex = [self indexHeadingAtIdx:col InLevel:level];
     if (validIndex < self.headings.count) {
         self.headings[validIndex] = updateModel;
+        [self.autoLayoutHandle addHeadingUpdate:updateModel AtCol:col InLevel:level];
+        [self.autoLayoutHandle commitChange];
         [self.layout invalidLayoutAtRow:0 InCol:col];
+        [self.collectionView reloadData];
     }
 }
 
@@ -617,47 +622,44 @@
 
 #pragma mark - EventDelegate
 
--(void)WD_QTableDidSelectAtIndexPath:(NSIndexPath *)indexPath{
-    if(self.didSelectItemBlock) self.didSelectItemBlock(indexPath.row,indexPath.section,[self modelForItem:indexPath],(WD_QTableBaseViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath]);
+-(void)WD_QTableDidSelectCell:(__kindof UICollectionViewCell *)cell AtIndexPath:(NSIndexPath *)indexPath{
+    if(self.didSelectItemBlock) self.didSelectItemBlock(indexPath.row,indexPath.section,[self modelForItem:indexPath],cell);
 }
--(void)WD_QTableReusableViewName:(NSString *)SupplementaryName didSelectSupplementaryAtIndexPath:(NSIndexPath *)indexPath{
+-(void)WD_QTableReusableViewCell:(__kindof UICollectionReusableView *)cell ForName:(NSString *)SupplementaryName didSelectSupplementaryAtIndexPath:(NSIndexPath *)indexPath{
     if ([SupplementaryName isEqualToString:@"mainSupplementaryView"]) {
     }else if ([SupplementaryName isEqualToString:@"headingSupplementaryView"]) {
-        if(self.didSelectHeadingBlock) self.didSelectHeadingBlock(indexPath,[self modelForHeading:indexPath.row level:indexPath.section],(WD_QTableBaseReusableView *)[self.collectionView supplementaryViewForElementKind:@"leadingSupplementaryView" atIndexPath:indexPath]);
+        if(self.didSelectHeadingBlock) self.didSelectHeadingBlock(indexPath,[self modelForHeading:indexPath.row level:indexPath.section],cell);
     }else if ([SupplementaryName isEqualToString:@"leadingSupplementaryView"]) {
-        if(self.didSelectLeadingBlock) self.didSelectLeadingBlock(indexPath,[self modelForLeading:indexPath.row level:indexPath.section],(WD_QTableBaseReusableView *)[self.collectionView supplementaryViewForElementKind:@"leadingSupplementaryView" atIndexPath:indexPath]);
+        if(self.didSelectLeadingBlock) self.didSelectLeadingBlock(indexPath,[self modelForLeading:indexPath.row level:indexPath.section],cell);
     }else if ([SupplementaryName isEqualToString:@"sectionSupplementaryView"]) {
         if(self.didSelectSectionBlock){}  //self.didSelectSectionBlock(indexPath);
     }
+    
 }
--(void)WD_QTableDidLongPressAtIndexPath:(NSIndexPath *)indexPath{
+-(void)WD_QTableDidLongPressCell:(__kindof UICollectionViewCell *)cell AtIndexPath:(NSIndexPath *)indexPath{
     if (self.didLongPressItemBlock) {
-        self.didLongPressItemBlock(indexPath.row,indexPath.section,[self modelForItem:indexPath],(WD_QTableBaseViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath]);
+        self.didLongPressItemBlock(indexPath.row,indexPath.section,[self modelForItem:indexPath],cell);
     }
 }
--(void)WD_QTableReusableViewName:(NSString *)SupplementaryName didLongPressSupplementaryAtIndexPath:(NSIndexPath *)indexPath{
+-(void)WD_QTableReusableViewCell:(__kindof UICollectionReusableView *)cell ForName:(NSString *)SupplementaryName didLongPressSupplementaryAtIndexPath:(NSIndexPath *)indexPath{
     if ([SupplementaryName isEqualToString:@"mainSupplementaryView"]) {
     }else if ([SupplementaryName isEqualToString:@"headingSupplementaryView"]) {
-        if(self.didLongPressHeadingBlock) self.didLongPressHeadingBlock(indexPath,[self modelForHeading:indexPath.row level:indexPath.section],    (WD_QTableBaseReusableView *)[self.collectionView supplementaryViewForElementKind:@"headingSupplementaryView" atIndexPath:indexPath]);
+        if(self.didLongPressHeadingBlock) self.didLongPressHeadingBlock(indexPath,[self modelForHeading:indexPath.row level:indexPath.section],cell);
     }else if ([SupplementaryName isEqualToString:@"leadingSupplementaryView"]) {
-        if(self.didLongPressLeadingBlock) self.didLongPressLeadingBlock(indexPath,[self modelForLeading:indexPath.row level:indexPath.section],(WD_QTableBaseReusableView *)[self.collectionView supplementaryViewForElementKind:@"leadingSupplementaryView" atIndexPath:indexPath]);
+        if(self.didLongPressLeadingBlock) self.didLongPressLeadingBlock(indexPath,[self modelForLeading:indexPath.row level:indexPath.section],cell);
     }else if ([SupplementaryName isEqualToString:@"sectionSupplementaryView"]) {
         if(self.didLongPressSectionBlock){}  //self.didLongPressSectionBlock(indexPath);
     }
 }
-
 #pragma mark - 生命周期
 -(void)viewWillLayoutSubviews{
     if (!CGSizeEqualToSize(self.view.frame.size, CGSizeZero) && !CGSizeEqualToSize(self.collectionView.frame.size, self.view.frame.size)) {
         CGRect rect = self.collectionView.frame;
         rect.size = self.view.frame.size;
         self.collectionView.frame = rect;
-        
         [self updateSupplementaryPosition];
-        
         BOOL needLayout = [self.layoutConstructor adjustLayoutForNewFrame:rect colCount:[self colsNum] andRowCount:[self rowsNum]];
         if (needLayout) [self reloadData];
-        
     }
     [super viewWillLayoutSubviews];
 }

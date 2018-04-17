@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ABB5AB062078F5E800B5D66B /* WD_QTableBaseColAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAD32078F5E800B5D66B /* WD_QTableBaseColAdaptor.m */; };
 		ABB5AB072078F5E800B5D66B /* WD_QTableParse.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAD42078F5E800B5D66B /* WD_QTableParse.m */; };
 		ABB5AB082078F5E800B5D66B /* WD_QTableAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AAD62078F5E800B5D66B /* WD_QTableAdaptor.m */; };
 		ABB5AB092078F5E800B5D66B /* WD_QTableDefaultLayoutConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5AADA2078F5E800B5D66B /* WD_QTableDefaultLayoutConstructor.m */; };
@@ -83,9 +82,7 @@
 
 /* Begin PBXFileReference section */
 		ABB5AAD22078F5E800B5D66B /* WD_QTableAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableAdaptor.h; sourceTree = "<group>"; };
-		ABB5AAD32078F5E800B5D66B /* WD_QTableBaseColAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableBaseColAdaptor.m; sourceTree = "<group>"; };
 		ABB5AAD42078F5E800B5D66B /* WD_QTableParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableParse.m; sourceTree = "<group>"; };
-		ABB5AAD52078F5E800B5D66B /* WD_QTableBaseColAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableBaseColAdaptor.h; sourceTree = "<group>"; };
 		ABB5AAD62078F5E800B5D66B /* WD_QTableAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WD_QTableAdaptor.m; sourceTree = "<group>"; };
 		ABB5AAD72078F5E800B5D66B /* WD_QTableParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableParse.h; sourceTree = "<group>"; };
 		ABB5AAD92078F5E800B5D66B /* WD_QTableAutoLayoutConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WD_QTableAutoLayoutConstructor.h; sourceTree = "<group>"; };
@@ -254,8 +251,6 @@
 			children = (
 				ABB5AAD22078F5E800B5D66B /* WD_QTableAdaptor.h */,
 				ABB5AAD62078F5E800B5D66B /* WD_QTableAdaptor.m */,
-				ABB5AAD52078F5E800B5D66B /* WD_QTableBaseColAdaptor.h */,
-				ABB5AAD32078F5E800B5D66B /* WD_QTableBaseColAdaptor.m */,
 				ABB5AAD72078F5E800B5D66B /* WD_QTableParse.h */,
 				ABB5AAD42078F5E800B5D66B /* WD_QTableParse.m */,
 			);
@@ -286,11 +281,11 @@
 			isa = PBXGroup;
 			children = (
 				ABB5AAE42078F5E800B5D66B /* WD_QTableOtherViewCell.h */,
-				ABB5AAE52078F5E800B5D66B /* WD_QTableDefaultReusableView.h */,
-				ABB5AAE62078F5E800B5D66B /* WD_QTableDefaultViewCell.m */,
-				ABB5AAE72078F5E800B5D66B /* WD_QTableDefaultReusableView.m */,
 				ABB5AAE82078F5E800B5D66B /* WD_QTableOtherViewCell.m */,
+				ABB5AAE52078F5E800B5D66B /* WD_QTableDefaultReusableView.h */,
+				ABB5AAE72078F5E800B5D66B /* WD_QTableDefaultReusableView.m */,
 				ABB5AAE92078F5E800B5D66B /* WD_QTableDefaultViewCell.h */,
+				ABB5AAE62078F5E800B5D66B /* WD_QTableDefaultViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -359,8 +354,8 @@
 		ADBB0D052050C4D300757D68 = {
 			isa = PBXGroup;
 			children = (
-				ABB5AACF2078F5E800B5D66B /* WD_QTable */,
 				ADBB0D8E2050C50800757D68 /* Masonry */,
+				ABB5AACF2078F5E800B5D66B /* WD_QTable */,
 				ADBB0D102050C4D400757D68 /* WD_QTableDemo */,
 				ADBB0D292050C4D400757D68 /* WD_QTableDemoTests */,
 				ADBB0D342050C4D400757D68 /* WD_QTableDemoUITests */,
@@ -463,8 +458,6 @@
 				ADBB0DC52050C60800757D68 /* RefreashTableCrossViewController.m */,
 				ADBB0DC62050C60800757D68 /* RefreashTableViewController.h */,
 				ADBB0DC72050C60800757D68 /* RefreashTableViewController.m */,
-				ADCDD6382074C4F3003C8D65 /* EditTableViewController.h */,
-				ADCDD6392074C4F3003C8D65 /* EditTableViewController.m */,
 				ADBB0DC82050C60800757D68 /* TipsViewController.h */,
 				ADBB0DC92050C60800757D68 /* TipsViewController.m */,
 			);
@@ -487,12 +480,12 @@
 			children = (
 				ADBB0DDF20510D4E00757D68 /* View */,
 				ADBB0DB52050C56000757D68 /* weakPlanData.json */,
+				ADB6CF50207A248B00089960 /* coursePlan.json */,
 				ADBB0DD92050FCAC00757D68 /* weakPlanLeadingData.json */,
 				ADBB0DD32050D1A300757D68 /* AutoComplexTableViewController.h */,
 				ADBB0DD42050D1A300757D68 /* AutoComplexTableViewController.m */,
 				ADBB0DDC20510A0300757D68 /* WeakPlanTableStyleConstructor.h */,
 				ADBB0DDD20510A0300757D68 /* WeakPlanTableStyleConstructor.m */,
-				ADB6CF50207A248B00089960 /* coursePlan.json */,
 			);
 			path = weekPlan;
 			sourceTree = "<group>";
@@ -514,6 +507,8 @@
 				ADCDD63F2074CCE6003C8D65 /* Views */,
 				ADCDD63C2074CCD6003C8D65 /* EditTableStyleConstructor.h */,
 				ADCDD63D2074CCD6003C8D65 /* EditTableStyleConstructor.m */,
+				ADCDD6382074C4F3003C8D65 /* EditTableViewController.h */,
+				ADCDD6392074C4F3003C8D65 /* EditTableViewController.m */,
 			);
 			path = EditTable;
 			sourceTree = "<group>";
@@ -665,7 +660,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB5AB062078F5E800B5D66B /* WD_QTableBaseColAdaptor.m in Sources */,
 				ABB5AB132078F5E800B5D66B /* WD_QTable.m in Sources */,
 				ABB5AB122078F5E800B5D66B /* WD_QRefreshTable.m in Sources */,
 				ADBB0DCD2050C60800757D68 /* CustomStyleConstructor.m in Sources */,
@@ -877,7 +871,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 547ZEB69CW;
 				INFOPLIST_FILE = WD_QTableDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jqlv.WD-QTableDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -892,7 +886,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 547ZEB69CW;
 				INFOPLIST_FILE = WD_QTableDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jqlv.WD-QTableDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
