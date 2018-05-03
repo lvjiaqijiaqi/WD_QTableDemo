@@ -272,13 +272,15 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
 -(void)prepareLayout{
     [super prepareLayout];
     self.boundSize = CGSizeMake([self ContentSizeWidth], [self ContentSizeHeight]);
+    [self.layoutDelegate collectionView:self.collectionView layout:self BoundsChange:self.boundSize];
     self.invalidContext = [[JQ_CollectionViewLayoutInvalidationContext alloc] init];
 }
 -(CGSize)collectionViewContentSize{
     if (!CGSizeEqualToSize(CGSizeZero, self.boundSize)) {
         return self.boundSize;
     }
-    return CGSizeMake([self ContentSizeWidth],  [self ContentSizeHeight]);
+    CGSize boundSize = CGSizeMake([self ContentSizeWidth],  [self ContentSizeHeight]);
+    return boundSize;
 }
 -(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds{
     if (!CGSizeEqualToSize(newBounds.size, self.boundSize)) {

@@ -75,7 +75,6 @@
 }
 
 -(void)loadData{
-    
     NSString *path = [[NSBundle mainBundle] pathForResource:@"coursePlan" ofType:@"json"];
     NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     [WD_QTableParse parseIn:self.table ByJsonStr:content];

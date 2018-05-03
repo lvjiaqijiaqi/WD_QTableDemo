@@ -105,6 +105,7 @@
         for (NSInteger col = 0; col < colNum; col++) {
             WD_QTableModel *model = [[WD_QTableModel alloc] init];
             model.title = @"Item";
+            //if(col == 0) model.collapseCol = 3;
             [rowArr addObject:model];
         }
         [data addObject:rowArr];

@@ -13,6 +13,7 @@
 @property (nonatomic,strong) UIView *bottomView;
 
 -(void)setHeadView:(UIView *)headView;
+-(void)setBottomView:(UIView *)bottomView;
 
 @end
 

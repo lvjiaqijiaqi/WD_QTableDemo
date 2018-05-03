@@ -41,6 +41,8 @@
 
 #pragma mark - 事件block
 
+@property(nonatomic,copy) void(^boundChangeHandle)(WD_QTable *wd_QTable , CGSize newBound);
+
 /**
  响应Leading点击事件
  @param  indexPath 索引

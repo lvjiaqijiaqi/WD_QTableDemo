@@ -58,6 +58,8 @@
 /* Section高度 */
 -(CGFloat)sectionOfItemInCollectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout InRow:(NSInteger)row;
 
+-(void)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout BoundsChange:(CGSize)boundSize;
+
 @end
 
 #endif /* JQ_CollectionViewLayoutDelegate_h */

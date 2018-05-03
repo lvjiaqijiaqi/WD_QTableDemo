@@ -748,5 +748,10 @@
     return [self modelForHeading:col level:level].collapseRow;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView layout:(JQ_CollectionViewLayout *)collectionViewLayout BoundsChange:(CGSize)boundSize{
+    if (self.boundChangeHandle) {
+        self.boundChangeHandle(self, boundSize);
+    }
+}
 @end
 

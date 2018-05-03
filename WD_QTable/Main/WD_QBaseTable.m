@@ -27,7 +27,9 @@
 -(void)setHeadView:(UIView *)headView{
     _headView = headView;
 }
-
+-(void)setBottomView:(UIView *)bottomView{
+    _bottomView = bottomView;
+}
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
