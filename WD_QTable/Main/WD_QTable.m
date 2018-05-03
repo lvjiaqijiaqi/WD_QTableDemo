@@ -167,21 +167,21 @@
     [self.collectionLayout invalidateLayout];
     [self.collectionView reloadData];
     /*if (self.autoLayoutHandle) {
-        Lock(); //锁住 避免多次调用卡主线程
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            [self.autoLayoutHandle commitChange];
-            Unlock();
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.collectionLayout resetLayout];
-                [self.collectionLayout invalidateLayout];
-                [self.collectionView reloadData];
-            });
-        });
-    }else{
-        [self.collectionLayout resetLayout];
-        [self.collectionLayout invalidateLayout];
-        [self.collectionView reloadData];
-    }*/
+     Lock(); //锁住 避免多次调用卡主线程
+     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+     [self.autoLayoutHandle commitChange];
+     Unlock();
+     dispatch_async(dispatch_get_main_queue(), ^{
+     [self.collectionLayout resetLayout];
+     [self.collectionLayout invalidateLayout];
+     [self.collectionView reloadData];
+     });
+     });
+     }else{
+     [self.collectionLayout resetLayout];
+     [self.collectionLayout invalidateLayout];
+     [self.collectionView reloadData];
+     }*/
 }
 -(void)updateData{
     [self.autoLayoutHandle commitChange];
@@ -211,6 +211,8 @@
     NSInteger validIndex = [self indexLeadingAtIdx:row InLevel:level];
     if (validIndex < self.leadings.count) {
         self.leadings[validIndex] = updateModel;
+        [self.autoLayoutHandle addLeadingUpdate:updateModel AtRow:row InLevel:level];
+        [self.autoLayoutHandle commitChange];
         [self.layout invalidLayoutAtRow:row InCol:0];
         [self.collectionView reloadData];
     }
@@ -219,7 +221,10 @@
     NSInteger validIndex = [self indexHeadingAtIdx:col InLevel:level];
     if (validIndex < self.headings.count) {
         self.headings[validIndex] = updateModel;
+        [self.autoLayoutHandle addHeadingUpdate:updateModel AtCol:col InLevel:level];
+        [self.autoLayoutHandle commitChange];
         [self.layout invalidLayoutAtRow:0 InCol:col];
+        [self.collectionView reloadData];
     }
 }
 
@@ -238,6 +243,8 @@
             [self.leadings removeObjectAtIndex:[self indexLeadingAtIdx:rowId InLevel:i]];
         }
         _LeadingRowNum--;
+        [self.autoLayoutHandle addDataChange:@[] AtRowRange:NSMakeRange(rowId, 1)];
+        [self.autoLayoutHandle addLeadingChange:@[] AtRange:NSMakeRange(rowId, 1)];
         [self.layout invalidLayoutAtRowIndex:rowId];
         [self.collectionView reloadData];
     }
@@ -254,6 +261,8 @@
             [self.headings removeObjectAtIndex:[self indexHeadingAtIdx:colId InLevel:i]];
         }
         _HeadingColNum--;
+        [self.autoLayoutHandle addDataChange:@[] AtColRange:NSMakeRange(colId, 1)];
+        [self.autoLayoutHandle addHeadingChange:@[] AtRange:NSMakeRange(colId, 1)];
         [self.layout invalidLayoutAtColIndex:colId];
         [self.collectionView reloadData];
     }
@@ -645,19 +654,15 @@
         if(self.didLongPressSectionBlock){}  //self.didLongPressSectionBlock(indexPath);
     }
 }
-
 #pragma mark - 生命周期
 -(void)viewWillLayoutSubviews{
     if (!CGSizeEqualToSize(self.view.frame.size, CGSizeZero) && !CGSizeEqualToSize(self.collectionView.frame.size, self.view.frame.size)) {
         CGRect rect = self.collectionView.frame;
         rect.size = self.view.frame.size;
         self.collectionView.frame = rect;
-        
         [self updateSupplementaryPosition];
-        
         BOOL needLayout = [self.layoutConstructor adjustLayoutForNewFrame:rect colCount:[self colsNum] andRowCount:[self rowsNum]];
         if (needLayout) [self reloadData];
-        
     }
     [super viewWillLayoutSubviews];
 }
@@ -743,3 +748,4 @@
 }
 
 @end
+

@@ -17,6 +17,8 @@
 -(void)addDataChange:(NSArray<NSArray<WD_QTableModel *> *> *)models AtColRange:(NSRange)range;
 -(void)commitChange;
 -(void)addDataUpdate:(WD_QTableModel *)model AtRow:(NSInteger)rowId InCol:(NSInteger)colId;
+-(void)addLeadingUpdate:(WD_QTableModel *)model AtRow:(NSInteger)rowId InLevel:(NSInteger)levelId;
+-(void)addHeadingUpdate:(WD_QTableModel *)model AtCol:(NSInteger)colId InLevel:(NSInteger)levelId;
 @end
 
 #endif /* WD_QTableChangeDelegate_h */

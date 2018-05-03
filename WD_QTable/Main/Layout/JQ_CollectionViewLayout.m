@@ -203,7 +203,7 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
         PosY += [self headingHeight:start];
     }
     return PosY + [self layoutOffsetY];
-            
+    
 }
 #pragma mark - frame配置函数 delegate形式
 
@@ -217,10 +217,10 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
 
 #pragma mark Item配置
 -(NSInteger)rowsNumber{
-   return [self.layoutDelegate rowNumberOfCollectionView:self.collectionView layout:self];
+    return [self.layoutDelegate rowNumberOfCollectionView:self.collectionView layout:self];
 }
 -(NSInteger)colsNumber{
-   return [self.layoutDelegate colNumberOfCollectionView:self.collectionView layout:self];
+    return [self.layoutDelegate colNumberOfCollectionView:self.collectionView layout:self];
 }
 -(CGFloat)heightInRow:(NSInteger)row{
     return [self.layoutDelegate collectionView:self.collectionView layout:self heightOfRow:row];
@@ -248,7 +248,7 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
 }
 
 -(NSInteger)LeadingCollapseColInRow:(NSInteger)row AtLevel:(NSInteger)level{
-   return [self.layoutDelegate collectionView:self.collectionView layout:self LeadingCollapseColNumberInRow:row AtLevel:level];
+    return [self.layoutDelegate collectionView:self.collectionView layout:self LeadingCollapseColNumberInRow:row AtLevel:level];
 }
 -(NSInteger)LeadingCollapseRowInLevel:(NSInteger)level AtRow:(NSInteger)row{
     return [self.layoutDelegate collectionView:self.collectionView layout:self LeadingCollapseRowNumberInLevel:level AtRow:row];
@@ -291,8 +291,8 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
 }
 -(UICollectionViewLayoutInvalidationContext *)invalidationContextForBoundsChange:(CGRect)newBounds{
     /*if (!CGRectEqualToRect(newBounds, CGRectZero)){
-        return self.invalidContext;
-    }*/
+     return self.invalidContext;
+     }*/
     return [super invalidationContextForBoundsChange:newBounds];
 }
 -(void)invalidateLayoutWithContext:(UICollectionViewLayoutInvalidationContext *)context{
@@ -300,13 +300,13 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
     [super invalidateLayoutWithContext:context];
 }
 /*
--(BOOL)shouldInvalidateLayoutForPreferredLayoutAttributes:(UICollectionViewLayoutAttributes *)preferredAttributes withOriginalAttributes:(UICollectionViewLayoutAttributes *)originalAttributes{
-    return YES;
-}
--(UICollectionViewLayoutInvalidationContext *)invalidationContextForPreferredLayoutAttributes:(UICollectionViewLayoutAttributes *)preferredAttributes withOriginalAttributes:(UICollectionViewLayoutAttributes *)originalAttributes{
-    return [super invalidationContextForPreferredLayoutAttributes:preferredAttributes withOriginalAttributes:originalAttributes];
-}
-*/
+ -(BOOL)shouldInvalidateLayoutForPreferredLayoutAttributes:(UICollectionViewLayoutAttributes *)preferredAttributes withOriginalAttributes:(UICollectionViewLayoutAttributes *)originalAttributes{
+ return YES;
+ }
+ -(UICollectionViewLayoutInvalidationContext *)invalidationContextForPreferredLayoutAttributes:(UICollectionViewLayoutAttributes *)preferredAttributes withOriginalAttributes:(UICollectionViewLayoutAttributes *)originalAttributes{
+ return [super invalidationContextForPreferredLayoutAttributes:preferredAttributes withOriginalAttributes:originalAttributes];
+ }
+ */
 -(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect{
     
     NSMutableArray<UICollectionViewLayoutAttributes *> *layoutAttributes = [NSMutableArray array];
@@ -613,3 +613,4 @@ typedef NS_ENUM(NSInteger, CellzIndexLevel) {
 
 
 @end
+
