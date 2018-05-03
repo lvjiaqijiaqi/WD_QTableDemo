@@ -626,30 +626,31 @@
 
 #pragma mark - EventDelegate
 
--(void)WD_QTableDidSelectAtIndexPath:(NSIndexPath *)indexPath{
-    if(self.didSelectItemBlock) self.didSelectItemBlock(indexPath.row,indexPath.section,[self modelForItem:indexPath],(WD_QTableBaseViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath]);
+-(void)WD_QTableDidSelectCell:(__kindof UICollectionViewCell *)cell AtIndexPath:(NSIndexPath *)indexPath{
+    if(self.didSelectItemBlock) self.didSelectItemBlock(indexPath.row,indexPath.section,[self modelForItem:indexPath],cell);
 }
--(void)WD_QTableReusableViewName:(NSString *)SupplementaryName didSelectSupplementaryAtIndexPath:(NSIndexPath *)indexPath{
+-(void)WD_QTableReusableViewCell:(__kindof UICollectionReusableView *)cell ForName:(NSString *)SupplementaryName didSelectSupplementaryAtIndexPath:(NSIndexPath *)indexPath{
     if ([SupplementaryName isEqualToString:@"mainSupplementaryView"]) {
     }else if ([SupplementaryName isEqualToString:@"headingSupplementaryView"]) {
-        if(self.didSelectHeadingBlock) self.didSelectHeadingBlock(indexPath,[self modelForHeading:indexPath.row level:indexPath.section],(WD_QTableBaseReusableView *)[self.collectionView supplementaryViewForElementKind:@"leadingSupplementaryView" atIndexPath:indexPath]);
+        if(self.didSelectHeadingBlock) self.didSelectHeadingBlock(indexPath,[self modelForHeading:indexPath.row level:indexPath.section],cell);
     }else if ([SupplementaryName isEqualToString:@"leadingSupplementaryView"]) {
-        if(self.didSelectLeadingBlock) self.didSelectLeadingBlock(indexPath,[self modelForLeading:indexPath.row level:indexPath.section],(WD_QTableBaseReusableView *)[self.collectionView supplementaryViewForElementKind:@"leadingSupplementaryView" atIndexPath:indexPath]);
+        if(self.didSelectLeadingBlock) self.didSelectLeadingBlock(indexPath,[self modelForLeading:indexPath.row level:indexPath.section],cell);
     }else if ([SupplementaryName isEqualToString:@"sectionSupplementaryView"]) {
         if(self.didSelectSectionBlock){}  //self.didSelectSectionBlock(indexPath);
     }
+    
 }
--(void)WD_QTableDidLongPressAtIndexPath:(NSIndexPath *)indexPath{
+-(void)WD_QTableDidLongPressCell:(__kindof UICollectionViewCell *)cell AtIndexPath:(NSIndexPath *)indexPath{
     if (self.didLongPressItemBlock) {
-        self.didLongPressItemBlock(indexPath.row,indexPath.section,[self modelForItem:indexPath],(WD_QTableBaseViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath]);
+        self.didLongPressItemBlock(indexPath.row,indexPath.section,[self modelForItem:indexPath],cell);
     }
 }
--(void)WD_QTableReusableViewName:(NSString *)SupplementaryName didLongPressSupplementaryAtIndexPath:(NSIndexPath *)indexPath{
+-(void)WD_QTableReusableViewCell:(__kindof UICollectionReusableView *)cell ForName:(NSString *)SupplementaryName didLongPressSupplementaryAtIndexPath:(NSIndexPath *)indexPath{
     if ([SupplementaryName isEqualToString:@"mainSupplementaryView"]) {
     }else if ([SupplementaryName isEqualToString:@"headingSupplementaryView"]) {
-        if(self.didLongPressHeadingBlock) self.didLongPressHeadingBlock(indexPath,[self modelForHeading:indexPath.row level:indexPath.section],    (WD_QTableBaseReusableView *)[self.collectionView supplementaryViewForElementKind:@"headingSupplementaryView" atIndexPath:indexPath]);
+        if(self.didLongPressHeadingBlock) self.didLongPressHeadingBlock(indexPath,[self modelForHeading:indexPath.row level:indexPath.section],cell);
     }else if ([SupplementaryName isEqualToString:@"leadingSupplementaryView"]) {
-        if(self.didLongPressLeadingBlock) self.didLongPressLeadingBlock(indexPath,[self modelForLeading:indexPath.row level:indexPath.section],(WD_QTableBaseReusableView *)[self.collectionView supplementaryViewForElementKind:@"leadingSupplementaryView" atIndexPath:indexPath]);
+        if(self.didLongPressLeadingBlock) self.didLongPressLeadingBlock(indexPath,[self modelForLeading:indexPath.row level:indexPath.section],cell);
     }else if ([SupplementaryName isEqualToString:@"sectionSupplementaryView"]) {
         if(self.didLongPressSectionBlock){}  //self.didLongPressSectionBlock(indexPath);
     }

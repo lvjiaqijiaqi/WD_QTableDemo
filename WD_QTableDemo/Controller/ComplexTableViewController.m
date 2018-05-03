@@ -45,13 +45,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
     [self.view addSubview:self.table.view];
     [self.table.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
     [self loadData];
-    
 }
 
 -(void)loadData{

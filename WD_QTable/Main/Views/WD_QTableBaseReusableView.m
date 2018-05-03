@@ -24,14 +24,14 @@
 - (void)longPress:(UILongPressGestureRecognizer *)recognizer
 {
     if (self.delegate) {
-        [self.delegate WD_QTableReusableViewName:self.supplementaryName didLongPressSupplementaryAtIndexPath:self.indexPath];
+        [self.delegate WD_QTableReusableViewCell:self ForName:self.supplementaryName didLongPressSupplementaryAtIndexPath:self.indexPath];
     }
 }
 
 - (void)tapPress:(UITapGestureRecognizer *)recognizer
 {
     if (self.delegate) {
-        [self.delegate WD_QTableReusableViewName:self.supplementaryName didSelectSupplementaryAtIndexPath:self.indexPath];
+        [self.delegate WD_QTableReusableViewCell:self ForName:self.supplementaryName didSelectSupplementaryAtIndexPath:self.indexPath];
     }
 }
 

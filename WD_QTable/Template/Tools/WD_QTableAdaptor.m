@@ -44,17 +44,17 @@
 }
 -(void)commitChange{
     // 表头和数据布局合并
-     self.layoutConstructor.colsW = [self mergeMaxValueToArr:self.layoutConstructor.colsW FromArr:self.layoutConstructor.HeadingsW];
-     self.layoutConstructor.RowsH = [self mergeMaxValueToArr:self.layoutConstructor.RowsH FromArr:self.layoutConstructor.LeadingsH];
-     
-     // 贴边处理
-     __block CGFloat leadingsW = 0.f;
-     [self.layoutConstructor.LeadingsW enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-     leadingsW += obj.floatValue;
-     }];
+    self.layoutConstructor.colsW = [self mergeMaxValueToArr:self.layoutConstructor.colsW FromArr:self.layoutConstructor.HeadingsW];
+    self.layoutConstructor.RowsH = [self mergeMaxValueToArr:self.layoutConstructor.RowsH FromArr:self.layoutConstructor.LeadingsH];
+    
+    // 贴边处理
+    __block CGFloat leadingsW = 0.f;
+    [self.layoutConstructor.LeadingsW enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        leadingsW += obj.floatValue;
+    }];
     self.layoutConstructor.optmizeColsW = self.layoutConstructor.colsW;
-     //self.layoutConstructor.optmizeColsW = [self optimizeWidth:self.layoutConstructor.colsW ByContainerWidth:CGRectGetWidth(models.frame) - leadingsW];
-     //[self.reuseDic removeAllObjects];
+    //self.layoutConstructor.optmizeColsW = [self optimizeWidth:self.layoutConstructor.colsW ByContainerWidth:CGRectGetWidth(models.frame) - leadingsW];
+    //[self.reuseDic removeAllObjects];
 }
 
 -(void)addHeadingChange:(NSArray<NSArray<WD_QTableModel *> *> *)Headings AtRange:(NSRange)range{
@@ -442,3 +442,4 @@
     }
 }
 @end
+

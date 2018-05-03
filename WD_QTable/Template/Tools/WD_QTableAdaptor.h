@@ -30,5 +30,4 @@ typedef NS_ENUM(NSUInteger, WD_QTableCellIdx) {
 
 -(instancetype)initWithTableStyle:(id<WD_QTableStyleConstructorDelegate>)style ToLayout:(WD_QTableAutoLayoutConstructor *)layout;
 
-
 @end

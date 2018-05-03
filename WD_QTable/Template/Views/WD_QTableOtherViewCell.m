@@ -52,17 +52,11 @@
     
 }
 
--(void)clickBtn{
-    if (self.delegate) {
-        [self.delegate WD_QTableDidSelectAtIndexPath:self.indexPath];
-    }
-}
-
 -(CGSize)sizeThatFits:(CGSize)size{
     return CGSizeZero;
 }
 -(CGFloat)sizeThatFitHeighByWidth:(CGFloat)width{
-    return [self.mainText sizeThatFits:CGSizeMake(width, MAXFLOAT)].height + 50;
+    return [self.mainText sizeThatFits:CGSizeMake(width - 10, MAXFLOAT)].height + 50;
 }
 -(CGFloat)sizeThatFitWidthByHeight:(CGFloat)height{
     return [self.mainText sizeThatFits:CGSizeMake(MAXFLOAT, height)].width + 10;

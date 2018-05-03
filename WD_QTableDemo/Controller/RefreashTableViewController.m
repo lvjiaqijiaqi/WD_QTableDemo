@@ -23,7 +23,6 @@
         WD_QTableDefaultLayoutConstructor *config =  [[WD_QTableDefaultLayoutConstructor alloc] init];
         WD_QTableDefaultStyleConstructor *style = [[WD_QTableDefaultStyleConstructor alloc] init];
         _table = [[WD_QRefreshTable alloc] initWithLayoutConfig:config StyleConstructor:style];
-        //_table.needTranspostionForModel = YES;
     }
     return _table;
 }

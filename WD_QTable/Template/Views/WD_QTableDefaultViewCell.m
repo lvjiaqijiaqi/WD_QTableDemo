@@ -37,6 +37,7 @@
 }
 - (void)initComponent
 {
+    [super initComponent];
     self.mainLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.mainLabel.numberOfLines = 0;
     [self addSubview:self.mainLabel];

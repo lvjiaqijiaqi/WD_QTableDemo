@@ -21,18 +21,15 @@
 
 -(WD_QTable *)table{
     if (!_table) {
-        WD_QTableDefaultLayoutConstructor *config =  [[WD_QTableDefaultLayoutConstructor alloc] init];
+        WD_QTableAutoLayoutConstructor *config =  [[WD_QTableAutoLayoutConstructor alloc] init];
         EditTableStyleConstructor *style = [[EditTableStyleConstructor alloc] init];
         _table = [[WD_QTable alloc] initWithLayoutConfig:config StyleConstructor:style];
+        WD_QTableAdaptor *autoHandle =  [[WD_QTableAdaptor alloc] initWithTableStyle:style ToLayout:config];
+        _table.autoLayoutHandle = autoHandle;
         config.inset = UIEdgeInsetsMake(0, 0, 0, 0);
         _table.needTranspostionForModel = YES;
     }
     return _table;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidLoad {
@@ -46,16 +43,13 @@
     __weak typeof(self) weakSelf = self;
 
     self.table.didSelectItemBlock = ^(NSInteger row, NSInteger col, WD_QTableModel *model,WD_QTableBaseViewCell *cell) {
-        //WD_QTableModel *model = [[WD_QTableModel alloc] init];
-        model.title = @"123";
+        model.title = @"dasdasdasdasdasdasdasdasdasdascasdasdasdasdasdasdasdadsdasdasdasdasdasdasd";
         [weakSelf.table updateItem:model AtCol:col InRow:row];
     };
     
     [self loadData];
-    
     UIBarButtonItem *addRowBtn = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(insertRowNew:)];
     UIBarButtonItem *addColBtn = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(insertColNew:)];
-    
     self.navigationItem.rightBarButtonItems = @[addRowBtn,addColBtn];
     
 }
@@ -107,16 +101,5 @@
     [self.table resetLeadingModel:leadings];
     [self.table reloadData];
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
